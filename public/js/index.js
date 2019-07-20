@@ -1,2 +1,2 @@
-alert("index.js working!")
+
 
