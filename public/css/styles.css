@@ -1,3 +1,10 @@
 body {
-	background-color: #b3b1a162;
+	background-color: #e5d8d9;
+	color: #63032e;
+	font-family: 'Marker Felt', fantasy;
+}
+
+h3 {
+	font-family: 'Marker Felt', fantasy;
+	font-weight: 800px !important;
 }
