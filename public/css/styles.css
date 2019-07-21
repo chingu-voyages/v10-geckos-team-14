@@ -6,14 +6,15 @@ body {
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Fredoka One', cursive;
 }
-
+.row{
+	padding: 1rem 7.5rem 0.5rem 7.5rem;
+}
 .footer{
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-bottom: 0;
-	
+	margin-bottom: 0;	
 }
 .footer-img{
 	position: fixed;
