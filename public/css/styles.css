@@ -1,13 +1,12 @@
 body {
 	background-color: #e5d8d9;
 	color: #63032e;
-	font-family: 'Marker Felt', fantasy;
+	font-family: 'Domine', serif;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Fredoka One', cursive;
 }
 
-h3 {
-	font-family: 'Marker Felt', fantasy;
-	font-weight: 800px !important;
-}
 .footer{
 	position: fixed;
 	bottom: 0;
