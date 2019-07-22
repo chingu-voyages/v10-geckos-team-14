@@ -16,29 +16,34 @@ h6 {
 	text-decoration: none;
 	color: #63032e;
 }
-.navbar {
-	background-image: url(https://github.com/chingu-voyages/v10-geckos-team-14/blob/c747ff57e0/public/images/Header%20Background.png?raw=true);
-	background-repeat: no-repeat;
+
+.navbar .rw {
+	display: flex;
+	display: inline;
 }
-.brand-name h1 {
-	position: absolute;
-	text-align: left !important;
+.logo-img-link {
+	margin-top: 0.5em;
+}
+.brand-name {
+	font-family: 'Fredoka One', cursive;
+	font-size: 40px;
+	font-style: italic;
+	margin-top: 1em;
 }
 
 .sign-in-up h6 {
-	/* position: absolute; */
 	text-align: right !important;
 }
 
-.header-img {
+.header-bk-img {
 	position: absolute;
 	top: 0;
 	left: 0;
-	/* right: 0; */
-	margin-bottom: 0;
-	/* z-index: -1; */
+	right: 0;
+	margin-top: 0;
+	z-index: -1;
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 .row {
 	padding: 1rem 7.5rem 0.5rem 7.5rem;
