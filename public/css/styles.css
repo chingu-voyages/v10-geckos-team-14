@@ -5,24 +5,28 @@ body {
 }
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Fredoka One', cursive;
+	padding: 0.5rem 0;
 }
-.row{
-	padding: 1rem 7.5rem 0.5rem 7.5rem;
+li{
+	font-size: 1.2rem;
 }
-.footer{
-	position: fixed;
+.service-img{
+	margin-top:1.5rem;
+}
+/* .footer{
+	position: relative;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin-bottom: 0;	
-}
+} */
 .footer-img{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-bottom: 0;
-	z-index: -1;
+	margin-bottom: -37rem;
+	z-index: -10;
 	width: 100%;
 	height: 20%;
 }
@@ -39,4 +43,37 @@ h1,h2,h3,h4,h5,h6{
 	.footer-img{
 		height: 15%;
 	}	
+}
+@media(min-width:576px){
+	.row-service-icons{
+		padding: 1rem 7.5rem 0.5rem 7.5rem;
+	}
+	.row-fixers-ready-to{
+		padding: 1rem 16rem;
+	}
+}
+@media(max-width:1200px){
+	.row-fixers-ready-to{
+		padding: 1rem 12rem;
+	}
+}
+@media(max-width:990px){
+	.row-fixers-ready-to{
+		padding: 1rem 13rem;
+	}
+}
+@media(max-width:765px){
+	.row-fixers-ready-to{
+		padding: 1rem 7rem;
+	}
+}
+@media(max-width:536px){
+	.row-fixers-ready-to{
+		padding: 1rem 3rem;
+	}
+}
+@media(max-width:400px){
+	.row-fixers-ready-to{
+		padding: 1rem 1rem;
+	}
 }
