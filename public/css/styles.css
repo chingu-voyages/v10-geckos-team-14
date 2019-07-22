@@ -16,6 +16,41 @@ h6 {
 	font-size: 16px;
 }
 .services-btns .row {
+
+.navbar a {
+	text-decoration: none;
+	color: #63032e;
+}
+
+.navbar .rw {
+	display: flex;
+	display: inline;
+}
+.logo-img-link {
+	margin-top: 0.5em;
+}
+.brand-name {
+	font-family: 'Fredoka One', cursive;
+	font-size: 40px;
+	font-style: italic;
+	margin-top: 1em;
+}
+
+.sign-in-up h6 {
+	text-align: right !important;
+}
+
+.header-bk-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin-top: 0;
+	z-index: -1;
+	width: 100%;
+	height: auto;
+}
+.row {
 	padding: 1rem 7.5rem 0.5rem 7.5rem;
 }
 .mission {
@@ -27,6 +62,7 @@ h6 {
 	padding: 0.4rem;
 }
 .footer {
+.footer {
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -34,10 +70,13 @@ h6 {
 	margin-bottom: 0;
 	position: relative;
 	font-family: 'Fredoka One', cursive;
+	margin-bottom: 0;
 }
 
 .footer-img {
 	position: absolute;
+.footer-img {
+	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
