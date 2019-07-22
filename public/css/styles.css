@@ -1,26 +1,84 @@
 body {
-	background-color: #e5d8d9;
+	background-color: #f1f7f0;
 	color: #63032e;
 	font-family: 'Domine', serif;
+	text-align: center;
 }
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: 'Fredoka One', cursive;
 	padding: 0.5rem 0;
 }
 li{
 	font-size: 1.2rem;
+.sub-title {
+	font-size: 16px;
+}
+.services-btns .row {
+
+.navbar a {
+	text-decoration: none;
+	color: #63032e;
+}
+
+.navbar .rw {
+	display: flex;
+	display: inline;
+}
+.logo-img-link {
+	margin-top: 0.5em;
+}
+.brand-name {
+	font-family: 'Fredoka One', cursive;
+	font-size: 40px;
+	font-style: italic;
+	margin-top: 1em;
+}
+
+.sign-in-up h6 {
+	text-align: right !important;
+}
+
+.header-bk-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin-top: 0;
+	z-index: -1;
+	width: 100%;
+	height: auto;
+}
+.row {
+	padding: 1rem 7.5rem 0.5rem 7.5rem;
 }
 .service-img{
 	margin-top:1.5rem;
 }
-/* .footer{
-	position: relative;
+.mission {
+	background-color: #e1e3f0;
+	padding: 4em;
+	width: 100%;
+}
+.mission .rw {
+	padding: 0.4rem;
+}
+.footer {
+	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-bottom: 0;	
-} */
-.footer-img{
+	margin-bottom: 0;
+	position: relative;
+	font-family: 'Fredoka One', cursive;
+	margin-bottom: 0;
+}
+
+.footer-img {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -30,19 +88,19 @@ li{
 	width: 100%;
 	height: 20%;
 }
-.footer-copyright-text{
+.footer-copyright-text {
 	margin: 0;
 	padding: 0 0 0.2rem 0;
 	font-size: 0.9rem;
 	color: #63032e;
 }
-@media(max-width:576px){
-	.footer-copyright-text{
+@media (max-width: 576px) {
+	.footer-copyright-text {
 		font-size: 0.7rem;
 	}
-	.footer-img{
+	.footer-img {
 		height: 15%;
-	}	
+	}
 }
 @media(min-width:576px){
 	.row-service-icons{
