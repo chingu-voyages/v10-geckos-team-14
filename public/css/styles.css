@@ -3,20 +3,54 @@ body {
 	color: #63032e;
 	font-family: 'Domine', serif;
 }
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: 'Fredoka One', cursive;
 }
-.row{
+
+.navbar a {
+	text-decoration: none;
+	color: #63032e;
+}
+.navbar {
+	background-image: url(https://github.com/chingu-voyages/v10-geckos-team-14/blob/c747ff57e0/public/images/Header%20Background.png?raw=true);
+	background-repeat: no-repeat;
+}
+.brand-name h1 {
+	position: absolute;
+	text-align: left !important;
+}
+
+.sign-in-up h6 {
+	/* position: absolute; */
+	text-align: right !important;
+}
+
+.header-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* right: 0; */
+	margin-bottom: 0;
+	/* z-index: -1; */
+	width: 100%;
+	height: 100%;
+}
+.row {
 	padding: 1rem 7.5rem 0.5rem 7.5rem;
 }
-.footer{
+.footer {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-bottom: 0;	
+	margin-bottom: 0;
 }
-.footer-img{
+.footer-img {
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -26,17 +60,17 @@ h1,h2,h3,h4,h5,h6{
 	width: 100%;
 	height: 20%;
 }
-.footer-copyright-text{
+.footer-copyright-text {
 	margin: 0;
 	padding: 0 0 0.2rem 0;
 	font-size: 0.9rem;
 	color: #63032e;
 }
-@media(max-width:576px){
-	.footer-copyright-text{
+@media (max-width: 576px) {
+	.footer-copyright-text {
 		font-size: 0.7rem;
 	}
-	.footer-img{
+	.footer-img {
 		height: 15%;
-	}	
+	}
 }
