@@ -2,6 +2,7 @@ body {
 	background-color: #f1f7f0;
 	color: #63032e;
 	font-family: 'Domine', serif;
+	text-align: center;
 }
 h1,
 h2,
@@ -13,18 +14,16 @@ h6 {
 }
 .sub-title {
 	font-size: 16px;
-	text-align: center;
 }
-
 .services-btns .row {
 	padding: 1rem 7.5rem 0.5rem 7.5rem;
 }
 .mission {
 	background-color: #e1e3f0;
 	padding: 4em;
-	width: 100% !important;
+	width: 100%;
 }
-.mission .row {
+.mission .rw {
 	padding: 0.4rem;
 }
 .footer {
