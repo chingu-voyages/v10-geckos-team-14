@@ -23,8 +23,8 @@ h6 {
 	text-decoration: none;
 	color: #63032e;
 }
-.logo-img-link {
-	margin-top: 0.5em;
+.logo-img {
+	margin-bottom: 1.2em;
 }
 .brand-name {
 	font-family: 'Fredoka One', cursive;
@@ -47,6 +47,9 @@ h6 {
 }
 
 /* Services Section */
+.services-section {
+	margin-top: 6em;
+}
 li {
 	font-size: 1.2rem;
 }
@@ -81,7 +84,7 @@ li {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-bottom: -37rem;
+	margin-bottom: -67rem;
 	z-index: -10;
 	width: 100%;
 	height: 20%;
