@@ -21,7 +21,7 @@ const serviceSchema = new mongoose.Schema({
 	serviceImage: String
 })
 const orderSchema = new mongoose.Schema({
-	userID: String,
+	clientID: String,
 	serviceID: String,
 	servingHours: { type: Number, required: [true, 'This is a compulsory field'] },
 	cost: { type: Number, required: [true, 'This is a compulsory field'] },
@@ -29,8 +29,8 @@ const orderSchema = new mongoose.Schema({
 	orderDate: Date,
 	workDate: { type: Date, required: [true, 'This is a compulsory field'] }
 })
-const userSchema = new mongoose.Schema({
-	userEmail: { type: String, required: [true, 'This is a compulsory field'] },
+const clientSchema = new mongoose.Schema({
+	clientEmail: { type: String, required: [true, 'This is a compulsory field'] },
 	password: { type: String, required: [true, 'This is a compulsory field'] },
 	name: { type: String, required: [true, 'This is a compulsory field'] },
 	address: { type: String, required: [true, 'This is a compulsory field'] },
