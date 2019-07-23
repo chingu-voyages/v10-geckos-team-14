@@ -60,6 +60,19 @@ li {
 	margin-top: 1.5rem;
 }
 
+/* How it Works Section */
+.works-bk-img {
+	width: 100%;
+	z-index: -1;
+}
+.works-div {
+	z-index: 1;
+}
+/* section .how-it-works {
+	background-image: url('https://github.com/chingu-voyages/v10-geckos-team-14/blob/landingPage/public/images/H-t-Wk-background.png?raw=true')
+} */
+/* LeaderShip Section */
+
 /* Our Mission Section */
 .mission {
 	background-color: #e1e3f0;
@@ -84,8 +97,8 @@ li {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-bottom: -67rem;
-	z-index: -10;
+	margin-bottom: -127rem;
+	z-index: -1;
 	width: 100%;
 	height: 20%;
 }
