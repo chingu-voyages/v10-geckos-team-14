@@ -21,7 +21,7 @@ h6 {
 /* Navbar */
 .navbar a {
 	text-decoration: none;
-	color: #63032e;
+	color: #e6c0d1;
 }
 .logo-img {
 	margin-bottom: 1.2em;
@@ -91,6 +91,14 @@ li {
 }
 .mission .rw {
 	padding: 0.4rem;
+}
+.form-heading {
+	font-family: 'Fredoka One', cursive;
+	font-size: 1.2rem;
+}
+::placeholder {
+	color: #8d5a97 !important;
+	font-family: 'Domine', serif !important;
 }
 
 /* Footer */

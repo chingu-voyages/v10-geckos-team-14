@@ -88,18 +88,19 @@
 <section class="how-it-works text-center">
 	<img class="works-bk-img" src="images/H-t-Wk-background.png" alt="color and shape background" />
 	<div class="works-div">
-		<h3 class="title">How it Works</h3>
+		<h1 class="title">How it Works</h1>
 		<h6 class="sub-title rw">4 Simple Steps</h6>
-		<p class="rw">
+		<p class="works-text rw">
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
 			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
 			galley of type and scrambled it to make a type specimen book.
 		</p>
-		<h6 class="rw">
+		<h6 class="works-text rw">
 			Select your fixer and complete reservation form.
 		</h6>
-		<p class="rw">
-			Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.
+		<p class="works-text rw">
+			Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
+			est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.
 		</p>
 	</div>
 </section>
@@ -107,7 +108,7 @@
 
 <!-- LeaderShip section begins -->
 <section class="leadership text-center">
-	<h2 class="sec-title">LeaderShip</h2>
+	<h1 class="sec-title">LeaderShip</h1>
 	<h6 class="sub-title rw">What we believe in</h6>
 	<div class="container">
 		<div class="row">
@@ -166,6 +167,44 @@
 <!-- Contact Us section begins -->
 <section class="container contact-us text-center">
 	<h1 class="sec-title">Contact Us</h1>
+	<form class="text-left">
+		<div class="form-group contact-form">
+			<label class="form-heading" for="exampleInputEmail1">Your Email Address</label>
+			<input
+				type="email"
+				class="form-control"
+				id="exampleInputEmail1"
+				aria-describedby="emailHelp"
+				placeholder="something@about.com"
+			/>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputSubject" class="form-heading">Subject</label>
+			<input
+				type="text"
+				class="form-control"
+				id="exampleInputSubject"
+				aria-describedby="emailHelp"
+				placeholder="Question about your service"
+			/>
+		</div>
+		<div class="form-group">
+			<label for="exampleFormControlTextarea1" class="form-heading">Message</label>
+			<textarea
+				placeholder="Your message starts with..."
+				class="form-control"
+				id="exampleFormControlTextarea1"
+				rows="8"
+			></textarea>
+		</div>
+		<button
+			type="submit"
+			class="btn btn-lg btn-warning"
+			style="background-color: #F9D276; width:100%; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0;"
+		>
+			Send a message
+		</button>
+	</form>
 </section>
 
 <%- include("partials/footer") -%>
