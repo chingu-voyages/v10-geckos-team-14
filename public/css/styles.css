@@ -107,6 +107,7 @@ li {
 	bottom: 0;
 	left: 0;
 	right: 0;
+	margin-top: 10rem;
 	margin-bottom: 0;
 	font-family: 'Fredoka One', cursive;
 }
@@ -115,16 +116,25 @@ li {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-bottom: -127rem;
+	margin-bottom: 0rem;
 	z-index: -1;
 	width: 100%;
-	height: 20%;
+	height: 270%;
 }
 .footer-copyright-text {
 	margin: 0;
 	padding: 0 0 0.2rem 0;
-	font-size: 0.9rem;
+	font-size: 1.05rem;
 	color: #63032e;
+}
+/* .mid-text{
+	position: absolute;
+	left: 14rem;
+} */
+.social-icons{
+	margin-top: 1.7rem !important;
+	/* position: absolute;
+	right: 0; */
 }
 
 /* Media Queries */
