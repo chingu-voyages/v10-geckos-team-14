@@ -53,9 +53,6 @@ h6 {
 li {
 	font-size: 1.2rem;
 }
-.row {
-	padding: 1rem 7.5rem 0.5rem 7.5rem;
-}
 .service-img {
 	margin-top: 1.5rem;
 }
@@ -65,11 +62,12 @@ li {
 	width: 100;
 }
 
-.bio-text {
-	/* margin: auto 72px 1.5em 20em; */
-	margin: 0.5em 5em;
+.bio-div {
+	padding: 2% 7%;
 }
-
+.bio-text{
+	text-align: justify;
+}
 /* Our Mission Section */
 .mission {
 	background-color: #e1e3f0;
