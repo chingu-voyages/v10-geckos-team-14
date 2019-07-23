@@ -13,22 +13,21 @@ h6 {
 	font-family: 'Fredoka One', cursive;
 	padding: 0.5rem 0;
 }
-li{
+li {
 	font-size: 1.2rem;
+}
+.service-img {
+	margin-top: 1.5rem;
+}
 .sub-title {
 	font-size: 16px;
 }
-.services-btns .row {
 
 .navbar a {
 	text-decoration: none;
 	color: #63032e;
 }
 
-.navbar .rw {
-	display: flex;
-	display: inline;
-}
 .logo-img-link {
 	margin-top: 0.5em;
 }
@@ -56,8 +55,8 @@ li{
 .row {
 	padding: 1rem 7.5rem 0.5rem 7.5rem;
 }
-.service-img{
-	margin-top:1.5rem;
+.service-img {
+	margin-top: 1.5rem;
 }
 .mission {
 	background-color: #e1e3f0;
@@ -102,36 +101,36 @@ li{
 		height: 15%;
 	}
 }
-@media(min-width:576px){
-	.row-service-icons{
+@media (min-width: 576px) {
+	.row-service-icons {
 		padding: 1rem 7.5rem 0.5rem 7.5rem;
 	}
-	.row-fixers-ready-to{
+	.row-fixers-ready-to {
 		padding: 1rem 16rem;
 	}
 }
-@media(max-width:1200px){
-	.row-fixers-ready-to{
+@media (max-width: 1200px) {
+	.row-fixers-ready-to {
 		padding: 1rem 12rem;
 	}
 }
-@media(max-width:990px){
-	.row-fixers-ready-to{
+@media (max-width: 990px) {
+	.row-fixers-ready-to {
 		padding: 1rem 13rem;
 	}
 }
-@media(max-width:765px){
-	.row-fixers-ready-to{
+@media (max-width: 765px) {
+	.row-fixers-ready-to {
 		padding: 1rem 7rem;
 	}
 }
-@media(max-width:536px){
-	.row-fixers-ready-to{
+@media (max-width: 536px) {
+	.row-fixers-ready-to {
 		padding: 1rem 3rem;
 	}
 }
-@media(max-width:400px){
-	.row-fixers-ready-to{
+@media (max-width: 400px) {
+	.row-fixers-ready-to {
 		padding: 1rem 1rem;
 	}
 }
