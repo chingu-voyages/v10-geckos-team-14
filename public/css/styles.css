@@ -120,7 +120,24 @@ li {
 	font-family: 'Domine', serif !important;
 }
 
-/* Footer */
+
+/* Contact Us Section */
+
+.form-control:visited {
+	color: #f9d276 !important;
+}
+.form-control:focus {
+	color: #f9d276 !important;
+}
+.form-control:active {
+	color: #f9d276 !important;
+}
+.submit-success{
+	color:#f9d276;
+	margin: 0 1rem;
+}
+
+/* Footer Section*/
 .footer {
 	position: relative;
 	bottom: 0;
@@ -155,6 +172,7 @@ li {
 	/* position: absolute;
 	right: 0; */
 }
+
 
 /* Media Queries */
 @media (max-width: 576px) {

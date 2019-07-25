@@ -19,7 +19,7 @@ const serviceSchema = new mongoose.Schema({
 	serviceDescription: { type: String, required: [true, 'This is a compulsory field'] },
 	serviceFee: { type: Number, required: [true, 'This is a compulsory field'] },
 	serviceImage: String
-})
+});
 const orderSchema = new mongoose.Schema({
 	clientID: String,
 	serviceID: String,
@@ -28,7 +28,7 @@ const orderSchema = new mongoose.Schema({
 	comments: String,
 	orderDate: Date,
 	workDate: { type: Date, required: [true, 'This is a compulsory field'] }
-})
+});
 const clientSchema = new mongoose.Schema({
 	clientEmail: { type: String, required: [true, 'This is a compulsory field'] },
 	password: { type: String, required: [true, 'This is a compulsory field'] },
@@ -36,19 +36,45 @@ const clientSchema = new mongoose.Schema({
 	address: { type: String, required: [true, 'This is a compulsory field'] },
 	mobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
 	profileImage: String
-})
-//============================================================
-//basic html boilerplate setup done
-//path and folders made
-//partials (header/footer) folder done
-//connection to database on local done
-//initial database schemas defined
-//gitignore needed but not yet defined
-// code here
+});
+const contactUsSchema = new mongoose.Schema({
+	contactEmail: { type:String, required: [true, 'This is a compulsory field']},
+	contactSubject: { type:String, required: [true, 'This is a compulsory field']},
+	contactMessage: { type:String, required: [true, 'This is a compulsory field']}
+});
 
-app.get('/', function(req, res) {
-	res.render('home')
-})
+
+// app codes-----------------------------------------------------------------------------------
+const Contact = mongoose.model("Contact", contactUsSchema);
+var formCheck = false;
+app.get("/", function(req,res){
+	if(formCheck){
+		formCheck = false;
+		res.render("home",{
+			successMessage: "Thanks for your message! We will be in touch with you soon."
+		});
+	} else{
+		res.render("home",{
+			successMessage: " "
+		});
+	}
+});
+app.post("/contact", function(req, res){
+	console.log(req.body);
+	const contactData = new Contact ({
+		contactEmail: req.body.contactEmail,
+		contactSubject: req.body.contactSubject,
+		contactMessage: req.body.contactMessage
+	});
+	contactData.save(function(err){
+		if(err){
+			console.log(err);
+		}else{
+			formCheck = true;
+			res.redirect("/");
+		}
+	});
+});
 
 app.listen(3000, function() {
 	console.log('Server started on port 3000')
