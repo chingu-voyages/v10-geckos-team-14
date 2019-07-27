@@ -1,6 +1,6 @@
 <%- include("partials/header") -%>
 <div class="submit-success">
-		<h4><%= successMessage %></h4>
+		<h4 class="success-msg"><%= successMessage %></h4>
 	</div>
 <!-- service section begins -->
 <section class="container services-section text-center">
@@ -88,11 +88,11 @@
 <!-- end of service section -->
 
 <!-- How it Works section begins -->
-<section class="how-it-works text-center">
+<section class="how-it-works">
 	<img class="works-bk-img" src="images/H-t-Wk-background1.png" alt="color and shape background" />
 	<div class="works-div">
 		<h1 class="sec-title">How it Works</h1>
-		<h5 class=" rw">4 Simple Steps</h5>
+		<h5 class="rw">4 Simple Steps</h5>
 		<p class="work-top-text rw">
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
 			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -105,12 +105,12 @@
 		<div class="container">
 			<div class="row">
 			<div class="col-lg-6">
-				<h4 class="works-text-left rw text-left">
+				<h4 class="works-text-left rw ">
 					Select your fixer and complete reservation form.
 				</h4>	
 			</div>
 			<div class="col-lg-6">
-				<p class="works-text-right rw text-left">
+				<p class="works-text-right rw ">
 					Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
 					est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.
 				</p>
@@ -194,10 +194,11 @@
 				aria-describedby="emailHelp"
 				placeholder="something@about.com"
 				name= contactEmail
+				required autofocus
 			/>
 		</div>
 		<div class="form-group">
-			<label for="exampleInputSubject" class="form-heading">Subject</label>
+			<label for="exampleInputSubject" class="form-heading" required>Subject</label>
 			<input
 				type="text"
 				class="form-control"
@@ -205,16 +206,18 @@
 				aria-describedby="emailHelp"
 				placeholder="Question about your service"
 				name="contactSubject"
+				required
 			/>
 		</div>
 		<div class="form-group">
-			<label for="exampleFormControlTextarea1" class="form-heading">Message</label>
+			<label for="exampleFormControlTextarea1" class="form-heading" required>Message</label>
 			<textarea
 				placeholder="Your message starts with..."
 				class="form-control"
 				id="exampleFormControlTextarea1"
 				rows="8"
 				name="contactMessage"
+				required
 			></textarea>
 		</div>
 		<button
@@ -223,9 +226,8 @@
 			style="background-color: #F9D276; width:100%; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0;">
 			Send a message
 		</button>
-	</form>
-	
+	</form>	
 </section>
-
+<!-- contact section ends -->
 
 <%- include("partials/footer") -%>
