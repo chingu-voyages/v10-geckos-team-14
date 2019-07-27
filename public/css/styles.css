@@ -14,10 +14,13 @@ h6 {
 	font-family: 'Fredoka One', cursive;
 	padding: 0.5rem 0;
 }
+hr{
+	width: 10%
+}
 
-.sec-title{
+.sec-title {
 	margin: 1.5rem 0 0 0;
-} 
+}
 
 /* Navbar */
 .navbar a {
@@ -47,7 +50,6 @@ h6 {
 	height: 330%;
 }
 
-
 /* Services Section */
 .services-section {
 	margin-top: 6em;
@@ -72,37 +74,45 @@ li {
 .bio-text {
 	text-align: justify;
 }
-/* How it Works Section */
-.works-bk-img {
-	position: relative;
-	height: 60%;
+
+/* How it `Works` Section */
+section.works-sec {
+	background-color: #e1e3f0;
 	width: 100%;
 	z-index: -1;
+	display: flex;
+	flex-direction: column;
 }
-.works-div {
-	position: absolute;
-	top: 61rem;
+.works-bk-img {
+	z-index: 1;
 }
-.works-text-left {
-	position: absolute;
-	top:19rem;
-	padding-right: 10rem;
+#works-img-right {
+	align-self: flex-end;
+	width: 40%;
 }
-.work-top-text{
-	padding: 2rem 10rem;
+#works-img-left {
+	display: inherit;
+	width: 90%;
 }
-.works-text-right{
-	text-align: justify;
-	position: absolute;
-	top: 19rem;
-	font-size: 1.3rem;
-	padding-left: 10rem;
+.works-btm-text {
+	flex-direction: row;
 }
-/* section .how-it-works {
-	background-image: url('https://github.com/chingu-voyages/v10-geckos-team-14/blob/landingPage/public/images/H-t-Wk-background.png?raw=true')
-} */
+.work-text-left {
+	align-self: flex-start;
+}
+.work-text-right {
+	align-self: flex-end;
+}
+.line{
+	display: inline-block;
+	width: 340%;
+	margin-left: 8rem;
+	z-index: -1;
+	margin-bottom: 1rem;
+}
 
-/* Our Mission Section */
+
+/* Our `Mission` Section */
 .mission {
 	background-color: #e1e3f0;
 	padding: 2rem 4rem 4rem 4rem;
@@ -120,7 +130,6 @@ li {
 	font-family: 'Domine', serif !important;
 }
 
-
 /* Contact Us Section */
 
 .form-control:visited {
@@ -132,8 +141,8 @@ li {
 .form-control:active {
 	color: #f9d276 !important;
 }
-.submit-success{
-	color:#f9d276;
+.submit-success {
+	color: #f9d276;
 	margin: 0 1rem;
 }
 
@@ -167,12 +176,11 @@ li {
 	position: absolute;
 	left: 14rem;
 } */
-.social-icons{
+.social-icons {
 	margin-top: 1.7rem !important;
 	/* position: absolute;
 	right: 0; */
 }
-
 
 /* Media Queries */
 @media (max-width: 576px) {
