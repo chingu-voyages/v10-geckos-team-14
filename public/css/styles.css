@@ -98,9 +98,9 @@ li {
 	font-size: 1.3rem;
 	padding-left: 10rem;
 }
-/* section .how-it-works {
-	background-image: url('https://github.com/chingu-voyages/v10-geckos-team-14/blob/landingPage/public/images/H-t-Wk-background.png?raw=true')
-} */
+section .how-it-works {
+	background-image: url("images/H-t-Wk-background1.png")
+}
 
 /* Our Mission Section */
 .mission {
@@ -135,6 +135,9 @@ li {
 .submit-success{
 	color:#f9d276;
 	margin: 0 1rem;
+}
+.success-msg{
+	text-shadow: 2px 2px #000000;
 }
 
 /* Footer Section*/
@@ -180,7 +183,7 @@ li {
 		font-size: 0.7rem;
 	}
 	.footer-img {
-		height: 15%;
+		height: 50%;
 	}
 }
 @media (min-width: 576px) {
@@ -189,11 +192,14 @@ li {
 	}
 	.row-fixers-ready-to {
 		padding: 1rem 16rem;
-	}
+	}	
 }
 @media (max-width: 1200px) {
 	.row-fixers-ready-to {
 		padding: 1rem 12rem;
+	}
+	.header-bk-img {
+		height: 200%;
 	}
 }
 @media (max-width: 990px) {
