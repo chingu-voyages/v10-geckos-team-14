@@ -11,8 +11,8 @@ app.use(
 	})
 )
 app.use(express.static('public'))
-mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
-mongoose.set('useFindAndModify', false)
+// mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+// mongoose.set('useFindAndModify', false)
 //Database schemas======================================
 const serviceSchema = new mongoose.Schema({
 	serviceName: { type: String, required: [true, 'This is a compulsory field'] },
@@ -43,7 +43,7 @@ const contactUsSchema = new mongoose.Schema({
 	contactMessage: { type:String, required: [true, 'This is a compulsory field']}
 });
 
-
+// LiveServer-----------------------------------------------------------------------------------
 // app codes-----------------------------------------------------------------------------------
 const Contact = mongoose.model("Contact", contactUsSchema);
 var formCheck = false;
