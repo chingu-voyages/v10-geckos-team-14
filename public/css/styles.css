@@ -60,6 +60,10 @@ li {
 .service-img {
 	margin-top: 1.5rem;
 }
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(99, 21, 47, 0.5)!important;
+    border-radius: 2.5rem;
+}
 
 /* LeaderShip Section */
 .leadership {
@@ -102,7 +106,9 @@ section.works-sec {
 }
 .work-text-right {
 	align-self: flex-end;
+	text-align: justify;
 }
+
 /* .line{
 	display: inline-block;
 	width: 340%;
@@ -110,13 +116,18 @@ section.works-sec {
 	z-index: -1;
 	margin-bottom: 1rem;
 } */
-.line {
+/* .line {
 	display: inline-block;
 	width: 325%;
 	margin-left: 8rem;
 	z-index: 1;
 	margin-top: -6rem;
 	padding-left: 2.3rem;
+} */
+.line{
+	width: 90%;
+    margin-left: 10.2rem;
+    margin-top: -6rem;
 }
 
 /* Our `Mission` Section */
@@ -154,6 +165,9 @@ section.works-sec {
 }
 .success-msg {
 	text-shadow: 2px 2px #000000;
+}
+.contact-us{
+	padding: 0 3rem;
 }
 
 /* Footer Section*/
@@ -200,6 +214,14 @@ section.works-sec {
 	.footer-img {
 		height: 50%;
 	}
+	.line {
+		visibility: hidden;
+		width: 50%;
+	}
+	.work-text{
+		padding: 0 4rem;
+	}
+
 }
 @media (min-width: 576px) {
 	.row-service-icons {
@@ -237,18 +259,15 @@ section.works-sec {
 		padding: 1rem 1rem;
 	}
 	/* TODO - [ ] 1) Adjust the line image to move line vertically down the screen for mobile. 2) Convert px to rem */
-	.line {
-		transform: rotate(90deg);
-		width: 60%;
-		margin-left: 0px;
-		margin-top: 0px;
-		padding-top: 80px;
-		padding-bottom: 0px;
-		margin-bottom: 0px;
-		margin-right: 0px;
-	}
+	
 	/* TODO - [ ] 1) Adjust the circle-1 image to move line horizontiallly to the right */
 	.circle-1 {
 		padding-right: 3.5rem;
+	}
+}
+@media(max-width: 760px) and (min-width: 740px){
+	.line{
+		visibility: hidden;
+		width: 70%;
 	}
 }
