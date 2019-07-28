@@ -14,8 +14,8 @@ h6 {
 	font-family: 'Fredoka One', cursive;
 	padding: 0.5rem 0;
 }
-hr{
-	width: 10%
+hr {
+	width: 10%;
 }
 
 .sec-title {
@@ -103,14 +103,21 @@ section.works-sec {
 .work-text-right {
 	align-self: flex-end;
 }
-.line{
+/* .line{
 	display: inline-block;
 	width: 340%;
 	margin-left: 8rem;
 	z-index: -1;
 	margin-bottom: 1rem;
+} */
+.line {
+	display: inline-block;
+	width: 325%;
+	margin-left: 8rem;
+	z-index: 1;
+	margin-top: -6rem;
+	padding-left: 2.3rem;
 }
-
 
 /* Our `Mission` Section */
 .mission {
@@ -145,7 +152,7 @@ section.works-sec {
 	color: #f9d276;
 	margin: 0 1rem;
 }
-.success-msg{
+.success-msg {
 	text-shadow: 2px 2px #000000;
 }
 
@@ -172,7 +179,7 @@ section.works-sec {
 .footer-copyright-text {
 	margin: 0;
 	padding: 0 0 0.2rem 0;
-	font-size: 1.05rem;
+	font-size: 1.03rem;
 	color: #63032e;
 }
 /* .mid-text{
@@ -200,7 +207,7 @@ section.works-sec {
 	}
 	.row-fixers-ready-to {
 		padding: 1rem 16rem;
-	}	
+	}
 }
 @media (max-width: 1200px) {
 	.row-fixers-ready-to {
@@ -228,5 +235,20 @@ section.works-sec {
 @media (max-width: 400px) {
 	.row-fixers-ready-to {
 		padding: 1rem 1rem;
+	}
+	/* TODO - [ ] 1) Adjust the line image to move line vertically down the screen for mobile. 2) Convert px to rem */
+	.line {
+		transform: rotate(90deg);
+		width: 60%;
+		margin-left: 0px;
+		margin-top: 0px;
+		padding-top: 80px;
+		padding-bottom: 0px;
+		margin-bottom: 0px;
+		margin-right: 0px;
+	}
+	/* TODO - [ ] 1) Adjust the circle-1 image to move line horizontiallly to the right */
+	.circle-1 {
+		padding-right: 3.5rem;
 	}
 }
