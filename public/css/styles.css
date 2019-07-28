@@ -176,7 +176,7 @@ section.works-sec {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-top: 10rem;
+	margin-top: 10.5rem;
 	margin-bottom: 0;
 	font-family: 'Fredoka One', cursive;
 }
@@ -212,7 +212,7 @@ section.works-sec {
 		font-size: 0.7rem;
 	}
 	.footer-img {
-		height: 50%;
+		height: 250%;
 	}
 	.line {
 		visibility: hidden;
@@ -221,6 +221,10 @@ section.works-sec {
 	.work-text{
 		padding: 0 4rem;
 	}
+	.f1{
+		padding-left: 2.6rem
+	}
+	
 
 }
 @media (min-width: 576px) {
