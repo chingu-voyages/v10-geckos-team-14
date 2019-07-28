@@ -100,13 +100,23 @@ section.works-sec {
 }
 .works-btm-text {
 	flex-direction: row;
+	align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 }
 .work-text-left {
 	align-self: flex-start;
 }
 .work-text-right {
-	align-self: flex-end;
+	/* align-self: flex-end; */
 	text-align: justify;
+	display: flex;
+	justify-content: flex-end;
+}
+.line-4-hide{
+	visibility: hidden; 
+	width: 50%;
 }
 
 /* .line{
@@ -128,6 +138,10 @@ section.works-sec {
 	width: 90%;
     margin-left: 10.2rem;
     margin-top: -6rem;
+}
+.work-btm-text{
+	display: flex;
+	justify-content: space-between;
 }
 
 /* Our `Mission` Section */
@@ -234,6 +248,13 @@ section.works-sec {
 	.row-fixers-ready-to {
 		padding: 1rem 16rem;
 	}
+	.work-btm-text {
+		margin-top: 8rem;
+	}
+	#works-img-left {
+		margin-top: -22rem;
+	}
+
 }
 @media (max-width: 1200px) {
 	.row-fixers-ready-to {
@@ -241,7 +262,7 @@ section.works-sec {
 	}
 	.header-bk-img {
 		height: 200%;
-	}
+	}	
 }
 @media (max-width: 990px) {
 	.row-fixers-ready-to {
@@ -269,9 +290,28 @@ section.works-sec {
 		padding-right: 3.5rem;
 	}
 }
-@media(max-width: 760px) and (min-width: 740px){
+@media(max-width: 770px) and (min-width: 740px){
 	.line{
 		visibility: hidden;
 		width: 70%;
+	}
+	.margin-for-ipad{
+		/* margin-left: 16rem; */
+	}
+	.work-btm-text {
+		margin-top: 2rem;
+	}
+	#works-img-left {
+		margin-top: -16rem;
+	}
+	.line-4-hide{
+		visibility: hidden; 
+		width: -2%;
+	}
+}
+@media (max-width:1030px) and (min-width:1000px){
+	.line-4-hide{
+		visibility: hidden; 
+		width: 10% !important;
 	}
 }
