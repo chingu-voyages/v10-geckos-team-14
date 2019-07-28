@@ -1,4 +1,7 @@
 <%- include("partials/header") -%>
+<div class="submit-success">
+		<h4 class="success-msg"><%= successMessage %></h4>
+	</div>
 <!-- service section begins -->
 <section class="container services-section text-center">
 	<h1 class="sec-title">Invest In Your Convenience</h1>
@@ -10,7 +13,7 @@
 					width="180"
 					height="180"
 					alt="repairs-icons"
-					class="service-img"
+					class="service-img shadow"
 				/>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
@@ -19,7 +22,7 @@
 					width="180"
 					height="180"
 					alt="plumbing-icon"
-					class="service-img"
+					class="service-img shadow"
 				/>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
@@ -28,7 +31,7 @@
 					width="180"
 					height="180"
 					alt="housekeeping-icon"
-					class="service-img"
+					class="service-img shadow"
 				/>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
@@ -37,7 +40,7 @@
 					width="180"
 					height="180"
 					alt="admin-icon"
-					class="service-img"
+					class="service-img shadow"
 				/>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
@@ -46,7 +49,7 @@
 					width="180"
 					height="180"
 					alt="lawncare-icon"
-					class="service-img"
+					class="service-img shadow"
 				/>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
@@ -55,7 +58,7 @@
 					width="180"
 					height="180"
 					alt="personal-driver-icon"
-					class="service-img"
+					class="service-img shadow"
 				/>
 			</div>
 		</div>
@@ -85,38 +88,60 @@
 <!-- end of service section -->
 
 <!-- How it Works section begins -->
-<section class="how-it-works text-center">
-	<img class="works-bk-img" src="images/H-t-Wk-background1.png" alt="color and shape background" />
-	<div class="works-div">
-		<h1 class="sec-title">How it Works</h1>
-		<h5 class=" rw">4 Simple Steps</h5>
-		<p class="work-top-text rw">
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-			galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-			galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-			galley of type and scrambled it to make a type specimen book.
-		</p>
-		<div class="container">
-			<div class="row">
-			<div class="col-lg-6">
-				<h4 class="works-text-left rw text-left">
-					Select your fixer and complete reservation form.
-				</h4>	
+
+<section class="works-sec">
+	<img class="works-bk-img" id="works-img-right" src="images/H-t-Wk-background-right.png" alt="color and shape background" />
+			<div class=" " style="z-index: 2;">
+				<h1 class="sec-title">How it Works</h1>
+				<h5 class="rw">4 Simple Steps</h5>
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<p class="work-text" style="text-align: justify">
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+								been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+								galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class= "col-lg-3 col-sm-12">
+							<img id="circle-1" src="images/Circle-1.png" alt="Circle 1">
+							<img class="line" src="images/rectangle-7.png" alt="line">
+						</div>
+						<div class= "col-lg-3 col-sm-12">
+							<img src="images/Circle-2.png" alt="Circle 2">
+							<img class="line" src="images/rectangle-7.png" alt="line">
+						</div>
+						<div class= "col-lg-3 col-sm-12">
+							<img src="images/Circle-3.png" alt="Circle 3">
+							<img class="line" src="images/rectangle-7.png" alt="line">
+						</div>
+						<div class= "col-lg-3 col-sm-12 margin-for-ipad ">
+							<img src="images/Circle-4.png" alt="Circle 4">
+							<img class="line line-4-hide" src="images/rectangle-7.png" alt="line">
+						</div>
+					</div>
+				</div>
+				<div class="container ">
+					<div class="row work-btm-text">
+						<div class="col-lg-6 col-sm-12">
+								<h4 class="work-text-left work-text">
+									Select your fixer and complete reservation form.
+								</h4>
+						</div>
+						<div class= "col-lg-6 col-sm-12">
+							<p class="work-text-right work-text">
+									Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
+									est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-lg-6">
-				<p class="works-text-right rw text-left">
-					Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
-					est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.
-				</p>
-			</div>	
-			</div>
-		</div>
-		
-		
-	</div>
+	<img class="works-bk-img" id="works-img-left" src="images/H-t-Wk-background-left.png" alt="color and shape background" />
 </section>
 <!-- end of How it Works section -->
 
@@ -165,9 +190,9 @@
 <section class="mission">
 	<h1 class="sec-title rw">Our Mission</h1>
 
-	<h5 class=" rw">What we believe in</h5>
+	<h5 class="rw">What we believe in</h5>
 
-	<p class="rw">
+	<p class="rw" style="text-align: justify">
 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
 		the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
 		of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the
@@ -181,7 +206,7 @@
 <!-- Contact Us section begins -->
 <section class="container contact-us text-center">
 	<h1 class="sec-title">Contact Us</h1>
-	<form class="text-left">
+	<form action="/contact" method="post" class="text-left">
 		<div class="form-group contact-form">
 			<label class="form-heading" for="exampleInputEmail1">Your Email Address</label>
 			<input
@@ -190,35 +215,41 @@
 				id="exampleInputEmail1"
 				aria-describedby="emailHelp"
 				placeholder="something@about.com"
+				name= contactEmail
+				required autofocus
 			/>
 		</div>
 		<div class="form-group">
-			<label for="exampleInputSubject" class="form-heading">Subject</label>
+			<label for="exampleInputSubject" class="form-heading" required>Subject</label>
 			<input
 				type="text"
 				class="form-control"
 				id="exampleInputSubject"
 				aria-describedby="emailHelp"
 				placeholder="Question about your service"
+				name="contactSubject"
+				required
 			/>
 		</div>
 		<div class="form-group">
-			<label for="exampleFormControlTextarea1" class="form-heading">Message</label>
+			<label for="exampleFormControlTextarea1" class="form-heading" required>Message</label>
 			<textarea
 				placeholder="Your message starts with..."
 				class="form-control"
 				id="exampleFormControlTextarea1"
 				rows="8"
+				name="contactMessage"
+				required
 			></textarea>
 		</div>
 		<button
 			type="submit"
 			class="btn btn-lg btn-warning"
-			style="background-color: #F9D276; width:100%; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0;"
-		>
+			style="background-color: #F9D276; width:100%; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0;">
 			Send a message
 		</button>
-	</form>
+	</form>	
 </section>
+<!-- contact section ends -->
 
 <%- include("partials/footer") -%>
