@@ -8,6 +8,10 @@
 	},
 	"author": "Vaibhav Srivastava and Kathy Lambert",
 	"license": "ISC",
+	"engines": {
+		"node": "10.16.0",
+		"npm": "6.9.0"
+	  },
 	"dependencies": {
 		"body-parser": "^1.19.0",
 		"ejs": "^2.6.2",

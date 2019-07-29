@@ -224,6 +224,19 @@ section.works-sec {
 	right: 0; */
 }
 
+/* Thanks page */
+.thanks-center {
+    position: relative;
+    /* width: 100px;
+    height: 50px; */
+	margin-top: 13% !important;
+	padding-bottom: 8%;
+	/* left: 50%; */
+	
+    /* margin-left: -50px; 
+    margin-top: -25px;  */
+}​
+
 /* Media Queries */
 @media (max-width: 576px) {
 	.footer-copyright-text {
@@ -286,12 +299,6 @@ section.works-sec {
 @media (max-width: 400px) {
 	.row-fixers-ready-to {
 		padding: 1rem 1rem;
-	}
-	/* TODO - [ ] 1) Adjust the line image to move line vertically down the screen for mobile. 2) Convert px to rem */
-	
-	/* TODO - [ ] 1) Adjust the circle-1 image to move line horizontiallly to the right */
-	.circle-1 {
-		padding-right: 3.5rem;
 	}
 }
 @media(max-width: 770px) and (min-width: 740px){

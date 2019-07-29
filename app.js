@@ -11,8 +11,11 @@ app.use(
 	})
 )
 app.use(express.static('public'))
-// mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
-// mongoose.set('useFindAndModify', false)
+//for local DB connection ============================================================
+//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+//for live DB connection ============================================================
+mongoose.connect('process.env.MONGO_ID', { useNewUrlParser: true });
+mongoose.set('useFindAndModify', false)
 //Database schemas======================================
 const serviceSchema = new mongoose.Schema({
 	serviceName: { type: String, required: [true, 'This is a compulsory field'] },
@@ -50,15 +53,12 @@ var formCheck = false;
 app.get("/", function(req,res){
 	if(formCheck){
 		formCheck = false;
-		res.render("home",{
-			successMessage: "Thanks for your message! We will be in touch with you soon."
-		});
+		res.render("thanks");
 	} else{
-		res.render("home",{
-			successMessage: " "
-		});
+		res.render("home");
 	}
 });
+
 app.post("/contact", function(req, res){
 	console.log(req.body);
 	const contactData = new Contact ({
