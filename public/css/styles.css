@@ -13,10 +13,13 @@ h6 {
 	font-family: 'Fredoka One', cursive;
 	padding: 0.5rem 0;
 }
+hr {
+	width: 10%;
+}
 
-.sec-title{
+.sec-title {
 	margin: 1.5rem 0 0 0;
-} 
+}
 
 /* Navbar */
 .navbar a {
@@ -48,7 +51,6 @@ h6 {
 	height: 330%;
 }
 
-
 /* Services Section */
 .services-section {
 	margin-top: 6em;
@@ -58,6 +60,10 @@ li {
 }
 .service-img {
 	margin-top: 1.5rem;
+}
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(99, 21, 47, 0.5)!important;
+    border-radius: 2.5rem;
 }
 
 /* LeaderShip Section */
@@ -73,37 +79,73 @@ li {
 .bio-text {
 	text-align: justify;
 }
-/* How it Works Section */
-.works-bk-img {
-	position: relative;
-	height: 60%;
+
+/* How it `Works` Section */
+section.works-sec {
+	background-color: #e1e3f0;
 	width: 100%;
 	z-index: -1;
+	display: flex;
+	flex-direction: column;
 }
-.works-div {
-	position: absolute;
-	top: 61rem;
+.works-bk-img {
+	z-index: 1;
 }
-.works-text-left {
-	position: absolute;
-	top:19rem;
-	padding-right: 10rem;
+#works-img-right {
+	align-self: flex-end;
+	width: 40%;
 }
-.work-top-text{
-	padding: 2rem 10rem;
+#works-img-left {
+	display: inherit;
+	width: 90%;
 }
-.works-text-right{
+.works-btm-text {
+	flex-direction: row;
+	align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.work-text-left {
+	align-self: flex-start;
+}
+.work-text-right {
+	/* align-self: flex-end; */
 	text-align: justify;
-	position: absolute;
-	top: 19rem;
-	font-size: 1.3rem;
-	padding-left: 10rem;
+	display: flex;
+	justify-content: flex-end;
 }
-/* section .how-it-works {
-	background-image: url('https://github.com/chingu-voyages/v10-geckos-team-14/blob/landingPage/public/images/H-t-Wk-background.png?raw=true')
-} */
+.line-4-hide{
+	visibility: hidden; 
+	width: 50%;
+}
 
-/* Our Mission Section */
+/* .line{
+	display: inline-block;
+	width: 340%;
+	margin-left: 8rem;
+	z-index: -1;
+	margin-bottom: 1rem;
+} */
+/* .line {
+	display: inline-block;
+	width: 325%;
+	margin-left: 8rem;
+	z-index: 1;
+	margin-top: -6rem;
+	padding-left: 2.3rem;
+} */
+.line{
+	width: 90%;
+    margin-left: 10.2rem;
+    margin-top: -6rem;
+}
+.work-btm-text{
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Our `Mission` Section */
 .mission {
 	background-color: #e1e3f0;
 	padding: 2rem 4rem 4rem 4rem;
@@ -121,13 +163,35 @@ li {
 	font-family: 'Domine', serif !important;
 }
 
-/* Footer */
+/* Contact Us Section */
+
+.form-control:visited {
+	color: #f9d276 !important;
+}
+.form-control:focus {
+	color: #f9d276 !important;
+}
+.form-control:active {
+	color: #f9d276 !important;
+}
+.submit-success {
+	color: #f9d276;
+	margin: 0 1rem;
+}
+.success-msg {
+	text-shadow: 2px 2px #000000;
+}
+.contact-us{
+	padding: 0 3rem;
+}
+
+/* Footer Section*/
 .footer {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-top: 10rem;
+	margin-top: 10.5rem;
 	margin-bottom: 0;
 	position: relative;
 	font-family: 'Fredoka One', cursive;
@@ -147,14 +211,14 @@ li {
 .footer-copyright-text {
 	margin: 0;
 	padding: 0 0 0.2rem 0;
-	font-size: 1.05rem;
+	font-size: 1.03rem;
 	color: #63032e;
 }
 /* .mid-text{
 	position: absolute;
 	left: 14rem;
 } */
-.social-icons{
+.social-icons {
 	margin-top: 1.7rem !important;
 	/* position: absolute;
 	right: 0; */
@@ -166,8 +230,20 @@ li {
 		font-size: 0.7rem;
 	}
 	.footer-img {
-		height: 15%;
+		height: 250%;
 	}
+	.line {
+		visibility: hidden;
+		width: 50%;
+	}
+	.work-text{
+		padding: 0 4rem;
+	}
+	.f1{
+		padding-left: 2.6rem
+	}
+	
+
 }
 @media (min-width: 576px) {
 	.row-service-icons {
@@ -176,11 +252,21 @@ li {
 	.row-fixers-ready-to {
 		padding: 1rem 16rem;
 	}
+	.work-btm-text {
+		margin-top: 8rem;
+	}
+	#works-img-left {
+		margin-top: -22rem;
+	}
+
 }
 @media (max-width: 1200px) {
 	.row-fixers-ready-to {
 		padding: 1rem 12rem;
 	}
+	.header-bk-img {
+		height: 200%;
+	}	
 }
 @media (max-width: 990px) {
 	.row-fixers-ready-to {
@@ -200,5 +286,36 @@ li {
 @media (max-width: 400px) {
 	.row-fixers-ready-to {
 		padding: 1rem 1rem;
+	}
+	/* TODO - [ ] 1) Adjust the line image to move line vertically down the screen for mobile. 2) Convert px to rem */
+	
+	/* TODO - [ ] 1) Adjust the circle-1 image to move line horizontiallly to the right */
+	.circle-1 {
+		padding-right: 3.5rem;
+	}
+}
+@media(max-width: 770px) and (min-width: 740px){
+	.line{
+		visibility: hidden;
+		width: 70%;
+	}
+	.margin-for-ipad{
+		/* margin-left: 16rem; */
+	}
+	.work-btm-text {
+		margin-top: 2rem;
+	}
+	#works-img-left {
+		margin-top: -16rem;
+	}
+	.line-4-hide{
+		visibility: hidden; 
+		width: -2%;
+	}
+}
+@media (max-width:1030px) and (min-width:1000px){
+	.line-4-hide{
+		visibility: hidden; 
+		width: 10% !important;
 	}
 }
