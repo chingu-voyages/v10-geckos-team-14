@@ -1,3 +1,4 @@
+/* Overall App Styling */
 body {
 	background-color: #f1f7f0;
 	color: #63032e;
@@ -35,11 +36,9 @@ hr {
 	font-style: italic;
 	margin-top: 1em;
 }
-
 .sign-in-up h6 {
 	text-align: right !important;
 }
-
 .header-bk-img {
 	position: absolute;
 	top: 0;
@@ -187,17 +186,14 @@ section.works-sec {
 
 /* Footer Section*/
 .footer {
-	position: fixed;
+	position: relative;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin-top: 10.5rem;
 	margin-bottom: 0;
-	position: relative;
 	font-family: 'Fredoka One', cursive;
-	margin-bottom: 0;
 }
-
 .footer-img {
 	position: absolute;
 	bottom: 0;
@@ -223,19 +219,6 @@ section.works-sec {
 	/* position: absolute;
 	right: 0; */
 }
-
-/* Thanks page */
-.thanks-center {
-    position: relative;
-    /* width: 100px;
-    height: 50px; */
-	margin-top: 13% !important;
-	padding-bottom: 8%;
-	/* left: 50%; */
-	
-    /* margin-left: -50px; 
-    margin-top: -25px;  */
-}​
 
 /* Media Queries */
 @media (max-width: 576px) {
@@ -299,6 +282,12 @@ section.works-sec {
 @media (max-width: 400px) {
 	.row-fixers-ready-to {
 		padding: 1rem 1rem;
+	}
+	/* TODO - [ ] 1) Adjust the line image to move line vertically down the screen for mobile. 2) Convert px to rem */
+	
+	/* TODO - [ ] 1) Adjust the circle-1 image to move line horizontiallly to the right */
+	.circle-1 {
+		padding-right: 3.5rem;
 	}
 }
 @media(max-width: 770px) and (min-width: 740px){
