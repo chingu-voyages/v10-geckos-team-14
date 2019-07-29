@@ -4,8 +4,9 @@
 	"description": "This is a web app where you can find workers for your basic household tasks online.",
 	"main": "app.js",
 	"scripts": {
+		"start": "node app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
-	},
+	  },
 	"author": "Vaibhav Srivastava and Kathy Lambert",
 	"license": "ISC",
 	"engines": {
