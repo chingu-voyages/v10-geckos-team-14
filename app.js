@@ -85,10 +85,6 @@ app.post("/contact", function(req, res){
 	});
 });
 
-const port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-app.listen(port, function() {
-	console.log('Server started successfully!')
-})
+app.listen(process.env.PORT || 3000, function() {
+    console.log("Server started at 3000");
+  });
