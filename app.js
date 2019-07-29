@@ -1,3 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.config();
+// const mongouri=process.env.MONGO_ID;
+// const db = require('db')
+// db.connect({
+//   host: process.env.DB_HOST,
+//   username: process.env.DB_USER,
+//   password: process.env.DB_PASS
+// })
 const express = require('express')
 const bodyParser = require('body-parser')
 const ejs = require('ejs')
@@ -14,7 +23,7 @@ app.use(express.static('public'))
 //for local DB connection ============================================================
 //mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 //for live DB connection ============================================================
-mongoose.connect('process.env.MONGO_ID', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 mongoose.set('useFindAndModify', false)
 //Database schemas======================================
 const serviceSchema = new mongoose.Schema({
