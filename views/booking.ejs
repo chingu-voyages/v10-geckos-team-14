@@ -1,0 +1,169 @@
+<%- include("partials/header") -%>
+<!-- booking section begins -->
+
+<h1>Fixer Needs</h1>
+
+<div class="container">
+	<div class="row">
+		<!-- column 1 -->
+		<div class="col-lg-8 text-left">
+			<h3 class="text-left">What</h3>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="images/img-holder.png" width="150" height="150" alt="Fixer-img" />
+					</div>
+					<div class="col-lg-9">
+						<span>
+							<h3>Fixers Identity $50/hour</h3>
+						</span>
+						<span>
+							<p class="text-justify">
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type industry's.galley of type industry's.
+							</p>
+						</span>
+					</div>
+
+					<div class="col-lg-3">
+						<img src="images/img-holder.png" width="150" height="150" alt="Fixer-img" />
+					</div>
+					<div class="col-lg-9">
+						<span>
+							<h3>Fixers Identity $50/hour</h3>
+						</span>
+						<span>
+							<p class="text-justify">
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type industry's.galley of type industry's.
+							</p>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- column 2 -->
+
+		<div class="col-lg-4 text-right">
+			<img src="images/img-holder.png" width="250" height="300" alt="Fixer-img" /><br />
+			<div class="text-centre">
+				<button
+					class="btn btn-warning"
+					style="margin-top:1.5rem; width:250px; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none;"
+					type="submit"
+				>
+					Upload
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Form Section Begins -->
+
+<div class="container form-group when-sec text-left">
+	<!-- Form Begins -->
+	<form>
+		<h3 class="booking-sec-title text-left">Where</h3>
+		<div class="form-row">
+			<div class="col-auto">
+				<label for="inputAddress1"></label>
+				<input
+					type="text"
+					class="form-control"
+					id="inputAddress1"
+					placeholder="Street Address 1"
+					size="37"
+				/>
+			</div>
+			<div class="col-auto">
+				<label for="inputCity"></label>
+				<input type="text" class="form-control" id="inputCity" placeholder="City" />
+			</div>
+			<div class="col-auto">
+				<label for="inputZip"></label>
+				<input type="number" class="form-control" id="inputZip" placeholder="Zip Code" />
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-auto">
+				<label for="inputAddress2"></label>
+				<input
+					type="text"
+					class="form-control"
+					id="inputAddress2"
+					placeholder="Street Address 2"
+					size="37"
+				/>
+			</div>
+			<div class="col-auto">
+				<label for="inputCountry"></label>
+				<input type="text" class="form-control" id="inputCountry" placeholder="Country" />
+			</div>
+			<div class="col-auto">
+				<label for="inputState"></label>
+				<input
+					type="text"
+					class="form-control"
+					id="inputState"
+					placeholder="State Initials"
+					max="2"
+				/>
+			</div>
+		</div>
+		<br />
+		<h3 class="booking-sec-title text-left">When</h3>
+		<div class="form-row">
+			<div class="col-auto">
+				<label for="inputDate"></label>
+				<input type="date" class="form-control" id="inputDate" placeholder="Date" />
+			</div>
+			<div class="col-auto">
+				<label for="inputStartTime"></label>
+				<input type="time" class="form-control" id="inputStartTime" placeholder="StartTime" />
+			</div>
+			<div class="col-auto">
+				<label for="inputStopTime"></label>
+				<input type="time" class="form-control" id="inputStopTime" placeholder="StopTime" />
+			</div>
+			<div class="col-auto">
+				<label for="inputHours"></label>
+				<input type="number" class="form-control" id="inputHours" placeholder="Hours" />
+			</div>
+		</div>
+		<br />
+		<h3 class="booking-sec-title text-left">How</h3>
+		<div class="form-row">
+			<div class="col">
+				<label for="fixerExpec"></label>
+				<textarea name="" id="" cols="70" rows="4" placeholder="Fixer Expectations"></textarea>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col">
+				<label for="customerResp"></label>
+				<textarea
+					name=""
+					id=""
+					cols="70"
+					rows="4"
+					placeholder="Customer Responsibilities"
+				></textarea>
+			</div>
+		</div>
+		<button
+			class="btn btn-warning"
+			style="margin-top:1.5rem; width:250px; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none;"
+			type="submit"
+		>
+			Confirm Fixer Request
+		</button>
+	</form>
+
+	<!-- Form end -->
+
+	<!-- booking section ends -->
+</div>
+<%- include("partials/footer") -%>

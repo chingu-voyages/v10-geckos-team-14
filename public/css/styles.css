@@ -18,6 +18,8 @@ hr {
 	width: 10%;
 }
 
+/*! Landing Page */
+
 .sec-title {
 	margin: 1.5rem 0 0 0;
 }
@@ -61,8 +63,8 @@ li {
 	margin-top: 1.5rem;
 }
 .shadow {
-    box-shadow: 0 .5rem 1rem rgba(99, 21, 47, 0.5)!important;
-    border-radius: 2.5rem;
+	box-shadow: 0 0.5rem 1rem rgba(99, 21, 47, 0.5) !important;
+	border-radius: 2.5rem;
 }
 
 /* LeaderShip Section */
@@ -114,8 +116,8 @@ section.works-sec {
 	display: flex;
 	justify-content: flex-end;
 }
-.line-4-hide{
-	visibility: hidden; 
+.line-4-hide {
+	visibility: hidden;
 	width: 50%;
 }
 
@@ -134,12 +136,12 @@ section.works-sec {
 	margin-top: -6rem;
 	padding-left: 2.3rem;
 } */
-.line{
+.line {
 	width: 90%;
-    margin-left: 10.2rem;
-    margin-top: -6rem;
+	margin-left: 10.2rem;
+	margin-top: -6rem;
 }
-.work-btm-text{
+.work-btm-text {
 	display: flex;
 	justify-content: space-between;
 }
@@ -180,7 +182,7 @@ section.works-sec {
 .success-msg {
 	text-shadow: 2px 2px #000000;
 }
-.contact-us{
+.contact-us {
 	padding: 0 3rem;
 }
 
@@ -232,14 +234,12 @@ section.works-sec {
 		visibility: hidden;
 		width: 50%;
 	}
-	.work-text{
+	.work-text {
 		padding: 0 4rem;
 	}
-	.f1{
-		padding-left: 2.6rem
+	.f1 {
+		padding-left: 2.6rem;
 	}
-	
-
 }
 @media (min-width: 576px) {
 	.row-service-icons {
@@ -254,7 +254,6 @@ section.works-sec {
 	#works-img-left {
 		margin-top: -22rem;
 	}
-
 }
 @media (max-width: 1200px) {
 	.row-fixers-ready-to {
@@ -262,7 +261,7 @@ section.works-sec {
 	}
 	.header-bk-img {
 		height: 200%;
-	}	
+	}
 }
 @media (max-width: 990px) {
 	.row-fixers-ready-to {
@@ -283,19 +282,18 @@ section.works-sec {
 	.row-fixers-ready-to {
 		padding: 1rem 1rem;
 	}
-	/* TODO - [ ] 1) Adjust the line image to move line vertically down the screen for mobile. 2) Convert px to rem */
-	
-	/* TODO - [ ] 1) Adjust the circle-1 image to move line horizontiallly to the right */
+
+	/* TODO - [ ] Confirm below removal. */
 	.circle-1 {
 		padding-right: 3.5rem;
 	}
 }
-@media(max-width: 770px) and (min-width: 740px){
-	.line{
+@media (max-width: 770px) and (min-width: 740px) {
+	.line {
 		visibility: hidden;
 		width: 70%;
 	}
-	.margin-for-ipad{
+	.margin-for-ipad {
 		/* margin-left: 16rem; */
 	}
 	.work-btm-text {
@@ -304,14 +302,20 @@ section.works-sec {
 	#works-img-left {
 		margin-top: -16rem;
 	}
-	.line-4-hide{
-		visibility: hidden; 
+	.line-4-hide {
+		visibility: hidden;
 		width: -2%;
 	}
 }
-@media (max-width:1030px) and (min-width:1000px){
-	.line-4-hide{
-		visibility: hidden; 
+@media (max-width: 1030px) and (min-width: 1000px) {
+	.line-4-hide {
+		visibility: hidden;
 		width: 10% !important;
 	}
 }
+
+/*! Booking Page */
+
+/* .when-sec {
+	align-items: left;
+} */
