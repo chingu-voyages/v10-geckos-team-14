@@ -1,4 +1,5 @@
 /* Overall App Styling */
+
 body {
 	background-color: #f1f7f0;
 	color: #63032e;
@@ -18,11 +19,14 @@ hr {
 	width: 10%;
 }
 
+/*! Landing Page */
+
 .sec-title {
 	margin: 1.5rem 0 0 0;
 }
 
-/* Navbar */
+/*! Navbar */
+
 .navbar a {
 	text-decoration: none;
 	color: #63032e;
@@ -50,7 +54,8 @@ hr {
 	height: 330%;
 }
 
-/* Services Section */
+/*! Services Section */
+
 .services-section {
 	margin-top: 6em;
 }
@@ -61,11 +66,12 @@ li {
 	margin-top: 1.5rem;
 }
 .shadow {
-    box-shadow: 0 .5rem 1rem rgba(99, 21, 47, 0.5)!important;
-    border-radius: 2.5rem;
+	box-shadow: 0 0.5rem 1rem #63152f80 !important;
+	border-radius: 2.5rem;
 }
 
-/* LeaderShip Section */
+/*! LeaderShip Section */
+
 .leadership {
 	width: 100;
 }
@@ -79,7 +85,7 @@ li {
 	text-align: justify;
 }
 
-/* How it `Works` Section */
+/*! How it `Works` Section */
 section.works-sec {
 	background-color: #e1e3f0;
 	width: 100%;
@@ -114,8 +120,8 @@ section.works-sec {
 	display: flex;
 	justify-content: flex-end;
 }
-.line-4-hide{
-	visibility: hidden; 
+.line-4-hide {
+	visibility: hidden;
 	width: 50%;
 }
 
@@ -134,17 +140,18 @@ section.works-sec {
 	margin-top: -6rem;
 	padding-left: 2.3rem;
 } */
-.line{
+.line {
 	width: 90%;
-    margin-left: 10.2rem;
-    margin-top: -6rem;
+	margin-left: 10.2rem;
+	margin-top: -6rem;
 }
-.work-btm-text{
+.work-btm-text {
 	display: flex;
 	justify-content: space-between;
 }
 
-/* Our `Mission` Section */
+/*! Our `Mission` Section */
+
 .mission {
 	background-color: #e1e3f0;
 	padding: 2rem 4rem 4rem 4rem;
@@ -162,7 +169,7 @@ section.works-sec {
 	font-family: 'Domine', serif !important;
 }
 
-/* Contact Us Section */
+/*! Contact Us Section */
 
 .form-control:visited {
 	color: #f9d276 !important;
@@ -180,11 +187,25 @@ section.works-sec {
 .success-msg {
 	text-shadow: 2px 2px #000000;
 }
-.contact-us{
+.contact-us {
 	padding: 0 3rem;
 }
 
-/* Footer Section*/
+/*! Booking Page */
+
+/* .when-sec {
+	align-items: left;
+} */
+
+.upload-image-box {
+	text-align: right;
+}
+
+.submitBtn {
+	text-align: center;
+}
+
+/*! Footer Section*/
 .footer {
 	position: relative;
 	bottom: 0;
@@ -220,7 +241,24 @@ section.works-sec {
 	right: 0; */
 }
 
-/* Media Queries */
+/*! Thanks page */
+
+.thanks-center {
+	position: relative;
+	height: 50px;
+	margin-top: 13% !important;
+	padding-bottom: 8%;
+}
+.thanks-center {
+	position: relative;
+	height: 50px;
+	margin-top: 13% !important;
+	padding-bottom: 8%;
+}
+
+
+/*! Media Queries */
+
 @media (max-width: 576px) {
 	.footer-copyright-text {
 		font-size: 0.7rem;
@@ -232,14 +270,16 @@ section.works-sec {
 		visibility: hidden;
 		width: 50%;
 	}
-	.work-text{
+	.work-text {
 		padding: 0 4rem;
 	}
-	.f1{
-		padding-left: 2.6rem
+	.f1 {
+		padding-left: 2.6rem;
 	}
-	
-
+	.upload-image-box {
+		text-align: center;
+		margin-top: 1.5rem;
+	}
 }
 @media (min-width: 576px) {
 	.row-service-icons {
@@ -254,7 +294,6 @@ section.works-sec {
 	#works-img-left {
 		margin-top: -22rem;
 	}
-
 }
 @media (max-width: 1200px) {
 	.row-fixers-ready-to {
@@ -262,7 +301,7 @@ section.works-sec {
 	}
 	.header-bk-img {
 		height: 200%;
-	}	
+	}
 }
 @media (max-width: 990px) {
 	.row-fixers-ready-to {
@@ -283,35 +322,40 @@ section.works-sec {
 	.row-fixers-ready-to {
 		padding: 1rem 1rem;
 	}
-	/* TODO - [ ] 1) Adjust the line image to move line vertically down the screen for mobile. 2) Convert px to rem */
-	
-	/* TODO - [ ] 1) Adjust the circle-1 image to move line horizontiallly to the right */
-	.circle-1 {
-		padding-right: 3.5rem;
-	}
 }
-@media(max-width: 770px) and (min-width: 740px){
-	.line{
+@media (max-width: 770px) and (min-width: 740px) {
+	.line {
 		visibility: hidden;
 		width: 70%;
 	}
-	.margin-for-ipad{
-		/* margin-left: 16rem; */
-	}
+	/* .margin-for-ipad {
+		margin-left: 16rem;
+	} */
 	.work-btm-text {
 		margin-top: 2rem;
 	}
 	#works-img-left {
 		margin-top: -16rem;
 	}
-	.line-4-hide{
-		visibility: hidden; 
+	.line-4-hide {
+		visibility: hidden;
 		width: -2%;
 	}
 }
-@media (max-width:1030px) and (min-width:1000px){
-	.line-4-hide{
-		visibility: hidden; 
-		width: 10% !important;
+@media (max-width: 1900px) and (min-width: 1800px) {
+	.footer {
+		position: relative;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin-top: 25.5rem;
+		margin-bottom: 0;
+		font-family: 'Fredoka One', cursive;
 	}
 }
+@media (max-width: 1030px) and (min-width: 1000px) {
+	.line-4-hide {
+		visibility: hidden;
+		width: 10% !important;
+	}
+}​

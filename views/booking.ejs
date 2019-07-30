@@ -1,0 +1,195 @@
+<%- include("partials/header") -%>
+<!-- booking section begins -->
+<br /> <br />
+<h1>Fixer Needs</h1>
+<br />
+<div class="container">
+	<div class="row">
+		<!-- column 1 -->
+		<div class="col-lg-8 text-left">
+			<h3 class=" sec-title text-left">What</h3><br/>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="images/img-holder.png" width="150" height="150" alt="Fixer-img" />
+					</div>
+					<div class="col-lg-9">
+						<span>
+							<h3>Fixers Identity $50/hour</h3>
+						</span>
+						<span>
+							<p class="text-justify">
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type industry's.galley of type industry's.
+							</p>
+						</span>
+					</div>
+
+					<div class="col-lg-3">
+						<img src="images/img-holder.png" width="150" height="150" alt="Fixer-img" />
+					</div>
+					<div class="col-lg-9">
+						<span>
+							<h3>Fixers Identity $50/hour</h3>
+						</span>
+						<span>
+							<p class="text-justify">
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type industry's.galley of type industry's.
+							</p>
+						</span>
+					</div>
+				</div>
+			</div>
+			<form>
+				<h3 class="booking-sec-title text-left">Where</h3>
+				<div class="form-row">
+					<div class="col-auto">
+						<label for="inputAddress1"></label>
+						<input
+							type="text"
+							class="form-control"
+							id="inputAddress1"
+							placeholder="Street Address 1"
+						/>
+					</div>
+					<div class="col-auto">
+						<label for="inputCity"></label>
+						<input type="text" class="form-control" id="inputCity" placeholder="City" />
+					</div>
+					<div class="col-auto">
+						<label for="inputZip"></label>
+						<input type="number" class="form-control" id="inputZip" placeholder="Zip Code" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-auto">
+						<label for="inputAddress2"></label>
+						<input
+							type="text"
+							class="form-control"
+							id="inputAddress2"
+							placeholder="Street Address 2"
+						/>
+					</div>
+					<div class="col-auto">
+						<label for="inputCountry"></label>
+						<input type="text" class="form-control" id="inputCountry" placeholder="Country" />
+					</div>
+					<div class="col-auto">
+						<label for="inputState"></label>
+						<input
+							type="text"
+							class="form-control"
+							id="inputState"
+							placeholder="State Initials"
+							max="2"
+						/>
+					</div>
+				</div>
+				<!-- Form Section Begins -->
+				<!-- Form Begins -->
+				<br />
+				<h3 class="booking-sec-title text-left">When</h3>
+				<div class="form-row">
+					<div class="col-auto">
+						<label for="inputDate"></label>
+						<input
+							type="date"
+							class="form-control"
+							id="inputDate"
+							placeholder="Date"
+							style="color: #8d5a97;"
+						/>
+					</div>
+					<div class="col-auto">
+						<label for="inputStartTime"></label>
+						<input
+							type="time"
+							class="form-control"
+							id="inputStartTime"
+							placeholder="StartTime"
+							style="color: #8d5a97;"
+						/>
+						<small id="startTime" class="form-text" style="color: #8d5a97;">Start Time</small>
+					</div>
+
+					<div class="col-auto">
+						<label for="inputStopTime"></label>
+						<input
+							type="time"
+							class="form-control"
+							id="inputStopTime"
+							placeholder="StopTime"
+							style="color: #8d5a97;"
+						/>
+						<small id="stopTime" class="form-text" style="color: #8d5a97;">Stop Time</small>
+					</div>
+					<div class="col-auto">
+						<label for="inputHours"></label>
+						<input type="number" class="form-control" id="inputHours" placeholder="Hours" />
+						<small id="totalHours" class="form-text" style="color: #8d5a97;"
+							>Total Requested Hours</small
+						>
+					</div>
+				</div>
+				<br />
+				<h3 class="booking-sec-title text-left">How</h3>
+				<div class="form-row form-group">
+					<div class="col">
+						<label for="fixerExpec"></label>
+						<textarea
+							name="fixerExpec"
+							id="fixerExpec"
+							class="form-control"
+							rows="4"
+							placeholder="Fixer Expectations..."
+						></textarea>
+					</div>
+				</div>
+				<div class="form-row form-group">
+					<div class="col">
+						<label for="customerResp"></label>
+						<textarea
+							name="customerResp"
+							id="customerResp"
+							class="form-control"
+							rows="4"
+							placeholder="Customer Responsibilities..."
+						></textarea>
+					</div>
+				</div>
+				
+			
+
+			<!-- Form end -->
+		</div>
+		<!-- column 2 -->
+
+		<div class="col-lg-4 upload-image-box" >
+			<img src="images/upload-img-holder.png" width="250" height="280" alt="Fixer-img" /><br />
+			<div>
+				<button
+					class="btn btn-warning"
+					style="margin-top:1.5rem; width:250px; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none;"
+					type="submit"
+				>
+					Upload
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="text-center">
+	<button
+		class="btn btn-lg btn-outline-warning submitBtn"
+		style="margin-top:1.5rem; width:50%; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:2rem;"
+		type="submit"
+	>
+		Confirm Fixer Request
+	</button></div>
+</form>
+<!-- booking section ends -->
+<%- include("partials/footer") -%>
