@@ -26,33 +26,46 @@ app.use(express.static('public'))
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 mongoose.set('useFindAndModify', false)
 //Database schemas======================================
-const serviceSchema = new mongoose.Schema({
-	serviceName: { type: String, required: [true, 'This is a compulsory field'] },
-	serviceDescription: { type: String, required: [true, 'This is a compulsory field'] },
-	serviceFee: { type: Number, required: [true, 'This is a compulsory field'] },
-	serviceImage: String
-})
 const orderSchema = new mongoose.Schema({
-	clientID: String,
-	serviceID: String,
-	servingHours: { type: Number, required: [true, 'This is a compulsory field'] },
-	cost: { type: Number, required: [true, 'This is a compulsory field'] },
-	comments: String,
+	orderClientID: String,
+	orderServiceName: String,
+	orderFixerID: String,
+	orderServingHours: { type: Number, required: [true, 'This is a compulsory field'] },
+	orderCost: { type: Number, required: [true, 'This is a compulsory field'] },
+	orderStreetAddress1: { type: String, required: [true, 'This is a compulsory field'] },
+	orderStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
+	orderCity: { type: String, required: [true, 'This is a compulsory field'] },
+	orderState: { type: String, required: [true, 'This is a compulsory field'] },
+	orderZip: { type: String, required: [true, 'This is a compulsory field'] },
+	orderFixerExpectations: String,
+	orderCustomerResponsibilities: String,
 	orderDate: Date,
-	workDate: { type: Date, required: [true, 'This is a compulsory field'] }
+	orderWorkDate: { type: Date, required: [true, 'This is a compulsory field'] }
 })
 const clientSchema = new mongoose.Schema({
 	clientEmail: { type: String, required: [true, 'This is a compulsory field'] },
-	password: { type: String, required: [true, 'This is a compulsory field'] },
-	name: { type: String, required: [true, 'This is a compulsory field'] },
-	address: { type: String, required: [true, 'This is a compulsory field'] },
-	mobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
-	profileImage: String
+	clientPassword: { type: String, required: [true, 'This is a compulsory field'] },
+	clientName: { type: String, required: [true, 'This is a compulsory field'] },
+	clientStreetAddress1: { type: String, required: [true, 'This is a compulsory field'] },
+	clientStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
+	clientCity: { type: String, required: [true, 'This is a compulsory field'] },
+	clientState: { type: String, required: [true, 'This is a compulsory field'] },
+	clientZip: { type: String, required: [true, 'This is a compulsory field'] },
+	clientMobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
+	clientProfileImage: String
 })
 const contactUsSchema = new mongoose.Schema({
 	contactEmail: { type: String, required: [true, 'This is a compulsory field'] },
 	contactSubject: { type: String, required: [true, 'This is a compulsory field'] },
 	contactMessage: { type: String, required: [true, 'This is a compulsory field'] }
+})
+const fixerSchema = new mongoose.Schema({
+	fixerName: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerDescription: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerCharge: { type: Number, required: [true, 'This is a compulsory field'] },
+	fixerRating: { type: Number, required: [true, 'This is a compulsory field'] },
+	fixerImage: String,
+	fixerService: String
 })
 
 // LiveServer-----------------------------------------------------------------------------------
@@ -64,8 +77,11 @@ app.get('/', function(req, res) {
 		formCheck = false
 		res.render('thanks')
 	} else {
-		res.render('booking')
+		res.render('home')
 	}
+})
+app.get('/booking', function(req,res){
+
 })
 
 app.post('/contact', function(req, res) {
