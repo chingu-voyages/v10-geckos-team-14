@@ -64,7 +64,7 @@ app.get('/', function(req, res) {
 		formCheck = false
 		res.render('thanks')
 	} else {
-		res.render('home')
+		res.render('booking')
 	}
 })
 

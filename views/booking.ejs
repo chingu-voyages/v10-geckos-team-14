@@ -3,12 +3,51 @@
 <br /> <br />
 <h1>Fixer Needs</h1>
 <br />
+<!-- Form Begins -->
+<form>
 <div class="container">
 	<div class="row">
 		<!-- column 1 -->
 		<div class="col-lg-8 text-left">
-			<h3 class=" sec-title text-left">What</h3><br/>
-			<div class="container">
+			<h3 class=" sec-title text-left">What</h3>
+			<p>Please Pick a Fixer from the list.</p>
+			<br/>
+			<div class="card-deck text-center">
+					<div class="card" id="1">
+					  <img src="images/user.svg" class="card-img-top border border-warning" style="padding:15%;" alt="...">
+					  <div class="card-body">
+						<h5 class="card-title">Superman</h5>
+						<p class="card-text">I'm here to fight for truth, and justice, and the American way.</p>
+					</div>
+					  <div class="card-footer bg-warning">
+						  <h5>$40/hour</h5>
+						  <p class="card-text"><small class="text-muted">User Ratings: 9.5</small></p>
+						</div>
+					</div>
+					<div class="card" id="2">
+					  <img src="images/user.svg" class="card-img-top border border-warning" style="padding:15%;" alt="...">  
+					  <div class="card-body">
+						<h5 class="card-title">Captain America </h5>
+						<p class="card-text">I punched out Adolf Hitler 200 times.</p>
+					</div>
+					  <div class="card-footer bg-warning">
+							<h5>$50/hour</h5>
+							<p class="card-text"><small class="text-muted">User Ratings: 6.5</small></p>
+						  </div>
+					</div>
+					<div class="card" id="3">
+					  <img src="images/user.svg" class="card-img-top border border-warning" style="padding:15%;" alt="...">
+					  <div class="card-body">
+						<h5 class="card-title">Batman</h5>
+						<p class="card-text">You wanna get nuts? Come on! Let's get nuts!</p>
+					</div>
+					  <div class="card-footer bg-warning">
+							<h5>$70/hour</h5>
+							<p class="card-text"><small class="text-muted">User Ratings: 4.5</small></p>
+						  </div>
+					</div>
+				  </div>
+			<!-- <div class="container">
 				<div class="row">
 					<div class="col-lg-3">
 						<img src="images/img-holder.png" width="150" height="150" alt="Fixer-img" />
@@ -42,12 +81,14 @@
 						</span>
 					</div>
 				</div>
-			</div>
-			<form>
-				<h3 class="booking-sec-title text-left">Where</h3>
-				<div class="form-row">
-					<div class="col-auto">
-						<label for="inputAddress1"></label>
+			</div> -->
+				<!-- Where----------------------------------------------------- -->
+				
+				<h3 class="booking-sec-title text-left row1">Where</h3>
+				<p>Please describe the venue for the job.</p>
+				<div class="form-row row1">
+					<div class="form-group col-lg-4">
+						<!-- <label for="inputAddress1"></label> -->
 						<input
 							type="text"
 							class="form-control"
@@ -55,31 +96,27 @@
 							placeholder="Street Address 1"
 						/>
 					</div>
-					<div class="col-auto">
-						<label for="inputCity"></label>
+					<div class="form-group col-lg-4">
+							<!-- <label for="inputAddress2"></label> -->
+							<input
+								type="text"
+								class="form-control"
+								id="inputAddress2"
+								placeholder="Street Address 2"
+							/>
+						</div>
+					<div class="form-group col-lg-4">
+						<!-- <label for="inputCity"></label> -->
 						<input type="text" class="form-control" id="inputCity" placeholder="City" />
-					</div>
-					<div class="col-auto">
-						<label for="inputZip"></label>
-						<input type="number" class="form-control" id="inputZip" placeholder="Zip Code" />
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="col-auto">
-						<label for="inputAddress2"></label>
-						<input
-							type="text"
-							class="form-control"
-							id="inputAddress2"
-							placeholder="Street Address 2"
-						/>
-					</div>
-					<div class="col-auto">
-						<label for="inputCountry"></label>
+					<div class="form-group col-lg-4">
+						<!-- <label for="inputCountry"></label> -->
 						<input type="text" class="form-control" id="inputCountry" placeholder="Country" />
 					</div>
-					<div class="col-auto">
-						<label for="inputState"></label>
+					<div class="form-group col-lg-4">
+						<!-- <label for="inputState"></label> -->
 						<input
 							type="text"
 							class="form-control"
@@ -88,14 +125,18 @@
 							max="2"
 						/>
 					</div>
+					<div class="from-group col-lg-4">
+							<!-- <label for="inputZip"></label> -->
+							<input type="number" class="form-control" id="inputZip" placeholder="Zip Code" />
+						</div>
 				</div>
-				<!-- Form Section Begins -->
-				<!-- Form Begins -->
+				<!-- when----------------------------------------------------- -->
 				<br />
 				<h3 class="booking-sec-title text-left">When</h3>
-				<div class="form-row">
-					<div class="col-auto">
-						<label for="inputDate"></label>
+				<p>Please define the date and time for work.</p>
+				<div class="form-row row1">
+					<div class="form-group col-lg-4">
+						<!-- <label for="inputDate"></label> -->
 						<input
 							type="date"
 							class="form-control"
@@ -104,8 +145,8 @@
 							style="color: #8d5a97;"
 						/>
 					</div>
-					<div class="col-auto">
-						<label for="inputStartTime"></label>
+					<div class="form-group col-lg-3">
+						<!-- <label for="inputStartTime"></label> -->
 						<input
 							type="time"
 							class="form-control"
@@ -116,8 +157,8 @@
 						<small id="startTime" class="form-text" style="color: #8d5a97;">Start Time</small>
 					</div>
 
-					<div class="col-auto">
-						<label for="inputStopTime"></label>
+					<div class="col-lg-3 form-group">
+						<!-- <label for="inputStopTime"></label> -->
 						<input
 							type="time"
 							class="form-control"
@@ -127,8 +168,8 @@
 						/>
 						<small id="stopTime" class="form-text" style="color: #8d5a97;">Stop Time</small>
 					</div>
-					<div class="col-auto">
-						<label for="inputHours"></label>
+					<div class="form-group col-lg-2">
+						<!-- <label for="inputHours"></label> -->
 						<input type="number" class="form-control" id="inputHours" placeholder="Hours" />
 						<small id="totalHours" class="form-text" style="color: #8d5a97;"
 							>Total Requested Hours</small
@@ -136,10 +177,12 @@
 					</div>
 				</div>
 				<br />
+				<!-- how---------------------------------------------------- -->
 				<h3 class="booking-sec-title text-left">How</h3>
-				<div class="form-row form-group">
-					<div class="col">
-						<label for="fixerExpec"></label>
+				<p>Please describe your expectations here.</p>
+				<div class="form-row row1">
+					<div class="col-lg-12 form-group">
+						<!-- <label for="fixerExpec"></label> -->
 						<textarea
 							name="fixerExpec"
 							id="fixerExpec"
@@ -148,10 +191,8 @@
 							placeholder="Fixer Expectations..."
 						></textarea>
 					</div>
-				</div>
-				<div class="form-row form-group">
-					<div class="col">
-						<label for="customerResp"></label>
+					<div class="col-lg-12 form-group">
+						<!-- <label for="customerResp"></label> -->
 						<textarea
 							name="customerResp"
 							id="customerResp"
