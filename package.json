@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "node app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
-	  },
+	},
 	"author": "Vaibhav Srivastava and Kathy Lambert",
 	"license": "ISC",
 	"engines": {
@@ -18,7 +18,9 @@
 		"db": "^1.1.1",
 		"dotenv": "^8.0.0",
 		"ejs": "^2.6.2",
+		"ejs-lint": "^0.3.0",
 		"express": "^4.17.1",
+		"lodash": "^4.17.15",
 		"mongoose": "^5.6.5",
 		"multer": "^1.4.2",
 		"nodemon": "^1.19.1"

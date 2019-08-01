@@ -1,7 +1,7 @@
 <%- include("partials/header") -%>
 <!-- booking section begins -->
 <br /> <br />
-<h1>Fixer Needs</h1>
+<h1><%= serviceType %></h1>
 <br />
 <!-- Form Begins -->
 <form>
@@ -12,41 +12,49 @@
 			<h3 class=" sec-title text-left">What</h3>
 			<p>Please Pick a Fixer from the list.</p>
 			<br/>
-			<div class="card-deck text-center">
-					<div class="card" id="1">
-					  <img src="images/user.svg" class="card-img-top border border-warning" style="padding:15%;" alt="...">
-					  <div class="card-body">
-						<h5 class="card-title">Superman</h5>
-						<p class="card-text">I'm here to fight for truth, and justice, and the American way.</p>
-					</div>
-					  <div class="card-footer bg-warning">
-						  <h5>$40/hour</h5>
-						  <p class="card-text"><small class="text-muted">User Ratings: 9.5</small></p>
+		<%	for(var i=0; i<fixerData.length; i+=3) { %>
+				<div class="card-deck text-center">
+						<div class="card border border-warning col-lg-4" id="<%= fixerData[i]._id %>">
+						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
+						  <div class="card-body">
+							<h5 class="card-title"><%= fixerData[i].fixerCompanyName %></h5>
+							<p class="card-text"><%= fixerData[i].fixerDescription %></p>
 						</div>
-					</div>
-					<div class="card" id="2">
-					  <img src="images/user.svg" class="card-img-top border border-warning" style="padding:15%;" alt="...">  
-					  <div class="card-body">
-						<h5 class="card-title">Captain America </h5>
-						<p class="card-text">I punched out Adolf Hitler 200 times.</p>
-					</div>
-					  <div class="card-footer bg-warning">
-							<h5>$50/hour</h5>
-							<p class="card-text"><small class="text-muted">User Ratings: 6.5</small></p>
-						  </div>
-					</div>
-					<div class="card" id="3">
-					  <img src="images/user.svg" class="card-img-top border border-warning" style="padding:15%;" alt="...">
-					  <div class="card-body">
-						<h5 class="card-title">Batman</h5>
-						<p class="card-text">You wanna get nuts? Come on! Let's get nuts!</p>
-					</div>
-					  <div class="card-footer bg-warning">
-							<h5>$70/hour</h5>
-							<p class="card-text"><small class="text-muted">User Ratings: 4.5</small></p>
-						  </div>
-					</div>
-				  </div>
+						  <div class="card-footer bg-light" style="border-radius: 0 0 3rem 3rem">
+							  <h5><%= fixerData[i].fixerFee %>/hour</h5>
+							  <p class="card-text"><small class="text-muted">User Ratings: <%= fixerData[i].fixerRating%></small></p>
+							</div>
+						</div>
+						<% if(fixerData[i+1]){ %>
+						<div class="card border border-warning col-lg-4" id="<%= fixerData[i+1]._id %>">
+						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">  
+						  <div class="card-body">
+							<h5 class="card-title"><%= fixerData[i+1].fixerCompanyName %></h5>
+							<p class="card-text"><%= fixerData[i+1].fixerDescription %></p>
+						</div>
+						  <div class="card-footer bg-light" style="border-radius: 0 0 3rem 3rem">
+								<h5><%= fixerData[i+1].fixerFee %>/hour</h5>
+								<p class="card-text"><small class="text-muted">User Ratings: <%= fixerData[i+1].fixerRating%></small></p>
+							  </div>
+						</div>
+						<% } %>
+						<% if(fixerData[i+2]){ %>
+						<div class="card border border-warning col-lg-4" id="<%= fixerData[i+2]._id %>">
+						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
+						  <div class="card-body">
+							<h5 class="card-title"><%= fixerData[i+2].fixerCompanyName %></h5>
+							<p class="card-text"><%= fixerData[i+2].fixerDescription %></p>
+						</div>
+						  <div class="card-footer bg-light" style="border-radius: 0 0 3rem 3rem">
+								<h5><%= fixerData[i+2].fixerFee %>/hour</h5>
+								<p class="card-text"><small class="text-muted">User Ratings: <%= fixerData[i+2].fixerRating%></small></p>
+							  </div>
+						</div>
+						<br /> <br />
+						<% } %>
+					  </div>
+		<%	} %>
+			
 			<!-- <div class="container">
 				<div class="row">
 					<div class="col-lg-3">

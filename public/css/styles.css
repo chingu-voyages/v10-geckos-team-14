@@ -216,10 +216,18 @@ section.works-sec {
 	background-color: #f9d276 !important;
 }
 .pressed {
-	border: 10px double #8D5A97;
+	/* border: 10px double #8D5A97; */
 	border-radius: 8px;
-	background-color: #f1f4f4b5;
+	background-color: #e1e3f0;
   }
+.pressed-Service{
+	border-radius: 2.5rem;
+	background-color: #e1e3f0;
+  }
+.card{
+	border-radius: 3rem;
+	margin-bottom: 1rem !important;
+}
 
 /*! Footer Section*/
 .footer {

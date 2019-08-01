@@ -9,6 +9,7 @@ dotenv.config()
 // })
 const express = require('express')
 const bodyParser = require('body-parser')
+const _ = require('lodash');
 const ejs = require('ejs')
 const mongoose = require('mongoose')
 const multer = require('multer')
@@ -21,24 +22,26 @@ app.use(
 )
 app.use(express.static('public'))
 //for local DB connection ============================================================
-//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 //for live DB connection ============================================================
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
-mongoose.set('useFindAndModify', false)
+// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+// mongoose.set('useFindAndModify', false)
 //Database schemas======================================
 const orderSchema = new mongoose.Schema({
 	orderClientID: String,
-	orderServiceName: String,
+	orderService: String,
 	orderFixerID: String,
-	orderServingHours: { type: Number, required: [true, 'This is a compulsory field'] },
+	orderServiceHours: { type: Number, required: [true, 'This is a compulsory field'] },
 	orderCost: { type: Number, required: [true, 'This is a compulsory field'] },
 	orderStreetAddress1: { type: String, required: [true, 'This is a compulsory field'] },
 	orderStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
 	orderCity: { type: String, required: [true, 'This is a compulsory field'] },
 	orderState: { type: String, required: [true, 'This is a compulsory field'] },
+	orderCountry: { type: String, required: [true, 'This is a compulsory field'] },
 	orderZip: { type: String, required: [true, 'This is a compulsory field'] },
+	orderRating: { type: Number, required: [true, 'This is a compulsory field'] },
 	orderFixerExpectations: String,
-	orderCustomerResponsibilities: String,
+	orderClientResponsibilities: String,
 	orderDate: Date,
 	orderWorkDate: { type: Date, required: [true, 'This is a compulsory field'] }
 })
@@ -50,6 +53,7 @@ const clientSchema = new mongoose.Schema({
 	clientStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
 	clientCity: { type: String, required: [true, 'This is a compulsory field'] },
 	clientState: { type: String, required: [true, 'This is a compulsory field'] },
+	clientCountry: { type: String, required: [true, 'This is a compulsory field'] },
 	clientZip: { type: String, required: [true, 'This is a compulsory field'] },
 	clientMobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
 	clientProfileImage: String
@@ -61,17 +65,31 @@ const contactUsSchema = new mongoose.Schema({
 })
 const fixerSchema = new mongoose.Schema({
 	fixerName: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerCompanyName: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerEmail: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerMobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
 	fixerDescription: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerCharge: { type: Number, required: [true, 'This is a compulsory field'] },
+	fixerFee: { type: String, required: [true, 'This is a compulsory field'] },
 	fixerRating: { type: Number, required: [true, 'This is a compulsory field'] },
-	fixerImage: String,
-	fixerService: String
+	//fixerImage: String,
+	fixerService: String,
+	fixerStreetAddress1: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerCity: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerState: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerCountry: { type: String, required: [true, 'This is a compulsory field'] },
+	fixerZip: { type: String, required: [true, 'This is a compulsory field'] },
 })
 
-// LiveServer-----------------------------------------------------------------------------------
 // app codes-----------------------------------------------------------------------------------
+// Models==================================================
 const Contact = mongoose.model('Contact', contactUsSchema)
+const Fixer = mongoose.model('Fixer', fixerSchema)
+//variable declarations================================================
 var formCheck = false
+var fixers= []
+var serviceType
+//Get requests=============================================
 app.get('/', function(req, res) {
 	if (formCheck) {
 		formCheck = false
@@ -81,9 +99,12 @@ app.get('/', function(req, res) {
 	}
 })
 app.get('/booking', function(req,res){
-
+	res.render('booking', {
+		fixerData:fixers,
+		serviceType:serviceType
+	})
 })
-
+//Post requests=============================================
 app.post('/contact', function(req, res) {
 	console.log(req.body)
 	const contactData = new Contact({
@@ -100,7 +121,24 @@ app.post('/contact', function(req, res) {
 		}
 	})
 })
-
+app.post('/service', function(req, res){
+	console.log(req.body.serviceType)
+	serviceType = req.body.serviceType
+	Fixer.find({fixerService: serviceType}, function(err, foundFixers){
+		fixers = foundFixers
+		console.log(fixers)
+		res.redirect('/booking')
+		if (serviceType === 'personal-driver'){
+		serviceType= _.startCase(serviceType);
+		}else if(serviceType === 'lawncare'){
+		serviceType = 'Lawn Care'
+		}else{
+		serviceType= _.capitalize(serviceType);
+		}
+		
+	})
+})
+//Server connection =============================================
 app.listen(process.env.PORT || 3000, function() {
 	console.log('Server started at 3000')
 })
