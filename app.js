@@ -21,11 +21,11 @@ app.use(
 	})
 )
 app.use(express.static('public'))
-//for local DB connection ============================================================
-//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+// for local DB connection ============================================================
+mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 //for live DB connection ============================================================
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
-mongoose.set('useFindAndModify', false)
+// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+// mongoose.set('useFindAndModify', false)
 //Database schemas======================================
 const orderSchema = new mongoose.Schema({
 	orderClientID: String,
@@ -85,6 +85,7 @@ const fixerSchema = new mongoose.Schema({
 // Models==================================================
 const Contact = mongoose.model('Contact', contactUsSchema)
 const Fixer = mongoose.model('Fixer', fixerSchema)
+const Order = mongoose.model ('Order', orderSchema)
 //variable declarations================================================
 var formCheck = false
 var fixers= []
