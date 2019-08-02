@@ -3,61 +3,86 @@
 <!-- service section begins -->
 <section class="container services-section text-center">
 	<h1 class="sec-title">Invest In Your Convenience</h1>
+	
 	<div class="services-btns container">
 		<div class="row row-service-icons">
 			<div class=" col-lg-4 col-md-6 col-sm-12">
-				<img
-					src="images/service-icons/repairs.png"
-					width="180"
-					height="180"
-					alt="repairs-icons"
-					class="service-img shadow"
-				/>
+					<form action="/service" method="POST" id="repairs">
+					<input type="hidden" name="serviceType" value="repairs">
+						<img
+						src="images/service-icons/repairs.png"
+						width="180"
+						height="180"
+						alt="repairs-icons"                     
+						class="service-img shadow"
+						name= "repairs"
+					/>
+				</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
+			<form action="/service" method="POST" id="plumbing">
+			<input type="hidden" name="serviceType" value="plumbing">
 				<img
 					src="images/service-icons/plumbing.png"
 					width="180"
 					height="180"
 					alt="plumbing-icon"
 					class="service-img shadow"
+					name= "plumbing"
 				/>
+			</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
+			<form action="/service" method="POST" id="housekeeping">
+			<input type="hidden" name="serviceType" value="housekeeping">	
 				<img
 					src="images/service-icons/housekeeping.png"
 					width="180"
 					height="180"
 					alt="housekeeping-icon"
 					class="service-img shadow"
+					name="housekeeping"
 				/>
+			</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
+			<form action="/service" method="POST" id="admin">
+			<input type="hidden" name="serviceType" value="admin">
 				<img
 					src="images/service-icons/admin.png"
 					width="180"
 					height="180"
 					alt="admin-icon"
 					class="service-img shadow"
+					name ="admin"
 				/>
+			</form>	
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
+				<form action="/service" method="POST" id="lawncare">
+				<input type="hidden" name="serviceType" value="lawncare">
 				<img
 					src="images/service-icons/lawncare.png"
 					width="180"
 					height="180"
 					alt="lawncare-icon"
 					class="service-img shadow"
+					name="lawncare"
 				/>
+				</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
+				<form action="/service" method="POST" id="personal-driver">
+				<input type="hidden" name="serviceType" value="personal-driver">
 				<img
 					src="images/service-icons/personal-driver.png"
 					width="180"
 					height="180"
 					alt="personal-driver-icon"
 					class="service-img shadow"
+					name="personal-driver"
 				/>
+				</form>
 			</div>
 		</div>
 	</div>
