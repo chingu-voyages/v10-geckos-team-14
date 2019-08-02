@@ -3,6 +3,8 @@ $(".card").on("click", function() {
     $("#" + selectedFixer).removeClass("pressed")
     selectedFixer = $(this).attr("id")
     $("#" + selectedFixer).addClass("pressed")
+    $('#fixerInput').attr('value', selectedFixer)
+   // $('#selectFixerForm').submit()
 })
 var selectedService
 $('.service-img').on('click', function(){
@@ -12,5 +14,10 @@ $('.service-img').on('click', function(){
     }, 200)
     selectedService = $(this).attr("name")
     $('#'+ selectedService).submit()
-    selectedService =undefined;
+    selectedService = undefined
 })
+// let selectedFixer
+// $('.card').on('click', function(){
+
+// })
+

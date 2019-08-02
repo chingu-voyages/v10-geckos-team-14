@@ -24,8 +24,8 @@ app.use(express.static('public'))
 // for local DB connection ============================================================
 mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 //for live DB connection ============================================================
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
-// mongoose.set('useFindAndModify', false)
+ //mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+ //mongoose.set('useFindAndModify', false)
 //Database schemas======================================
 const orderSchema = new mongoose.Schema({
 	orderClientID: String,
@@ -42,8 +42,9 @@ const orderSchema = new mongoose.Schema({
 	orderRating: { type: Number, required: [true, 'This is a compulsory field'] },
 	orderFixerExpectations: String,
 	orderClientResponsibilities: String,
-	orderDate: Date,
-	orderWorkDate: { type: Date, required: [true, 'This is a compulsory field'] }
+	orderDate: String,
+	orderWorkDate: { type: Date, required: [true, 'This is a compulsory field'] },
+	orderImage: { type: String, required: [true, 'This is a compulsory field'] },
 })
 const clientSchema = new mongoose.Schema({
 	clientEmail: { type: String, required: [true, 'This is a compulsory field'] },
@@ -88,8 +89,12 @@ const Fixer = mongoose.model('Fixer', fixerSchema)
 const Order = mongoose.model ('Order', orderSchema)
 //variable declarations================================================
 var formCheck = false
-var fixers= []
+var fixers = []
 var serviceType
+var selectedFixer
+var selectedFixerFee
+var workHours
+var calcFee
 //Get requests=============================================
 app.get('/', function(req, res) {
 	if (formCheck) {
@@ -127,7 +132,7 @@ app.post('/service', function(req, res){
 	serviceType = req.body.serviceType
 	Fixer.find({fixerService: serviceType}, function(err, foundFixers){
 		fixers = foundFixers
-		console.log(fixers)
+		//console.log(fixers)
 		res.redirect('/booking')
 		if (serviceType === 'personal-driver'){
 		serviceType= _.startCase(serviceType);
@@ -138,6 +143,44 @@ app.post('/service', function(req, res){
 		}
 		
 	})
+})
+app.post('/selectedFixer', function(req,res){
+	console.log(req.body.selectedFixer)
+	const selectedFixerId = req.body.selectedFixer
+	Fixer.findById(selectedFixerId, function(err, foundFixer){
+		if(!err){
+			selectedFixerFee = foundFixer.fixerFee
+		}
+	})
+	workHours = req.body.hours
+	calcFee = selectedFixerFee * workHours
+
+	const orderData = new Order ({
+		orderClientID: 'EmptyForNow',
+		orderService: serviceType,
+		orderFixerID: req.body.selectedFixer,
+		orderServiceHours: req.body.hours,
+		orderCost: calcFee,
+		orderStreetAddress1: req.body.streetAddress1,
+		orderStreetAddress2: req.body.streetAddress2,
+		orderCity: req.body.city,
+		orderState: req.body.state,
+		orderCountry: req.body.country,
+		orderZip: req.body.zip,
+		orderRating: '1',
+		orderFixerExpectations: req.body.fixerExpec,
+		orderClientResponsibilities: req.body.customerResp,		
+		orderDate: 'DateNotForNow',
+		orderWorkDate:  req.body.orderWorkDate,
+		orderImage: 'skip'
+	})
+	orderData.save(function(err){
+		if(!err){
+			res.redirect('/');
+		}
+	})
+	
+	res.redirect('/')
 })
 //Server connection =============================================
 app.listen(process.env.PORT || 3000, function() {

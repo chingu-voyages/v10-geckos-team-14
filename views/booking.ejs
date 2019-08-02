@@ -4,7 +4,7 @@
 <h1><%= serviceType %></h1>
 <br />
 <!-- Form Begins -->
-<form>
+
 <div class="container">
 	<div class="row">
 		<!-- column 1 -->
@@ -12,7 +12,10 @@
 			<h3 class=" sec-title text-left">What</h3>
 			<p>Please Pick a Fixer from the list.</p>
 			<br/>
+			<form action="/selectedFixer" method="POST" id="selectFixerForm">
+				<input type="hidden" name="selectedFixer" id="fixerInput">
 		<%	for(var i=0; i<fixerData.length; i+=3) { %>
+				
 				<div class="card-deck text-center">
 						<div class="card border border-warning col-lg-4" id="<%= fixerData[i]._id %>">
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
@@ -54,43 +57,9 @@
 						<% } %>
 					  </div>
 		<%	} %>
-			
-			<!-- <div class="container">
-				<div class="row">
-					<div class="col-lg-3">
-						<img src="images/img-holder.png" width="150" height="150" alt="Fixer-img" />
-					</div>
-					<div class="col-lg-9">
-						<span>
-							<h3>Fixers Identity $50/hour</h3>
-						</span>
-						<span>
-							<p class="text-justify">
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-								unknown printer took a galley of type industry's.galley of type industry's.
-							</p>
-						</span>
-					</div>
+					
 
-					<div class="col-lg-3">
-						<img src="images/img-holder.png" width="150" height="150" alt="Fixer-img" />
-					</div>
-					<div class="col-lg-9">
-						<span>
-							<h3>Fixers Identity $50/hour</h3>
-						</span>
-						<span>
-							<p class="text-justify">
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-								unknown printer took a galley of type industry's.galley of type industry's.
-							</p>
-						</span>
-					</div>
-				</div>
-			</div> -->
-				<!-- Where----------------------------------------------------- -->
+	<!-- Where----------------------------------------------------- -->
 				
 				<h3 class="booking-sec-title text-left row1">Where</h3>
 				<p>Please describe the venue for the job.</p>
@@ -102,6 +71,7 @@
 							class="form-control"
 							id="inputAddress1"
 							placeholder="Street Address 1"
+							name="streetAddress1"
 						/>
 					</div>
 					<div class="form-group col-lg-4">
@@ -111,17 +81,18 @@
 								class="form-control"
 								id="inputAddress2"
 								placeholder="Street Address 2"
+								name="streetAddress2"
 							/>
 						</div>
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputCity"></label> -->
-						<input type="text" class="form-control" id="inputCity" placeholder="City" />
+						<input type="text" class="form-control" id="inputCity" placeholder="City" name="city" />
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputCountry"></label> -->
-						<input type="text" class="form-control" id="inputCountry" placeholder="Country" />
+						<input type="text" class="form-control" id="inputCountry" placeholder="Country" name="country" />
 					</div>
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputState"></label> -->
@@ -131,14 +102,16 @@
 							id="inputState"
 							placeholder="State Initials"
 							max="2"
+							name="state"
 						/>
 					</div>
 					<div class="from-group col-lg-4">
 							<!-- <label for="inputZip"></label> -->
-							<input type="number" class="form-control" id="inputZip" placeholder="Zip Code" />
+							<input type="number" class="form-control" id="inputZip" placeholder="Zip Code"
+							name="postalCode" />
 						</div>
 				</div>
-				<!-- when----------------------------------------------------- -->
+	<!-- When----------------------------------------------------- -->
 				<br />
 				<h3 class="booking-sec-title text-left">When</h3>
 				<p>Please define the date and time for work.</p>
@@ -151,6 +124,7 @@
 							id="inputDate"
 							placeholder="Date"
 							style="color: #8d5a97;"
+							name="orderWorkDate"
 						/>
 					</div>
 					<div class="form-group col-lg-3">
@@ -161,6 +135,7 @@
 							id="inputStartTime"
 							placeholder="StartTime"
 							style="color: #8d5a97;"
+							name="startTime"
 						/>
 						<small id="startTime" class="form-text" style="color: #8d5a97;">Start Time</small>
 					</div>
@@ -173,12 +148,13 @@
 							id="inputStopTime"
 							placeholder="StopTime"
 							style="color: #8d5a97;"
+							name="stopTime"
 						/>
 						<small id="stopTime" class="form-text" style="color: #8d5a97;">Stop Time</small>
 					</div>
 					<div class="form-group col-lg-2">
 						<!-- <label for="inputHours"></label> -->
-						<input type="number" class="form-control" id="inputHours" placeholder="Hours" />
+						<input type="number" class="form-control" id="inputHours" placeholder="Hours" name="hours" />
 						<small id="totalHours" class="form-text" style="color: #8d5a97;"
 							>Total Requested Hours</small
 						>
@@ -197,6 +173,7 @@
 							class="form-control"
 							rows="4"
 							placeholder="Fixer Expectations..."
+							name="fixerExpec"
 						></textarea>
 					</div>
 					<div class="col-lg-12 form-group">
@@ -206,6 +183,7 @@
 							id="customerResp"
 							class="form-control"
 							rows="4"
+							name="customerResp"
 							placeholder="Customer Responsibilities..."
 						></textarea>
 					</div>
