@@ -297,8 +297,18 @@ section.works-sec {
 	margin-top: 13% !important;
 	padding-bottom: 8%;
 }
-
-
+/* register page */
+.register-head{
+	position: absolute;
+	top: 10%;
+	left: 0;
+	width: 30%;
+	text-align: center; 
+}
+.login-bk-img{
+	width: 40%;
+	height: 50%
+}
 /*! Media Queries */
 /* all screens smaller than desktop */
 @media (max-width: 576px) {
