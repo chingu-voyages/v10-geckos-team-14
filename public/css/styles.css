@@ -229,6 +229,24 @@ section.works-sec {
 	margin-bottom: 1rem !important;
 }
 
+
+/*! Login Page */
+
+.login-bk-img {
+	/* display: flex;
+	z-index: -2; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* align-self: flex-start; */
+	/* width: 40% */
+}
+
+.login-sec {
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+}
 /*! Footer Section*/
 .footer {
 	position: relative;
