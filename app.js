@@ -33,7 +33,7 @@ const orderSchema = new mongoose.Schema({
 	orderService: String,
 	orderFixerID: String,
 	orderServiceHours: Number,
-	orderCost:  Number,
+	orderCost: Number,
 	orderStreetAddress1:  String,
 	orderStreetAddress2:  String,
 	orderCity: String,
@@ -94,7 +94,7 @@ var fixers = []
 var serviceType
 var selectedFixer
 var selectedFixerFee
-var workHours
+let workHours = 1
 let calcFee = 1
 //Get requests=============================================
 app.get('/', function(req, res) {
@@ -151,50 +151,41 @@ app.post('/selectedFixer', function(req,res){
 	Fixer.findById(selectedFixerId, function(err, foundFixer){
 		if(!err){
 			selectedFixerFee = foundFixer.fixerFee
-			console.log(selectedFixerFee)
-			//console.log(typeof(selectedFixerFee))
+			//console.log('1:'+selectedFixerFee)
+			//console.log('2:'+req.body.hours)
+			calcFee = selectedFixerFee*req.body.hours
+			//console.log('3:'+calcFee)
+			const orderData = new Order ({
+				orderClientID: 'EmptyForNow',
+				orderService: serviceType,
+				orderFixerID: req.body.selectedFixer,
+				orderServiceHours: req.body.hours,
+				orderCost: calcFee,
+				orderStreetAddress1: req.body.streetAddress1,
+				orderStreetAddress2: req.body.streetAddress2,
+				orderCity: req.body.city,
+				orderState: req.body.state,
+				orderCountry: req.body.country,
+				orderZip: req.body.zip,
+				orderRating: 1,
+				orderFixerExpectations: req.body.fixerExpec,
+				orderClientResponsibilities: req.body.customerResp,		
+				orderDate: 'DateNotForNow',
+				orderWorkDate:  req.body.orderWorkDate,
+				orderImage: 'skip'
+			})
+			//console.log(orderData)
+			orderData.save(function(err) {
+				if (err) {
+					console.log(err)
+				} else {
+					res.redirect('/')
+				}
+			})
 		}
 	})
-	workHours = req.body.hours
-	//console.log(typeof(workHours))
-	//workHours = parseInt(workHours)
-	//console.log(typeof(workHours))
-	//console.log(workHours)
-	calcFee = req.body.hours*selectedFixerFee;
-
-	//calcFee = parseInt(calcFee)
-	//console.log(req.body)
-	console.log(calcFee)
-	//console.log(typeof(calcFee))
-	const orderData = new Order ({
-		orderClientID: 'EmptyForNow',
-		orderService: serviceType,
-		orderFixerID: req.body.selectedFixer,
-		orderServiceHours: req.body.hours,
-		orderCost: calcFee,
-		orderStreetAddress1: req.body.streetAddress1,
-		orderStreetAddress2: req.body.streetAddress2,
-		orderCity: req.body.city,
-		orderState: req.body.state,
-		orderCountry: req.body.country,
-		orderZip: req.body.zip,
-		orderRating: 1,
-		orderFixerExpectations: req.body.fixerExpec,
-		orderClientResponsibilities: req.body.customerResp,		
-		orderDate: 'DateNotForNow',
-		orderWorkDate:  req.body.orderWorkDate,
-		orderImage: 'skip'
-	})
-	//console.log(orderData)
-	orderData.save(function(err) {
-		if (err) {
-			console.log(err)
-		} else {
-			res.redirect('/')
-		}
-	})
-	
 })
+
 //Server connection =============================================
 app.listen(process.env.PORT || 3000, function() {
 	console.log('Server started at 3000')

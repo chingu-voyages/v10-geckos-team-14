@@ -4,7 +4,6 @@ $(".card").on("click", function() {
     selectedFixer = $(this).attr("id")
     $("#" + selectedFixer).addClass("pressed")
     $('#fixerInput').attr('value', selectedFixer)
-   // $('#selectFixerForm').submit()
 })
 var selectedService
 $('.service-img').on('click', function(){
@@ -16,8 +15,43 @@ $('.service-img').on('click', function(){
     $('#'+ selectedService).submit()
     selectedService = undefined
 })
-// let selectedFixer
-// $('.card').on('click', function(){
+var valueStart, valueStop, hourStart, hourEnd, minuteStart, minuteEnd, diffForFee
+$('#inputStartTime').on("input", function(){
+    valueStart = $(this).val()
+   // console.log(valueStart)
+    hourStart = new Date("01/01/2007 " + valueStart).getHours();
+    minuteStart = new Date ("01/01/2007 " + valueStart).getMinutes();
+    timeDifferenceCalc ()
+})
+$('#inputStopTime').on("input", function(){
+    valueStop = $(this).val()
+    hourEnd = new Date("01/01/2007 " + valueStop).getHours()
+    minuteEnd = new Date ("01/01/2007 " + valueStop).getMinutes();
+    timeDifferenceCalc ()  
+})
 
-// })
+function timeDifferenceCalc (){
+    var hourDiff = hourEnd-hourStart
+    var minuteDiff = minuteEnd - minuteStart;
+    //console.log('minute-diff'+minuteDiff)
+    if (minuteDiff < 0) {
+        hourDiff = hourDiff - 1
+        minuteDiff = - (minuteDiff)
+    }
+    if (minuteDiff !==0){
+        diffForFee = hourDiff + 1
+    }else{
+        diffForFee = hourDiff
+    }
+    //console.log(hourDiff+' Hrs'+ minuteDiff+' mins.');
+    var timeDiff = hourDiff+' Hrs '+ minuteDiff+' mins'
+    $('#inputHours').attr('value', diffForFee)
+    if(timeDiff === 'NaN Hrs NaN mins'){
+        $('.timeDiff').addClass('hidden')
+    } else{
+        $('.timeDiff').text(timeDiff)
+        $('.timeDiff').show() 
+    }
+}
+
 
