@@ -1,73 +1,105 @@
 <%- include("partials/header") -%>
-<img src="images/SignUp-Bkgd.png" alt="login-bg" style="position: absolute; top:0; left:0; z-index: -1;" class="login-bg-img">
-<div class="register-head">
-<h1 class="reg-quote">Maximize Your Time</h1>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-            
-        </div>
-    </div>
-</div>
-<div class="card border-secondary registration-card">
-    <div class="card-body text-left">
-        <h5 class="card-title">
-            Create your account
-        </h5>
-        <p class="card-text">
-            <form action="/clientReg" method="post">
-                <div class="form-group col-lg-12 placeholder-div">
-                    <label for="clientName" class="label-for-register">Name</label>
-                    <input type="text" name="clientName" placeholder="Your Name" class="placeholder-text">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+
+        <div class="media" style="position: relative; margin-bottom: 4rem;">
+                <img src="images/SignUp-Bkgd.png" class="img-responsive login-bg-img" alt="..." style="z-index: -1 !important;">
+                <div >
+                        <img
+                        src="/images/helpingHands.png"
+                        width="150"
+                        height="150"
+                        class="logo-img reg-logo"
+                        alt="logo-assistU"
+                    />
+                  <h1 class="reg-quote1">assistU</h1>
+                  <h2 class="reg-quote2" >Maximize Your Time</h2>
                 </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label for="clientEmail" class="label-for-register">Email</label>
-                        <input type="email" name="clientEmail" placeholder="Your Email" class="placeholder-text">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label for="clientPassword" class="label-for-register">Password</label>
-                        <input type="password" name="clientPassword" placeholder="Your Password" class="placeholder-text">
-                        <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label for="clientPassword" class="label-for-register">Confirm Password</label>
-                        <input type="password" name="clientPassword" placeholder="Your Password" class="placeholder-text">
-                        <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label for="clientMobileNo" class="label-for-register">Confirm Password</label>
-                        <input type="number" name="clientMobileNo" placeholder="Your Mobile Number" class="placeholder-text">
-                        <i class="fa fa-mobile" aria-hidden="true"></i>
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label class="label-for-register">Home Address</label>
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label class="label-for-register"></label>
-                        <input type="text" name="clientStreetAddress1" placeholder="StreetAddress1" class="placeholder-text">
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label class="label-for-register"></label>
-                        <input type="text" name="clientStreetAddress2" placeholder="StreetAddress2" class="placeholder-text">
-                </div>
-                <div class="form-group col-lg-12 ">
-                        <label class="label-for-register"></label>
-                        <input type="text" name="clientCity" placeholder="City" class="placeholder-text">
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label class="label-for-register"></label>
-                        <input type="text" name="clientState" placeholder="State" class="placeholder-text">
-                </div>
-                <div class="form-group col-lg-12 placeholder-div">
-                        <label class="label-for-register"></label>
-                        <input type="text" name="clientState" placeholder="State" class="placeholder-text">
-                </div>
-            </form>
-        </p>
-    </div>
-</div>
+        </div>  
+
+
+<div class="container border border-dark shadow register-box text-left">
+<h2 style="text-align: center !important;">Create your account</h2>
+<form action="/clientReg" method="post">
+    
+            <label class="label-for-register">Name</label>
+            <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" class="form-control reg-form" name="clientName" placeholder="Your Name" aria-describedby="basic-addon1">
+            </div>
+            <label class="label-for-register">Email</label>
+            <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="email" class="form-control reg-form" name="clientEmail" placeholder="Your Email" aria-describedby="basic-addon1">
+            </div>
+            <label class="label-for-register">Password</label>
+            <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="password" class="form-control reg-form" name="clientPassword" name="clientPassword" placeholder="Your Password" aria-describedby="basic-addon1">
+            </div>
+            <label class="label-for-register">Mobile Number</label>
+            <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="number" class="form-control reg-form" name="clientMobileNo" name="clientMobileNo" placeholder="Your Mobile Number" aria-describedby="basic-addon1">
+            </div>
+            <label class="label-for-register">Home Address</label>
+            <div class="row">
+                    <div class="col-lg-6 input-group mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="address" class="form-control reg-form" name="clientStreetAddress1" placeholder="StreetAddress 1" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="col-lg-6 input-group mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="address" class="form-control reg-form" name="clientStreetAddress2" placeholder="StreetAddress 2" aria-describedby="basic-addon1">
+                    </div>
+                    
+            </div>
+            <div class="row">
+                    <div class="col-lg-6 input-group mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="address" class="form-control reg-form" name="clientCity" placeholder="City" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="col-lg-6 input-group mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="address" class="form-control reg-form" name="clientState" placeholder="State" aria-describedby="basic-addon1">
+                    </div>  
+            </div>
+            <div class="row">
+                    <div class="col-lg-6 input-group mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="address" class="form-control reg-form" name="clientCountry" placeholder="Country" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="col-lg-6 input-group mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text icon-container" id="basic-addon1"><i class="fa fa-home" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="number" class="form-control reg-form" name="clientZip" placeholder="Zip" aria-describedby="basic-addon1">
+                    </div>  
+            </div>
+            <div style="text-align:center !important;">
+                <button type="submit" style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:1rem; width: 30%; margin: 1rem 0" class="btn btn-warning text-centre">
+                            Sign Up!
+             </button>
+            </div>
+            <p class="text-center">Already Registered? <a href="#">Sign-in!</a></p>
+</form>
+</div> 
+
 
 <%- include("partials/footer") -%>

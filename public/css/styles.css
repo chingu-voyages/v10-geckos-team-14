@@ -316,33 +316,52 @@ section.works-sec {
 	text-align: center; 
 }
 .login-bg-img{
-	width: 40%;
+	width: 100%;
 	height: auto;
 }
-.reg-quote{
+.reg-quote1{
 	line-height: 1.5;
 	font-size: 3rem;
-}
-.placeholder-text{
-	padding-left: 2.5rem;
-}
-.placeholder-div{
-	position: relative;
-}
-i{
 	position: absolute;
-	top:2.45rem;
-	left: 2rem;
+	top: 42%;
+	left: 7%;
+	width: 15%;
+	padding-top: 2.5rem;
 }
+.reg-quote2{
+	line-height: 1.2;
+	font-size: 1.5rem;
+	position: absolute;
+	top: 57%;
+	left: 7%;
+	width: 15%;
+	padding-top: 2.5rem;
+}
+.reg-logo{
+	position: absolute;
+	top: 12%;
+	left: 9%;
+
+}
+
 .label-for-register{
 	font-family: 'Fredoka One', cursive;
+	font-size: 1.1rem;
 }
-.registration-card{
-	width:28%; 
-	padding: 0 3%;
-	border-radius: 1rem;
-	margin: 15rem auto 5rem;
+/* attempt 2 */
+.register-box{
 	background-color: #e1e3f0;
+	padding: 1.5rem;
+}
+input.reg-form{
+	border-radius: 0 2rem 2rem 0 !important;
+}
+.icon-container{
+	border-radius: 2rem 0 0 2rem !important;
+	background-color: #907e9f;
+}
+i{
+	color: #f2f7f0;
 }
 
 /*! Media Queries */
@@ -361,6 +380,30 @@ i{
 	.upload-image-box {
 		text-align: center;
 		margin-top: 1.5rem;
+	}
+	.register-box{
+		width: 90%;
+	}
+	.reg-quote1{
+		position: absolute;
+		top: 40%;
+		font-size: 2.5rem;
+	}
+	.reg-quote2{
+		position: absolute;
+		top: 60%;
+		left: 7%;
+		width: 40%;
+		padding-top: 2.5rem;
+		font-size: 1.3rem;
+	}
+	.reg-logo{
+		position: absolute;
+		top: 12%;
+		left: 9%;
+		width: 120px !important;
+		height: 120px !important;
+	
 	}
 }
 /* for desktop only */
@@ -388,6 +431,15 @@ i{
 	}
 	.f1{
 		margin-left: 3rem;
+	}
+	.login-bg-img{
+		width: 40%;
+		height: auto;
+	}
+	.register-box{
+		width: 50%;
+    margin-left: 37rem;
+    margin-top: -10rem;
 	}
 }
 /* others */
@@ -442,6 +494,35 @@ i{
 /* @media (max-width: 1900px) and (min-width: 1800px) {
 	
 } */
+/* ipad and ipad pro */
+@media(max-width:1030px)and (min-width:630px){
+	.reg-quote1{
+		position: absolute;
+		top: 40%;
+		font-size: 2.5rem;
+	}
+	.reg-quote2{
+		position: absolute;
+		top: 65%;
+		left: 5%;
+		width: 30%;
+		padding-top: 2.5rem;
+		font-size: 1.3rem;
+	}
+	.reg-logo{
+		position: absolute;
+		top: 12%;
+		left: 9%;
+		width: 110px !important;
+		height: 110px !important;
+	}
+	.register-box{
+		width: 60%;
+    margin-left: 17rem;
+    margin-top: -4rem;
+	}
+}
+/* ipad pro */
 @media (max-width: 1030px) and (min-width: 1000px) {
 	.line-4-hide {
 		visibility: hidden;
@@ -449,5 +530,25 @@ i{
 	}
 	.f1{
 		margin-left: 5rem;
+	}
+	.reg-logo{
+		position: absolute;
+		top: 12%;
+		left: 9%;
+		width: 130px !important;
+		height: 130px !important;
+	}
+	.reg-quote1{
+		position: absolute;
+		top: 40%;
+		font-size: 3rem;
+	}
+	.reg-quote2{
+		position: absolute;
+		top: 65%;
+		left: 5%;
+		width: 30%;
+		padding-top: 2.5rem;
+		font-size: 1.8rem;
 	}
 }​
