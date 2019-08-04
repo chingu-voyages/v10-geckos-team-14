@@ -125,6 +125,7 @@ section.works-sec {
 	width: 50%;
 }
 
+/* TODO - [ ] Consider Removing Commented-out section (129 -143) */
 /* .line{
 	display: inline-block;
 	width: 340%;
@@ -233,13 +234,11 @@ section.works-sec {
 /*! Login Page */
 
 .login-bk-img {
-	/* display: flex;
-	z-index: -2; */
+	z-index: -2;
 	position: absolute;
-	top: 0;
+	top: -1;
 	left: 0;
-	/* align-self: flex-start; */
-	/* width: 40% */
+	width: 40%
 }
 
 .login-sec {
@@ -247,6 +246,20 @@ section.works-sec {
 	display: flex;
 	flex-direction: column;
 }
+.login-sec.title-row {
+	display: flex;
+	align-self: flex-start;
+}
+.login-sec-title {
+	left: 4;
+}
+.login-box {
+	background-color: #63152f80;
+	width: 50%;
+	height: 27rem;
+	border-radius: 2rem
+}
+
 /*! Footer Section*/
 .footer {
 	position: relative;
@@ -395,6 +408,7 @@ section.works-sec {
 		width: -2%;
 	}
 }
+/* Wide Screens */
 @media (max-width: 1900px) and (min-width: 1800px) {
 	.footer {
 		position: relative;
