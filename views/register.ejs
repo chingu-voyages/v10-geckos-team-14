@@ -1,6 +1,73 @@
 <%- include("partials/header") -%>
-<img src="images/SignUp-Bkgd.png" alt="login-bg" style="position: absolute; top:0; left:0; z-index: -1;" class="login-bk-img">
+<img src="images/SignUp-Bkgd.png" alt="login-bg" style="position: absolute; top:0; left:0; z-index: -1;" class="login-bg-img">
 <div class="register-head">
-<h1>Maximize Your Time</h1>
+<h1 class="reg-quote">Maximize Your Time</h1>
 </div>
-<!-- <%- include("partials/footer") -%> -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            
+        </div>
+    </div>
+</div>
+<div class="card border-secondary registration-card">
+    <div class="card-body text-left">
+        <h5 class="card-title">
+            Create your account
+        </h5>
+        <p class="card-text">
+            <form action="/clientReg" method="post">
+                <div class="form-group col-lg-12 placeholder-div">
+                    <label for="clientName" class="label-for-register">Name</label>
+                    <input type="text" name="clientName" placeholder="Your Name" class="placeholder-text">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label for="clientEmail" class="label-for-register">Email</label>
+                        <input type="email" name="clientEmail" placeholder="Your Email" class="placeholder-text">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label for="clientPassword" class="label-for-register">Password</label>
+                        <input type="password" name="clientPassword" placeholder="Your Password" class="placeholder-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label for="clientPassword" class="label-for-register">Confirm Password</label>
+                        <input type="password" name="clientPassword" placeholder="Your Password" class="placeholder-text">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label for="clientMobileNo" class="label-for-register">Confirm Password</label>
+                        <input type="number" name="clientMobileNo" placeholder="Your Mobile Number" class="placeholder-text">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label class="label-for-register">Home Address</label>
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label class="label-for-register"></label>
+                        <input type="text" name="clientStreetAddress1" placeholder="StreetAddress1" class="placeholder-text">
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label class="label-for-register"></label>
+                        <input type="text" name="clientStreetAddress2" placeholder="StreetAddress2" class="placeholder-text">
+                </div>
+                <div class="form-group col-lg-12 ">
+                        <label class="label-for-register"></label>
+                        <input type="text" name="clientCity" placeholder="City" class="placeholder-text">
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label class="label-for-register"></label>
+                        <input type="text" name="clientState" placeholder="State" class="placeholder-text">
+                </div>
+                <div class="form-group col-lg-12 placeholder-div">
+                        <label class="label-for-register"></label>
+                        <input type="text" name="clientState" placeholder="State" class="placeholder-text">
+                </div>
+            </form>
+        </p>
+    </div>
+</div>
+
+<%- include("partials/footer") -%>
