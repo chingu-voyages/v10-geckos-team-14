@@ -9,7 +9,7 @@ Chingu is a flexible & remote learning program for developers and aspiring devel
 
 ### Challenge
 
-Typically a six(6) week adventure, Chingu Voyage 10 Team #14's repo was created on July 17, 2019, fourteen (14) days after most chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repo creation.
+Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repo was created on July 17, 2019, fourteen (14) days after most chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repo creation.
 
 #### Modified Schedule
 
