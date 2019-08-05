@@ -171,12 +171,14 @@ section.works-sec {
 	font-family: 'Fredoka One', cursive;
 	font-size: 1.2rem;
 }
-::placeholder {
+
+/* TODO - [ ] Consider Removal and Replacement Elsewhere */
+/* ::placeholder {
 	color: #8d5a97 !important;
 	padding-top:1rem !important;
 	padding-bottom:1rem !important;
 	font-family: 'Domine', serif !important;
-}
+} */
 
 /*! Contact Us Section */
 
@@ -241,7 +243,7 @@ section.works-sec {
 
 /*! Login Page */
 
-.login-bk-img {
+/* .login-bk-img {
 	z-index: -2;
 	position: absolute;
 	top: -1;
@@ -261,7 +263,7 @@ section.works-sec {
 /* .login-sec-title {
 	left: 4;
 } */
-.label-for-login{
+/* .label-for-login{
 	font-family: 'Fredoka One', cursive;
 	font-size: 1.1rem;
 }
@@ -270,7 +272,7 @@ section.works-sec {
 	width: 50%;
 	height: 27rem;
 	border-radius: 2rem
-}
+}  */
 
 /*! Footer Section*/
 .footer-copyright-text {
@@ -324,6 +326,8 @@ section.works-sec {
 	margin-top: 13% !important;
 	padding-bottom: 8%;
 }
+
+
 /*! Register page */
 .register-head{
 	position: absolute;
@@ -340,24 +344,25 @@ section.works-sec {
 	line-height: 1.5;
 	font-size: 3rem;
 	position: absolute;
-	top: 42%;
+	top: 24%;
 	left: 7%;
 	width: 15%;
 	padding-top: 2.5rem;
+	font-style: italic;
 }
 .reg-quote2{
 	line-height: 1.2;
-	font-size: 1.5rem;
-	position: absolute;
-	top: 57%;
-	left: 7%;
-	width: 15%;
-	padding-top: 2.5rem;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 43%;
+    left: 3%;
+    width: 23%;
+    padding-top: 2.5rem;
 }
 .reg-logo{
 	position: absolute;
-	top: 12%;
-	left: 9%;
+	top: 10%;
+	left: 11%;
 
 }
 
@@ -403,23 +408,25 @@ i{
 	}
 	.reg-quote1{
 		position: absolute;
-		top: 40%;
-		font-size: 2.5rem;
+    	top: 28%;
+    	left: 23%;
+    	font-size: 2.2rem;
+    	size: 2.5rem;
 	}
 	.reg-quote2{
 		position: absolute;
-		top: 60%;
-		left: 7%;
-		width: 40%;
+		top: 47%;
+		left: 22%;
+		width: 35%;
 		padding-top: 2.5rem;
 		font-size: 1.3rem;
 	}
 	.reg-logo{
 		position: absolute;
 		top: 12%;
-		left: 9%;
-		width: 120px !important;
-		height: 120px !important;
+		left: 30%;
+		width: 80px !important;
+		height: 80px !important;
 	
 	}
 }
@@ -515,23 +522,23 @@ i{
 @media(max-width:1030px)and (min-width:630px){
 	.reg-quote1{
 		position: absolute;
-		top: 40%;
-		font-size: 2.5rem;
+    	top: 30%;
+    	font-size: 2.2rem;
 	}
 	.reg-quote2{
 		position: absolute;
-		top: 65%;
-		left: 5%;
-		width: 30%;
-		padding-top: 2.5rem;
-		font-size: 1.3rem;
+    top: 51%;
+    left: 4%;
+    width: 21%;
+    padding-top: 2.5rem;
+    font-size: 1.2rem;
 	}
 	.reg-logo{
 		position: absolute;
 		top: 12%;
-		left: 9%;
-		width: 110px !important;
-		height: 110px !important;
+		left: 11%;
+		width: 80px !important;
+		height: 80px !important;
 	}
 	.register-box{
 		width: 60%;
@@ -552,20 +559,21 @@ i{
 		position: absolute;
 		top: 12%;
 		left: 9%;
-		width: 130px !important;
-		height: 130px !important;
+		width: 90px !important;
+		height: 90px !important;
 	}
 	.reg-quote1{
 		position: absolute;
-		top: 40%;
+		top: 28%;
+		left: 4%;
 		font-size: 3rem;
 	}
 	.reg-quote2{
 		position: absolute;
-		top: 65%;
-		left: 5%;
-		width: 30%;
-		padding-top: 2.5rem;
-		font-size: 1.8rem;
+    top: 51%;
+    left: 2%;
+    width: 21%;
+    padding-top: 2.5rem;
+    font-size: 1.8rem;
 	}
 }​
