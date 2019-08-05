@@ -1,19 +1,12 @@
 const dotenv = require('dotenv')
 dotenv.config()
-// const mongouri=process.env.MONGO_ID;
-// const db = require('db')
-// db.connect({
-//   host: process.env.DB_HOST,
-//   username: process.env.DB_USER,
-//   password: process.env.DB_PASS
-// })
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const _ = require('lodash');
 const ejs = require('ejs')
 const mongoose = require('mongoose')
 const multer = require('multer')
-const BigNumber = require('big-number');
 const app = express()
 app.set('view engine', 'ejs')
 app.use(
@@ -117,6 +110,10 @@ app.get('/login', function(req,res){
 app.get('/register', function(req,res){
 	res.render('register')
 })
+app.get(('/payment'),function(req,res){
+	res.render('payment')
+})
+
 //Post requests=============================================
 app.post('/contact', function(req, res) {
 	//console.log(req.body)
