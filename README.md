@@ -1,4 +1,4 @@
-# AssistU
+# ***AssistU***
 `Live:` https://assist-u.herokuapp.com
 
 ## Overview
@@ -13,7 +13,7 @@ Typically a six(6) week adventure, Chingu Voyage 10 Team #14's repo was created 
 
 #### Modified Schedule
 
-![Team #14's Schedule]( "Team #14's Schedule")
+![Team #14's Schedule](https://github.com/chingu-voyages/v10-geckos-team-14/blob/readmeUpdates/public/images/ChinguV10%20-%20Team%2014.png?raw=true "Team #14's Schedule")
 
 ### Motivation
 
