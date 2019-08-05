@@ -1,4 +1,5 @@
 <%- include("partials/header") -%>
+<%- include("partials/navbar") -%>
 <!-- booking section begins -->
 <br /> <br />
 <h1><%= serviceType %></h1>
@@ -17,7 +18,7 @@
 		<%	for(var i=0; i<fixerData.length; i+=3) { %>
 				
 				<div class="card-deck text-center">
-						<div class="card border border-warning col-lg-4" id="<%= fixerData[i]._id %>">
+						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i]._id %>">
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
 						  <div class="card-body">
 							<h5 class="card-title"><%= fixerData[i].fixerCompanyName %></h5>
@@ -29,7 +30,7 @@
 							</div>
 						</div>
 						<% if(fixerData[i+1]){ %>
-						<div class="card border border-warning col-lg-4" id="<%= fixerData[i+1]._id %>">
+						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i+1]._id %>">
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">  
 						  <div class="card-body">
 							<h5 class="card-title"><%= fixerData[i+1].fixerCompanyName %></h5>
@@ -42,7 +43,7 @@
 						</div>
 						<% } %>
 						<% if(fixerData[i+2]){ %>
-						<div class="card border border-warning col-lg-4" id="<%= fixerData[i+2]._id %>">
+						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i+2]._id %>">
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
 						  <div class="card-body">
 							<h5 class="card-title"><%= fixerData[i+2].fixerCompanyName %></h5>
