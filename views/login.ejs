@@ -1,68 +1,86 @@
 <%- include("partials/header") -%>
 
 <!-- login section begins -->
-<img
-	class="login-bk-img align-left"
-	id="login-bk-img"
-	src="images/Login-Bkgd.png"
-	alt="color and shape background"
-/>
+<div class="media" style="position: relative; margin-bottom: 4rem;">
+	<img
+		class="login-bk-img align-left"
+		id="login-bk-img"
+		src="images/Login-Bkgd.png"
+		alt="color and shape background"
+	/>
+	<div class="align-self-center mr-3">
+		<img
+			src="/images/helpingHands.png"
+			width="100"
+			height="100"
+			class="logo-img login-logo"
+			alt="logo-assistU"
+		/>
+		<h1 class="">AssistU</h1>
+    <!-- <br /> -->
+    <div class="align-self-center ml-2">
+      <h2 class="media-body" style="align-content:text-center !important">Maximize Your Time</h2>
+    </div>
+	</div>
+</div>
 
-<div class="row title-row">
-		<h1 class="sec-title login-sec-title">
-			Maximize <br />Your<br />
-			Time
-		</h1>
-  </div>
-  <br/>
-  <br/>
+<br />
+<br />
 
 <div class="container login-sec text-center">
-
 	<div class="row">
 		<div class="container login-box text-left">
 			<br />
 			<h3>Login your account</h3>
 			<form>
 				<div class="form-group ">
-					<label for="exampleInputEmail1">Email</label>
-					<input
-						type="email"
-						class="form-control"
-						id="exampleInputEmail1"
-						aria-describedby="emailHelp"
-						placeholder="Your Email"
-					/>
-					<small id="emailHelp" class="form-text text-muted"></small>
+					<label class="label-for-login">Email</label>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text icon-container"
+								><i class="fa fa-envelope" aria-hidden="true"></i
+							></span>
+						</div>
+						<input
+							type="email"
+							class="form-control reg-form"
+							name="clientEmail"
+							placeholder="Your Email"
+							aria-describedby="emailInput"
+						/>
+					</div>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<input
-						type="password"
-						class="form-control"
-						id="exampleInputPassword1"
-						placeholder="Your Password"
-					/>
+
+          <label class="label-for-login">Password</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text icon-container"
+                ><i class="fa fa-key" aria-hidden="true"></i
+              ></span>
+            </div>
+            <input
+              type="password"
+              class="form-control reg-form"
+              name="clientPassword"
+              name="clientPassword"
+              placeholder="Your Password"
+              aria-describedby="passwordInput"
+            />
 				</div>
 				<div class="row-btn text-center">
-					<button
-						type="submit"
-						class="btn btn-lg btn-outline-warning"
-						style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 1rem; width: 7rem;"
-					>
-						Register
-					</button>
+
+          <a class="btn btn-lg btn-outline-warning" href="https://assist-u.herokuapp.com/register" style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: none; border-radius: 1rem;"
+          >Register</a>
 					<button
 						type="submit"
 						class="btn btn-lg btn-warning"
-						style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 1rem; width: 8rem;"
+						style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 1rem; width: 7.5rem;"
 					>
 						Login
 					</button>
 					<p>
-						<a
-							href="#"
-							style="font-family: 'Fredoka One', cursive; color: #63032e;"
+						<a href="mailto:assistupro@gmail.com" style="font-family: 'Fredoka One', cursive; color: #63032e;"
 							>Forget Password</a
 						>
 					</p>
@@ -76,3 +94,4 @@
 <!-- login section ends -->
 
 <%- include("partials/footer") -%>
+
