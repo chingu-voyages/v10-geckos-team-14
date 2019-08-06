@@ -53,5 +53,3 @@ function timeDifferenceCalc (){
         $('.timeDiff').show() 
     }
 }
-
-

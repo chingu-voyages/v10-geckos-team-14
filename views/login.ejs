@@ -11,20 +11,22 @@
 		style="z-index: -1 !important;"
 	/>
 	<div>
-		<img
+		<a href="/">
+			<img
 			src="/images/helpingHands.png"
 			width="100"
 			height="100"
 			class="logo-img reg-logo"
 			alt="logo-assistU"
 		/>
+		</a>
 		<h1 class="reg-quote1">AssistU</h1>
 		<h2 class="reg-quote2">Maximize Your Time</h2>
 	</div>
 </div>
 <div class="container border border-dark shadow register-box text-left">
 	<h2 style="text-align: center !important;">Login your account</h2>
-	<form action="/clientReg" method="post">
+	<form action="/login" method="post">
 		<label class="label-for-register">Email</label>
 		<div class="input-group mb-2">
 			<div class="input-group-prepend">
@@ -35,9 +37,10 @@
 			<input
 				type="email"
 				class="form-control reg-form"
-				name="clientEmail"
+				name="username"
 				placeholder="Your Email"
 				aria-describedby="passwordInput"
+				required
 			/>
 		</div>
 		<label class="label-for-register">Password</label>
@@ -50,14 +53,15 @@
 			<input
 				type="password"
 				class="form-control reg-form"
-				name="clientPassword"
+				name="password"
 				placeholder="Your Password"
 				aria-describedby="passwordInput"
+				required
 			/>
 		</div>
 				<div class="row-btn text-center">
 
-          <a class="btn btn-lg btn-outline-warning" href="https://assist-u.herokuapp.com/register" style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: none; border-radius: 1rem;"
+          <a class="btn btn-lg btn-outline-warning" href="/register" style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: none; border-radius: 1rem;"
           >Register</a>
 					<button
 						type="submit"

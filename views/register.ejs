@@ -8,13 +8,15 @@
 		style="z-index: -1 !important;"
 	/>
 	<div>
-		<img
+		<a href="/">
+			<img
 			src="/images/helpingHands.png"
 			width="100"
 			height="100"
 			class="logo-img reg-logo"
 			alt="logo-assistU"
 		/>
+		</a>
 		<h1 class="reg-quote1">AssistU</h1>
 		<h2 class="reg-quote2">Maximize Your Time</h2>
 	</div>
@@ -22,7 +24,7 @@
 
 <div class="container border border-dark shadow register-box text-left">
 	<h2 style="text-align: center !important;">Create your account</h2>
-	<form action="/clientReg" method="post">
+	<form action="/register" method="post">
 		<label class="label-for-register">Name</label>
 		<div class="input-group mb-2">
 			<div class="input-group-prepend">
@@ -36,6 +38,7 @@
 				name="clientName"
 				placeholder="Your Name"
 				aria-describedby="basic-addon1"
+				required
 			/>
 		</div>
 		<label class="label-for-register">Email</label>
@@ -48,9 +51,10 @@
 			<input
 				type="email"
 				class="form-control reg-form"
-				name="clientEmail"
+				name="username"
 				placeholder="Your Email"
-				aria-describedby="basic-addon1"
+                                aria-describedby="basic-addon1"
+                                required
 			/>
 		</div>
 		<label class="label-for-register">Password</label>
@@ -63,9 +67,10 @@
 			<input
 				type="password"
 				class="form-control reg-form"
-				name="clientPassword"
+				name="password"
 				placeholder="Your Password"
-				aria-describedby="basic-addon1"
+                                aria-describedby="basic-addon1"
+                                required
 			/>
 		</div>
 		<label class="label-for-register">Mobile Number</label>
@@ -81,6 +86,7 @@
 				name="clientMobileNo"
 				placeholder="Your Mobile Number"
 				aria-describedby="basic-addon1"
+				required
 			/>
 		</div>
 		<label class="label-for-register">Home Address</label>
@@ -97,6 +103,7 @@
 					name="clientStreetAddress1"
 					placeholder="StreetAddress 1"
 					aria-describedby="basic-addon1"
+					required
 				/>
 			</div>
 			<div class="col-lg-6 input-group mb-2">
@@ -111,6 +118,7 @@
 					name="clientStreetAddress2"
 					placeholder="StreetAddress 2"
 					aria-describedby="basic-addon1"
+					required
 				/>
 			</div>
 		</div>
@@ -127,6 +135,7 @@
 					name="clientCity"
 					placeholder="City"
 					aria-describedby="basic-addon1"
+					required
 				/>
 			</div>
 			<div class="col-lg-6 input-group mb-2">
@@ -141,6 +150,7 @@
 					name="clientState"
 					placeholder="State"
 					aria-describedby="basic-addon1"
+					required
 				/>
 			</div>
 		</div>
@@ -157,6 +167,7 @@
 					name="clientCountry"
 					placeholder="Country"
 					aria-describedby="basic-addon1"
+					required
 				/>
 			</div>
 			<div class="col-lg-6 input-group mb-2">
@@ -171,6 +182,7 @@
 					name="clientZip"
 					placeholder="Zip"
 					aria-describedby="basic-addon1"
+					required
 				/>
 			</div>
 		</div>

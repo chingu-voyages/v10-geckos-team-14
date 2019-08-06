@@ -3,23 +3,34 @@ dotenv.config()
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const _ = require('lodash');
 const ejs = require('ejs')
 const mongoose = require('mongoose')
+const session = require('express-session')
+const passport = require('passport')
+const passportLocalMongoose = require('passport-local-mongoose')
+const _ = require('lodash');
 const multer = require('multer')
 const app = express()
+app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.use(
 	bodyParser.urlencoded({
 		extended: true
 	})
 )
-app.use(express.static('public'))
+app.use(session({
+	secret:process.env.SECRET_KEY,
+	resave:false,
+	saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 // for local DB connection ============================================================
 mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 //for live DB connection ============================================================
  //mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
- //mongoose.set('useFindAndModify', false)
+ mongoose.set('useFindAndModify', false)
+ mongoose.set('useCreateIndex', true)
 //Database schemas======================================
 const orderSchema = new mongoose.Schema({
 	orderClientID: String,
@@ -41,18 +52,19 @@ const orderSchema = new mongoose.Schema({
 	orderImage: String
 })
 const clientSchema = new mongoose.Schema({
-	clientEmail: { type: String, required: [true, 'This is a compulsory field'] },
-	clientPassword: { type: String, required: [true, 'This is a compulsory field'] },
-	clientName: { type: String, required: [true, 'This is a compulsory field'] },
-	clientStreetAddress1: { type: String, required: [true, 'This is a compulsory field'] },
-	clientStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
-	clientCity: { type: String, required: [true, 'This is a compulsory field'] },
-	clientState: { type: String, required: [true, 'This is a compulsory field'] },
-	clientCountry: { type: String, required: [true, 'This is a compulsory field'] },
-	clientZip: { type: String, required: [true, 'This is a compulsory field'] },
-	clientMobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
-	clientProfileImage: String
+	username: String,
+	password: String,
+	clientName: String,
+	clientStreetAddress1: String,
+	clientStreetAddress2: String,
+	clientCity: String,
+	clientState: String,
+	clientCountry: String,
+	clientZip: Number,
+	clientMobileNo: String
+	//clientProfileImage: String
 })
+clientSchema.plugin(passportLocalMongoose)
 const contactUsSchema = new mongoose.Schema({
 	contactEmail: { type: String, required: [true, 'This is a compulsory field'] },
 	contactSubject: { type: String, required: [true, 'This is a compulsory field'] },
@@ -81,6 +93,17 @@ const fixerSchema = new mongoose.Schema({
 const Contact = mongoose.model('Contact', contactUsSchema)
 const Fixer = mongoose.model('Fixer', fixerSchema)
 const Order = mongoose.model ('Order', orderSchema)
+const Client = mongoose.model ('Client', clientSchema)
+passport.use(Client.createStrategy())
+passport.serializeUser(function(user, done) {
+	done(null, user);
+  });
+  
+  passport.deserializeUser(function(user, done) {
+	done(null, user);
+  });
+// passport.serializeUser(Client.serializeUser())
+// passport.deserializeUser(Client.deserializeUser())
 //variable declarations================================================
 var formCheck = false
 var fixers = []
@@ -110,9 +133,17 @@ app.get('/login', function(req,res){
 app.get('/register', function(req,res){
 	res.render('register')
 })
-app.get(('/payment'),function(req,res){
-	res.render('payment')
+app.get('/payment',function(req,res){
+	if (req.isAuthenticated()){
+		res.render('payment')
+	}else{
+		res.redirect('/login')
+	}	
 })
+app.get('/logout', function(req, res){
+	req.logout();
+	res.redirect("/");
+  });
 
 //Post requests=============================================
 app.post('/contact', function(req, res) {
@@ -188,6 +219,94 @@ app.post('/selectedFixer', function(req,res){
 		}
 	})
 })
+
+app.post('/register', function(req,res){
+
+	Client.register({username:req.body.username}, req.body.password, function(err, user){
+		if (err){
+			console.log(err)
+			res.redirect('/register')
+		} else{
+			passport.authenticate('local')(req, res, function(){
+				Client.findOneAndUpdate({username:req.body.username},{
+					clientName: req.body.clientName,
+					clientStreetAddress1: req.body.clientStreetAddress1,
+					clientStreetAddress2: req.body.clientStreetAddress2,
+					clientCity: req.body.clientCity,
+					clientState: req.body.clientState,
+					clientCountry: req.body.clientCountry,
+					clientZip: req.body.clientZip,
+					clientMobileNo: req.body.clientMobileNo
+				},function(err){
+					if(err){
+						console.log(err)
+					}
+				})
+				res.redirect('/payment')
+				console.log('working')
+			})
+		}
+	})
+})
+
+app.post('/login', function(req,res){
+	const clientAuth = new Client ({
+		username:req.body.username,
+		password:req.body.password
+	})
+	req.login(clientAuth, function(err){
+		if(err){
+			console.log(err)
+			console.log('2')
+		}else{
+			passport.authenticate('local')(req,res,function(error,user,info){
+			res.redirect('/payment')
+			console.log('working')
+			console.log(' ---- '+info)
+			})
+			console.log('1')
+			Client.findOne({username:req.body.username}, function(err, foundUser){
+				if(err){console.log(err)}else{
+					if (foundUser){} else{res.send('No user exists!')}
+				}
+			})
+		}
+		console.log('3')
+	})
+	console.log('4')
+})
+
+// app.post('/login',
+//   // wrap passport.authenticate call in a middleware function
+//   function (req, res, next) {
+//     // call passport authentication passing the "local" strategy name and a callback function
+//     passport.authenticate('local', function (error, user, info) {
+//       // this will execute in any case, even if a passport strategy will find an error
+//       // log everything to console
+//       console.log('A: '+error);
+//       console.log('B: '+user);
+//       console.log('C: '+info);
+
+//       if (error) {
+// 		res.status(401).send(error);
+// 		console.log('1')
+//       } else if (!user) {
+// 		res.status(401).send(info);
+// 		console.log('2')
+//       } else {
+// 		next();
+// 		console.log('3')
+//       }
+
+//       res.status(200).send(info);
+//     })(req, res);
+//   },
+
+//   // function to call once successfully authenticated
+//   function (req, res) {
+// 	res.status(200).send('logged in!');
+// 	console.log('4')
+//   });
 
 //Server connection =============================================
 app.listen(process.env.PORT || 3000, function() {
