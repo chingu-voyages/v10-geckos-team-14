@@ -1,6 +1,12 @@
 const dotenv = require('dotenv')
 dotenv.config()
-
+// const mongouri=process.env.MONGO_ID;
+// const db = require('db')
+// db.connect({
+//   host: process.env.DB_HOST,
+//   username: process.env.DB_USER,
+//   password: process.env.DB_PASS
+// })
 const express = require('express')
 const bodyParser = require('body-parser')
 const ejs = require('ejs')
@@ -10,6 +16,7 @@ const passport = require('passport')
 const passportLocalMongoose = require('passport-local-mongoose')
 const _ = require('lodash');
 const multer = require('multer')
+const BigNumber = require('big-number');
 const app = express()
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
@@ -133,18 +140,6 @@ app.get('/login', function(req,res){
 app.get('/register', function(req,res){
 	res.render('register')
 })
-app.get('/payment',function(req,res){
-	if (req.isAuthenticated()){
-		res.render('payment')
-	}else{
-		res.redirect('/login')
-	}	
-})
-app.get('/logout', function(req, res){
-	req.logout();
-	res.redirect("/");
-  });
-
 //Post requests=============================================
 app.post('/contact', function(req, res) {
 	//console.log(req.body)
