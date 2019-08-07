@@ -1,6 +1,11 @@
 <%- include("partials/header") -%>
-<%- include("partials/navbar") -%>
-
+<% if(navCheck){ %>
+	<%- include("partials/navbarLogout") -%>
+	<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 1rem;text-shadow: 1px 1px #f2f7f0;"><%= clientDisplayName %></h5>
+<%}%> 
+<% if(!navCheck) {%>
+	<%- include("partials/navbarLogin") -%>
+<%}%>
 <!-- service section begins -->
 <section class="container services-section text-center">
 	<h1 class="sec-title">Invest In Your Convenience</h1>
@@ -240,7 +245,7 @@
 				aria-describedby="emailHelp"
 				placeholder="something@about.com"
 				name= contactEmail
-				required autofocus
+				required 
 			/>
 		</div>
 		<div class="form-group">
