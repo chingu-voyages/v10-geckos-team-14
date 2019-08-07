@@ -24,9 +24,42 @@
 
 <div class="container border border-dark shadow register-box text-left">
 	<h2 style="text-align: center !important;">Create your account</h2>
+	<p class="text-center error-msg"><strong><%= errorMessage %></strong></p>
 	<form action="/register" method="post">
 		<label class="label-for-register">Name</label>
-		<div class="input-group mb-2">
+		<div class="row">
+			<div class="col-lg-6 input-group mb-2">
+				<div class="input-group-prepend">
+					<span class="input-group-text icon-container" id="basic-addon0"
+						><i class="fa fa-user" aria-hidden="true"></i
+					></span>
+				</div>
+				<input
+					type="text"
+					class="form-control reg-form input-check"
+					name="clientFirstName"
+					placeholder="First Name"
+					aria-describedby="basic-addon1"
+					required
+				/>
+			</div>
+			<div class="col-lg-6 input-group mb-2">
+				<div class="input-group-prepend">
+					<span class="input-group-text icon-container" id="basic-addon1"
+						><i class="fa fa-user" aria-hidden="true"></i
+					></span>
+				</div>
+				<input
+					type="text"
+					class="form-control reg-form input-check"
+					name="clientLastName"
+					placeholder="Last Name"
+					aria-describedby="basic-addon1"
+					required
+				/>
+			</div>
+		</div>
+		<!-- <div class="input-group mb-2">
 			<div class="input-group-prepend">
 				<span class="input-group-text icon-container" id="basic-addon1"
 					><i class="fa fa-user" aria-hidden="true"></i
@@ -34,13 +67,13 @@
 			</div>
 			<input
 				type="text"
-				class="form-control reg-form"
+				class="form-control reg-form input-check"
 				name="clientName"
 				placeholder="Your Name"
 				aria-describedby="basic-addon1"
-				required
+				required autofocus
 			/>
-		</div>
+		</div> -->
 		<label class="label-for-register">Email</label>
 		<div class="input-group mb-2">
 			<div class="input-group-prepend">
@@ -50,7 +83,7 @@
 			</div>
 			<input
 				type="email"
-				class="form-control reg-form"
+				class="form-control reg-form input-check"
 				name="username"
 				placeholder="Your Email"
                                 aria-describedby="basic-addon1"
@@ -66,7 +99,7 @@
 			</div>
 			<input
 				type="password"
-				class="form-control reg-form"
+				class="form-control reg-form input-check"
 				name="password"
 				placeholder="Your Password"
                                 aria-describedby="basic-addon1"
@@ -82,7 +115,7 @@
 			</div>
 			<input
 				type="number"
-				class="form-control reg-form"
+				class="form-control reg-form input-check"
 				name="clientMobileNo"
 				placeholder="Your Mobile Number"
 				aria-describedby="basic-addon1"
@@ -99,7 +132,7 @@
 				</div>
 				<input
 					type="address"
-					class="form-control reg-form"
+					class="form-control reg-form input-check"
 					name="clientStreetAddress1"
 					placeholder="StreetAddress 1"
 					aria-describedby="basic-addon1"
@@ -114,7 +147,7 @@
 				</div>
 				<input
 					type="address"
-					class="form-control reg-form"
+					class="form-control reg-form input-check"
 					name="clientStreetAddress2"
 					placeholder="StreetAddress 2"
 					aria-describedby="basic-addon1"
@@ -131,7 +164,7 @@
 				</div>
 				<input
 					type="address"
-					class="form-control reg-form"
+					class="form-control reg-form input-check"
 					name="clientCity"
 					placeholder="City"
 					aria-describedby="basic-addon1"
@@ -146,7 +179,7 @@
 				</div>
 				<input
 					type="address"
-					class="form-control reg-form"
+					class="form-control reg-form input-check"
 					name="clientState"
 					placeholder="State"
 					aria-describedby="basic-addon1"
@@ -163,7 +196,7 @@
 				</div>
 				<input
 					type="address"
-					class="form-control reg-form"
+					class="form-control reg-form input-check"
 					name="clientCountry"
 					placeholder="Country"
 					aria-describedby="basic-addon1"
@@ -178,7 +211,7 @@
 				</div>
 				<input
 					type="number"
-					class="form-control reg-form"
+					class="form-control reg-form input-check"
 					name="clientZip"
 					placeholder="Zip"
 					aria-describedby="basic-addon1"
@@ -195,7 +228,7 @@
 				Sign Up!
 			</button>
 		</div>
-		<p class="text-center" style="font-family: 'Domine', serif;;">Already Registered? <a href="#" style="font-family: 'Fredoka One', cursive; color:#63032e; text-decoration: none;">Sign-in!</a></p>
+		<p class="text-center" style="font-family: 'Domine', serif;;">Already Registered? <a href=       "/login" style="font-family: 'Fredoka One', cursive; color:#63032e; text-decoration: none;">Sign-in!</a></p>
 	</form>
 </div>
 

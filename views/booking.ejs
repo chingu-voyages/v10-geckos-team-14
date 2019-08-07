@@ -1,5 +1,11 @@
 <%- include("partials/header") -%>
-<%- include("partials/navbar") -%>
+<% if(navCheck){ %>
+	<%- include("partials/navbarLogout") -%>
+	<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 1rem;text-shadow: 1px 1px #f2f7f0;"><%= clientDisplayName %></h5>
+<%}%> 
+<% if(!navCheck) {%>
+	<%- include("partials/navbarLogin") -%>
+<%}%>
 <!-- booking section begins -->
 <br /> <br />
 <h1><%= serviceType %></h1>

@@ -1,14 +1,10 @@
+//========================================APP DEPENDENCIES===============================================
+
 const dotenv = require('dotenv')
 dotenv.config()
-// const mongouri=process.env.MONGO_ID;
-// const db = require('db')
-// db.connect({
-//   host: process.env.DB_HOST,
-//   username: process.env.DB_USER,
-//   password: process.env.DB_PASS
-// })
 const express = require('express')
 const bodyParser = require('body-parser')
+const http = require('http')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
 const session = require('express-session')
@@ -32,13 +28,19 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+
+//========================================DATABASE CONNECTIONS===========================================
+
 // for local DB connection ============================================================
-mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+
 //for live DB connection ============================================================
- //mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
  mongoose.set('useFindAndModify', false)
  mongoose.set('useCreateIndex', true)
-//Database schemas======================================
+
+//========================================DATABASE SCHEMAS===============================================
+
 const orderSchema = new mongoose.Schema({
 	orderClientID: String,
 	orderService: String,
@@ -61,7 +63,8 @@ const orderSchema = new mongoose.Schema({
 const clientSchema = new mongoose.Schema({
 	username: String,
 	password: String,
-	clientName: String,
+	clientFirstName: String, // todo: [ ] post mvp include validation to accept only 5-6 characters
+	clientLastName: String,  
 	clientStreetAddress1: String,
 	clientStreetAddress2: String,
 	clientCity: String,
@@ -95,52 +98,135 @@ const fixerSchema = new mongoose.Schema({
 	fixerZip: { type: String, required: [true, 'This is a compulsory field'] },
 })
 
-// app codes-----------------------------------------------------------------------------------
-// Models==================================================
+//========================================MODALS=========================================================
+
 const Contact = mongoose.model('Contact', contactUsSchema)
 const Fixer = mongoose.model('Fixer', fixerSchema)
 const Order = mongoose.model ('Order', orderSchema)
 const Client = mongoose.model ('Client', clientSchema)
 passport.use(Client.createStrategy())
-passport.serializeUser(function(user, done) {
-	done(null, user);
-  });
-  
-  passport.deserializeUser(function(user, done) {
-	done(null, user);
-  });
-// passport.serializeUser(Client.serializeUser())
-// passport.deserializeUser(Client.deserializeUser())
-//variable declarations================================================
+passport.serializeUser(Client.serializeUser())
+passport.deserializeUser(Client.deserializeUser())
+
+//========================================VARIABLE DECLARATIONS==========================================
+
 var formCheck = false
+var loginErrorCheck = false
+var registerErrorCheck = false
+var loginError
+var registerError
 var fixers = []
 var serviceType
 var selectedFixer
 var selectedFixerFee
 let workHours = 1
 let calcFee = 1
-//Get requests=============================================
+var navCheck= false
+var clientDisplayName 
+
+//=============================================GET REQUESTS==============================================
+
+//Get request: HOME PAGE=============================================
 app.get('/', function(req, res) {
-	if (formCheck) {
-		formCheck = false
-		res.render('thanks')
-	} else {
-		res.render('home')
-	}
+	Client.findOne({username:clientDisplayName}, function(err, foundClient){
+		if (formCheck) {
+			formCheck = false
+			if(foundClient){
+				res.render('thanks',{
+					navCheck:navCheck,
+					clientDisplayName:'Hi '+foundClient.clientFirstName+'!'
+				})
+			}else{
+				res.render('thanks',{
+					navCheck:navCheck,
+					clientDisplayName:' '
+				})
+			}
+		} else {
+			if(foundClient){
+				res.render('home',{
+					navCheck:navCheck,
+					clientDisplayName:'Hi '+foundClient.clientFirstName+'!'
+				})
+			}else{
+				res.render('home',{
+					navCheck:navCheck,
+					clientDisplayName:' '
+				})
+			}	
+		}
+	})	
 })
+//Get request: BOOKING PAGE=============================================
 app.get('/booking', function(req,res){
-	res.render('booking', {
-		fixerData:fixers,
-		serviceType:serviceType
+	Client.findOne({username:clientDisplayName}, function(err, foundClient){
+		if(foundClient){
+			res.render('booking', {
+				fixerData:fixers,
+				serviceType:serviceType,
+				navCheck:navCheck,
+				clientDisplayName:'Hi '+foundClient.clientFirstName+'!'
+			})
+		} else{
+			res.render('booking', {
+				fixerData:fixers,
+				serviceType:serviceType,
+				navCheck:navCheck,
+				clientDisplayName:' '
+			})
+		}
 	})
 })
+//Get request: LOGIN PAGE=============================================
 app.get('/login', function(req,res){
-	res.render('login')
+		if (loginErrorCheck){
+			loginErrorCheck=false
+			res.render('login',{
+			errorMessage: loginError
+			})
+		}else{
+			res.render('login',{
+			errorMessage:" "
+			})
+	}
 })
+//Get request: REGISTER PAGE=============================================
 app.get('/register', function(req,res){
-	res.render('register')
+	if (registerErrorCheck){
+		registerErrorCheck=false
+		res.render('register',{
+		errorMessage: "Email already registered!"
+		})
+	}else{
+		res.render('register',{
+		errorMessage:" "
+		})
+}
 })
-//Post requests=============================================
+//Get request: PAYMENT PAGE=============================================
+app.get('/payment',function(req,res){
+	
+	if (req.isAuthenticated()){
+		navCheck=true
+		Client.findOne({username:clientDisplayName}, function(err, foundClient){
+			res.render('payment',{
+			clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
+			})
+		})
+	}else{
+		res.redirect('/login')
+	}	
+})
+//Get request: LOGOUT ROUTE=============================================
+app.get('/logout', function(req, res){
+	navCheck=false
+	req.logout()
+	res.redirect("/")
+  });
+
+//=============================================POST REQUESTS=============================================
+
+//Post request: CONTACT FORM @ HOME PAGE=============================================
 app.post('/contact', function(req, res) {
 	//console.log(req.body)
 	const contactData = new Contact({
@@ -157,6 +243,7 @@ app.post('/contact', function(req, res) {
 		}
 	})
 })
+//Post request: SERVICE SELECTION @ HOME PAGE=============================================
 app.post('/service', function(req, res){
 	//console.log(req.body.serviceType)
 	serviceType = req.body.serviceType
@@ -174,6 +261,7 @@ app.post('/service', function(req, res){
 		
 	})
 })
+//Post request: BOOKING FORM @ BOOKING PAGE=============================================
 app.post('/selectedFixer', function(req,res){
 	//console.log(req.body.selectedFixer)
 	const selectedFixerId = req.body.selectedFixer
@@ -214,17 +302,24 @@ app.post('/selectedFixer', function(req,res){
 		}
 	})
 })
-
+//Post request: REGISTRATION FORM @ REGISTER PAGE=============================================
 app.post('/register', function(req,res){
 
 	Client.register({username:req.body.username}, req.body.password, function(err, user){
 		if (err){
-			console.log(err)
-			res.redirect('/register')
+			registerErrorCheck=true
+			if(err.name === 'UserExistsError'){
+				registerError = 'Email already registered!'
+				res.redirect('/register')
+			}else{
+				registerError = 'Registration Failed! Please try again'
+				res.redirect('/register')
+			}			
 		} else{
 			passport.authenticate('local')(req, res, function(){
 				Client.findOneAndUpdate({username:req.body.username},{
-					clientName: req.body.clientName,
+					clientFirstName: req.body.clientFirstName,
+					clientLastName: req.body.clientLastName,
 					clientStreetAddress1: req.body.clientStreetAddress1,
 					clientStreetAddress2: req.body.clientStreetAddress2,
 					clientCity: req.body.clientCity,
@@ -238,72 +333,50 @@ app.post('/register', function(req,res){
 					}
 				})
 				res.redirect('/payment')
+				clientDisplayName= req.body.username
 				console.log('working')
 			})
 		}
 	})
 })
-
+//Post request: LOGIN FORM @ LOGIN PAGE=============================================
 app.post('/login', function(req,res){
+
 	const clientAuth = new Client ({
 		username:req.body.username,
 		password:req.body.password
 	})
-	req.login(clientAuth, function(err){
-		if(err){
+	passport.authenticate('local', function(err, user, info){
+		if (err){
 			console.log(err)
-			console.log('2')
-		}else{
-			passport.authenticate('local')(req,res,function(error,user,info){
-			res.redirect('/payment')
-			console.log('working')
-			console.log(' ---- '+info)
-			})
-			console.log('1')
-			Client.findOne({username:req.body.username}, function(err, foundUser){
-				if(err){console.log(err)}else{
-					if (foundUser){} else{res.send('No user exists!')}
-				}
-			})
 		}
-		console.log('3')
-	})
-	console.log('4')
+		if (!user){
+			loginErrorCheck=true
+			if(info.name === 'IncorrectPasswordError'){
+				loginError = 'Please enter correct password'
+				res.redirect('/login')
+			}else if (info.name === 'IncorrectUsernameError'){
+				loginError = 'Please enter registered email address'
+				res.redirect('/login')
+			}else{
+				loginError = 'Please enter valid credentials'
+				res.redirect('/login')	
+			}
+		}
+		req.login(user, function(err){
+			if(err){
+				console.log(err)
+			}else{
+				clientDisplayName= req.body.username
+				console.log('clientName :'+ clientDisplayName)
+				return	res.redirect('/payment')
+			}
+		})
+	}) (req,res)
 })
 
-// app.post('/login',
-//   // wrap passport.authenticate call in a middleware function
-//   function (req, res, next) {
-//     // call passport authentication passing the "local" strategy name and a callback function
-//     passport.authenticate('local', function (error, user, info) {
-//       // this will execute in any case, even if a passport strategy will find an error
-//       // log everything to console
-//       console.log('A: '+error);
-//       console.log('B: '+user);
-//       console.log('C: '+info);
+//==========================================SERVER CONNECTION============================================
 
-//       if (error) {
-// 		res.status(401).send(error);
-// 		console.log('1')
-//       } else if (!user) {
-// 		res.status(401).send(info);
-// 		console.log('2')
-//       } else {
-// 		next();
-// 		console.log('3')
-//       }
-
-//       res.status(200).send(info);
-//     })(req, res);
-//   },
-
-//   // function to call once successfully authenticated
-//   function (req, res) {
-// 	res.status(200).send('logged in!');
-// 	console.log('4')
-//   });
-
-//Server connection =============================================
 app.listen(process.env.PORT || 3000, function() {
 	console.log('Server started at 3000')
 })
