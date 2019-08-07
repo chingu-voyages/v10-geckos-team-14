@@ -12,7 +12,6 @@ const passport = require('passport')
 const passportLocalMongoose = require('passport-local-mongoose')
 const _ = require('lodash');
 const multer = require('multer')
-const BigNumber = require('big-number');
 const app = express()
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
@@ -32,10 +31,10 @@ app.use(passport.session())
 //========================================DATABASE CONNECTIONS===========================================
 
 // for local DB connection ============================================================
-//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 
 //for live DB connection ============================================================
- mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+ //mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
  mongoose.set('useFindAndModify', false)
  mongoose.set('useCreateIndex', true)
 
