@@ -1,61 +1,63 @@
 <%- include("partials/header") -%>
 
 <!-- payment section begins -->
-<img style="width: 100%; z-index: -1; position: absolute;" src="images/payment-background.png" alt="" />
+<img
+	style="width: 100%; z-index: -1; position: absolute;"
+	src="images/payment-background.png"
+	alt=""
+/>
 <div style="z-index: 0;" class="container border border-dark shadow register-box text-left">
 	<h2 style="text-align: center !important;">Payment</h2>
 	<form action="/login" method="post">
-		<label class="label-for-register">Email</label>
-		<div class="input-group mb-2">
-			<div class="input-group-prepend">
-				<span class="input-group-text icon-container" id="emailIconHelper"
-					><i class="fa fa-envelope" aria-hidden="true"></i
-				></span>
-			</div>
-			<input
-				type="email"
-				class="form-control reg-form"
-				name="username"
-				placeholder="Your Email"
-				aria-describedby="passwordInput"
-				required
-			/>
-		</div>
-		<label class="label-for-register">Password</label>
-		<div class="input-group mb-2">
-			<div class="input-group-prepend">
-				<span class="input-group-text icon-container" id="passwordIconHelper"
-					><i class="fa fa-key" aria-hidden="true"></i
-				></span>
-			</div>
-			<input
-				type="password"
-				class="form-control reg-form"
-				name="password"
-				placeholder="Your Password"
-				aria-describedby="passwordInput"
-				required
-			/>
-		</div>
+		<h5 style="text-align: center !important;">AssistU</h5>
+		<h6 style="text-align: center !important;">Your Total</h6>
+		<h6 style="text-align: center !important;">$177</h6>
 		<div class="row-btn text-center">
+			<a
+				class="btn btn-lg btn-outline-warning"
+				href=""
+				style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: none; border-radius: 1rem;"
+				>Credit</a
+			>
 			<a
 				class="btn btn-lg btn-outline-warning"
 				href="/register"
 				style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: none; border-radius: 1rem;"
-				>Register</a
+				>Cash</a
 			>
+			<div>
+				<h5 style="text-align: center !important;">Cart</h5>
+				<div>
+					<h6>Fixer Identity Service</h6>
+					<p># of Hours</p>
+				</div>
+				<div>
+					<h6>$75</h6>
+				</div>
+			</div>
+			<div>
+				<div>
+					<h6>Fixer Identity Service</h6>
+					<p># of Hours</p>
+				</div>
+				<div>
+					<h6>$102</h6>
+				</div>
+				<h5 style="text-align: center !important;">Total $177</h5>
+			</div>
+
 			<button
 				type="submit"
 				class="btn btn-lg btn-warning"
 				style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 1rem; width: 7.5rem;"
 			>
-				Login
+				Confirm Cash Payment
 			</button>
 			<p>
 				<a
 					href="mailto:assistupro@gmail.com"
-					style="font-family: 'Fredoka One', cursive; color: #63032e;"
-					>Forget Password?</a
+					style="font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: underline dotted #63032e;"
+					>Cancel Order</a
 				>
 			</p>
 		</div>
@@ -64,6 +66,6 @@
 
 <br />
 
-<!-- login section ends -->
+<!-- payment section ends -->
 
 <%- include("partials/footer") -%>
