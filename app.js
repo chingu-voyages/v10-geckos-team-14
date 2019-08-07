@@ -10,9 +10,8 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
 const passportLocalMongoose = require('passport-local-mongoose')
-const _ = require('lodash');
+const _ = require('lodash')
 const multer = require('multer')
-const BigNumber = require('big-number');
 const app = express()
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
