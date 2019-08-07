@@ -25,6 +25,7 @@
 
 <div class="container border border-dark shadow register-box text-left">
 	<h2 style="text-align: center !important;">Login your account</h2>
+	<p class="text-center error-msg"><strong><%= errorMessage %></strong></p>
 	<form action="/login" method="post">
 		<label class="label-for-register">Email</label>
 		<div class="input-group mb-2">
@@ -35,11 +36,11 @@
 			</div>
 			<input
 				type="email"
-				class="form-control reg-form"
+				class="form-control reg-form input-check"
 				name="username"
 				placeholder="Your Email"
 				aria-describedby="passwordInput"
-				required
+				required autofocus
 			/>
 		</div>
 		<label class="label-for-register">Password</label>
@@ -51,7 +52,7 @@
 			</div>
 			<input
 				type="password"
-				class="form-control reg-form"
+				class="form-control reg-form input-check"
 				name="password"
 				placeholder="Your Password"
 				aria-describedby="passwordInput"
