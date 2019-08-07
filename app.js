@@ -111,6 +111,10 @@ app.get('/booking', function(req,res){
 		serviceType:serviceType
 	})
 })
+app.get('/payment', function(req,res){
+	res.render('payment', {
+	})
+})
 //Post requests=============================================
 app.post('/contact', function(req, res) {
 	//console.log(req.body)
