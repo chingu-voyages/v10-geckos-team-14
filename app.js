@@ -1,33 +1,46 @@
+//========================================APP DEPENDENCIES===============================================
+
 const dotenv = require('dotenv')
 dotenv.config()
-// const mongouri=process.env.MONGO_ID;
-// const db = require('db')
-// db.connect({
-//   host: process.env.DB_HOST,
-//   username: process.env.DB_USER,
-//   password: process.env.DB_PASS
-// })
 const express = require('express')
 const bodyParser = require('body-parser')
-const _ = require('lodash');
+const http = require('http')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
+const session = require('express-session')
+const passport = require('passport')
+const passportLocalMongoose = require('passport-local-mongoose')
+const _ = require('lodash');
 const multer = require('multer')
 const BigNumber = require('big-number');
 const app = express()
+app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.use(
 	bodyParser.urlencoded({
 		extended: true
 	})
 )
-app.use(express.static('public'))
+app.use(session({
+	secret:process.env.SECRET_KEY,
+	resave:false,
+	saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+//========================================DATABASE CONNECTIONS===========================================
+
 // for local DB connection ============================================================
 //mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+
 //for live DB connection ============================================================
  mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
  mongoose.set('useFindAndModify', false)
-//Database schemas======================================
+ mongoose.set('useCreateIndex', true)
+
+//========================================DATABASE SCHEMAS===============================================
+
 const orderSchema = new mongoose.Schema({
 	orderClientID: String,
 	orderService: String,
@@ -48,18 +61,20 @@ const orderSchema = new mongoose.Schema({
 	orderImage: String
 })
 const clientSchema = new mongoose.Schema({
-	clientEmail: { type: String, required: [true, 'This is a compulsory field'] },
-	clientPassword: { type: String, required: [true, 'This is a compulsory field'] },
-	clientName: { type: String, required: [true, 'This is a compulsory field'] },
-	clientStreetAddress1: { type: String, required: [true, 'This is a compulsory field'] },
-	clientStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
-	clientCity: { type: String, required: [true, 'This is a compulsory field'] },
-	clientState: { type: String, required: [true, 'This is a compulsory field'] },
-	clientCountry: { type: String, required: [true, 'This is a compulsory field'] },
-	clientZip: { type: String, required: [true, 'This is a compulsory field'] },
-	clientMobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
-	clientProfileImage: String
+	username: String,
+	password: String,
+	clientFirstName: String, // todo: [ ] post mvp include validation to accept only 5-6 characters
+	clientLastName: String,  
+	clientStreetAddress1: String,
+	clientStreetAddress2: String,
+	clientCity: String,
+	clientState: String,
+	clientCountry: String,
+	clientZip: Number,
+	clientMobileNo: String
+	//clientProfileImage: String
 })
+clientSchema.plugin(passportLocalMongoose)
 const contactUsSchema = new mongoose.Schema({
 	contactEmail: { type: String, required: [true, 'This is a compulsory field'] },
 	contactSubject: { type: String, required: [true, 'This is a compulsory field'] },
@@ -83,35 +98,135 @@ const fixerSchema = new mongoose.Schema({
 	fixerZip: { type: String, required: [true, 'This is a compulsory field'] },
 })
 
-// app codes-----------------------------------------------------------------------------------
-// Models==================================================
+//========================================MODALS=========================================================
+
 const Contact = mongoose.model('Contact', contactUsSchema)
 const Fixer = mongoose.model('Fixer', fixerSchema)
 const Order = mongoose.model ('Order', orderSchema)
-//variable declarations================================================
+const Client = mongoose.model ('Client', clientSchema)
+passport.use(Client.createStrategy())
+passport.serializeUser(Client.serializeUser())
+passport.deserializeUser(Client.deserializeUser())
+
+//========================================VARIABLE DECLARATIONS==========================================
+
 var formCheck = false
+var loginErrorCheck = false
+var registerErrorCheck = false
+var loginError
+var registerError
 var fixers = []
 var serviceType
 var selectedFixer
 var selectedFixerFee
 let workHours = 1
 let calcFee = 1
-//Get requests=============================================
+var navCheck= false
+var clientDisplayName 
+
+//=============================================GET REQUESTS==============================================
+
+//Get request: HOME PAGE=============================================
 app.get('/', function(req, res) {
-	if (formCheck) {
-		formCheck = false
-		res.render('thanks')
-	} else {
-		res.render('home')
-	}
+	Client.findOne({username:clientDisplayName}, function(err, foundClient){
+		if (formCheck) {
+			formCheck = false
+			if(foundClient){
+				res.render('thanks',{
+					navCheck:navCheck,
+					clientDisplayName:'Hi '+foundClient.clientFirstName+'!'
+				})
+			}else{
+				res.render('thanks',{
+					navCheck:navCheck,
+					clientDisplayName:' '
+				})
+			}
+		} else {
+			if(foundClient){
+				res.render('home',{
+					navCheck:navCheck,
+					clientDisplayName:'Hi '+foundClient.clientFirstName+'!'
+				})
+			}else{
+				res.render('home',{
+					navCheck:navCheck,
+					clientDisplayName:' '
+				})
+			}	
+		}
+	})	
 })
+//Get request: BOOKING PAGE=============================================
 app.get('/booking', function(req,res){
-	res.render('booking', {
-		fixerData:fixers,
-		serviceType:serviceType
+	Client.findOne({username:clientDisplayName}, function(err, foundClient){
+		if(foundClient){
+			res.render('booking', {
+				fixerData:fixers,
+				serviceType:serviceType,
+				navCheck:navCheck,
+				clientDisplayName:'Hi '+foundClient.clientFirstName+'!'
+			})
+		} else{
+			res.render('booking', {
+				fixerData:fixers,
+				serviceType:serviceType,
+				navCheck:navCheck,
+				clientDisplayName:' '
+			})
+		}
 	})
 })
-//Post requests=============================================
+//Get request: LOGIN PAGE=============================================
+app.get('/login', function(req,res){
+		if (loginErrorCheck){
+			loginErrorCheck=false
+			res.render('login',{
+			errorMessage: loginError
+			})
+		}else{
+			res.render('login',{
+			errorMessage:" "
+			})
+	}
+})
+//Get request: REGISTER PAGE=============================================
+app.get('/register', function(req,res){
+	if (registerErrorCheck){
+		registerErrorCheck=false
+		res.render('register',{
+		errorMessage: "Email already registered!"
+		})
+	}else{
+		res.render('register',{
+		errorMessage:" "
+		})
+}
+})
+//Get request: PAYMENT PAGE=============================================
+app.get('/payment',function(req,res){
+	
+	if (req.isAuthenticated()){
+		navCheck=true
+		Client.findOne({username:clientDisplayName}, function(err, foundClient){
+			res.render('payment',{
+			clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
+			})
+		})
+	}else{
+		res.redirect('/login')
+	}	
+})
+//Get request: LOGOUT ROUTE=============================================
+app.get('/logout', function(req, res){
+	navCheck=false
+	req.logout()
+	res.redirect("/")
+  });
+
+//=============================================POST REQUESTS=============================================
+
+//Post request: CONTACT FORM @ HOME PAGE=============================================
 app.post('/contact', function(req, res) {
 	//console.log(req.body)
 	const contactData = new Contact({
@@ -128,6 +243,7 @@ app.post('/contact', function(req, res) {
 		}
 	})
 })
+//Post request: SERVICE SELECTION @ HOME PAGE=============================================
 app.post('/service', function(req, res){
 	//console.log(req.body.serviceType)
 	serviceType = req.body.serviceType
@@ -145,6 +261,7 @@ app.post('/service', function(req, res){
 		
 	})
 })
+//Post request: BOOKING FORM @ BOOKING PAGE=============================================
 app.post('/selectedFixer', function(req,res){
 	//console.log(req.body.selectedFixer)
 	const selectedFixerId = req.body.selectedFixer
@@ -185,8 +302,81 @@ app.post('/selectedFixer', function(req,res){
 		}
 	})
 })
+//Post request: REGISTRATION FORM @ REGISTER PAGE=============================================
+app.post('/register', function(req,res){
 
-//Server connection =============================================
+	Client.register({username:req.body.username}, req.body.password, function(err, user){
+		if (err){
+			registerErrorCheck=true
+			if(err.name === 'UserExistsError'){
+				registerError = 'Email already registered!'
+				res.redirect('/register')
+			}else{
+				registerError = 'Registration Failed! Please try again'
+				res.redirect('/register')
+			}			
+		} else{
+			passport.authenticate('local')(req, res, function(){
+				Client.findOneAndUpdate({username:req.body.username},{
+					clientFirstName: req.body.clientFirstName,
+					clientLastName: req.body.clientLastName,
+					clientStreetAddress1: req.body.clientStreetAddress1,
+					clientStreetAddress2: req.body.clientStreetAddress2,
+					clientCity: req.body.clientCity,
+					clientState: req.body.clientState,
+					clientCountry: req.body.clientCountry,
+					clientZip: req.body.clientZip,
+					clientMobileNo: req.body.clientMobileNo
+				},function(err){
+					if(err){
+						console.log(err)
+					}
+				})
+				res.redirect('/payment')
+				clientDisplayName= req.body.username
+				console.log('working')
+			})
+		}
+	})
+})
+//Post request: LOGIN FORM @ LOGIN PAGE=============================================
+app.post('/login', function(req,res){
+
+	const clientAuth = new Client ({
+		username:req.body.username,
+		password:req.body.password
+	})
+	passport.authenticate('local', function(err, user, info){
+		if (err){
+			console.log(err)
+		}
+		if (!user){
+			loginErrorCheck=true
+			if(info.name === 'IncorrectPasswordError'){
+				loginError = 'Please enter correct password'
+				res.redirect('/login')
+			}else if (info.name === 'IncorrectUsernameError'){
+				loginError = 'Please enter registered email address'
+				res.redirect('/login')
+			}else{
+				loginError = 'Please enter valid credentials'
+				res.redirect('/login')	
+			}
+		}
+		req.login(user, function(err){
+			if(err){
+				console.log(err)
+			}else{
+				clientDisplayName= req.body.username
+				console.log('clientName :'+ clientDisplayName)
+				return	res.redirect('/payment')
+			}
+		})
+	}) (req,res)
+})
+
+//==========================================SERVER CONNECTION============================================
+
 app.listen(process.env.PORT || 3000, function() {
 	console.log('Server started at 3000')
 })

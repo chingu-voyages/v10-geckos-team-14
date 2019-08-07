@@ -53,5 +53,6 @@ function timeDifferenceCalc (){
         $('.timeDiff').show() 
     }
 }
-
-
+$('.input-check').on('input', function(){
+    $('.error-msg').hide()
+})

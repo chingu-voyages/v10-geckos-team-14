@@ -1,0 +1,87 @@
+<%- include("partials/header") -%>
+
+<!-- login section begins -->
+<div class="media" style="position: relative; margin-bottom: 4rem;">
+	<img
+		src="images/SignUp-Bkgd.png"
+		class="img-responsive login-bg-img"
+		alt="..."
+		style="z-index: -1 !important;"
+	/>
+	<div>
+		<a href="/">
+			<img
+			src="/images/helpingHands.png"
+			width="100"
+			height="100"
+			class="logo-img reg-logo"
+			alt="logo-assistU"
+		/>
+		</a>
+		<h1 class="reg-quote1">AssistU</h1>
+		<h2 class="reg-quote2">Maximize Your Time</h2>
+	</div>
+</div>
+
+<div class="container border border-dark shadow register-box text-left">
+	<h2 style="text-align: center !important;">Login your account</h2>
+	<p class="text-center error-msg"><strong><%= errorMessage %></strong></p>
+	<form action="/login" method="post">
+		<label class="label-for-register">Email</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+				<span class="input-group-text icon-container" id="emailIconHelper"
+					><i class="fa fa-envelope" aria-hidden="true"></i
+				></span>
+			</div>
+			<input
+				type="email"
+				class="form-control reg-form input-check"
+				name="username"
+				placeholder="Your Email"
+				aria-describedby="passwordInput"
+				required autofocus
+			/>
+		</div>
+		<label class="label-for-register">Password</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+				<span class="input-group-text icon-container" id="passwordIconHelper"
+					><i class="fa fa-key" aria-hidden="true"></i
+				></span>
+			</div>
+			<input
+				type="password"
+				class="form-control reg-form input-check"
+				name="password"
+				placeholder="Your Password"
+				aria-describedby="passwordInput"
+				required
+			/>
+		</div>
+				<div class="row-btn text-center">
+
+          <a class="btn btn-lg btn-outline-warning" href="/register" style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: none; border-radius: 1rem;"
+          >Register</a>
+					<button
+						type="submit"
+						class="btn btn-lg btn-warning"
+						style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 1rem; width: 7.5rem;"
+					>
+						Login
+					</button>
+					<p>
+						<a href="mailto:assistupro@gmail.com" style="font-family: 'Fredoka One', cursive; color: #63032e;"
+							>Forget Password?</a
+						>
+					</p>
+				</div>
+			</form>
+		</div>
+
+<br />
+
+<!-- login section ends -->
+
+<%- include("partials/footer") -%>
+
