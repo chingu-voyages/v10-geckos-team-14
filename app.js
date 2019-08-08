@@ -10,9 +10,8 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
 const passportLocalMongoose = require('passport-local-mongoose')
-const _ = require('lodash');
+const _ = require('lodash')
 const multer = require('multer')
-const BigNumber = require('big-number');
 const app = express()
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
@@ -217,6 +216,20 @@ app.get('/payment',function(req,res){
 		res.redirect('/login')
 	}	
 })
+//Get request: LOGIN SUCCESS PAGE=============================================
+app.get('/loginSuccess',function(req,res){
+	
+	if (req.isAuthenticated()){
+		navCheck=true
+		Client.findOne({username:clientDisplayName}, function(err, foundClient){
+			res.render('loginSuccess',{
+			clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
+			})
+		})
+	}else{
+		res.redirect('/login')
+	}	
+})
 //Get request: LOGOUT ROUTE=============================================
 app.get('/logout', function(req, res){
 	navCheck=false
@@ -296,7 +309,7 @@ app.post('/selectedFixer', function(req,res){
 				if (err) {
 					console.log(err)
 				} else {
-					res.redirect('/')
+					res.redirect('/payment')
 				}
 			})
 		}
@@ -332,7 +345,7 @@ app.post('/register', function(req,res){
 						console.log(err)
 					}
 				})
-				res.redirect('/payment')
+				res.redirect('/loginSuccess')
 				clientDisplayName= req.body.username
 				console.log('working')
 			})
@@ -369,7 +382,7 @@ app.post('/login', function(req,res){
 			}else{
 				clientDisplayName= req.body.username
 				console.log('clientName :'+ clientDisplayName)
-				return	res.redirect('/payment')
+				return	res.redirect('/loginSuccess')
 			}
 		})
 	}) (req,res)
