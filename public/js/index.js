@@ -3,8 +3,17 @@ $(".card").on("click", function() {
     $("#" + selectedFixer).removeClass("pressed")
     selectedFixer = $(this).attr("id")
     $("#" + selectedFixer).addClass("pressed")
+    $("." + selectedFixer).modal('show')
     $('#fixerInput').attr('value', selectedFixer)
 })
+$('#booking-submit-btn').on('click', function(){
+    if($('#fixerInput').attr('value') === 'no-fixer'){
+        $('#NoFixerModalCenter').modal('show')
+    }
+}) 
+$('.fixer-btn').on('click',function(){
+    $('#inputAddress1').focus()
+})  
 var selectedService
 $('.service-img').on('click', function(){
     $(this).addClass('pressed-Service')

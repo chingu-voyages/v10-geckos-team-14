@@ -40,25 +40,6 @@ mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true 
 
 //========================================DATABASE SCHEMAS===============================================
 
-const orderSchema = new mongoose.Schema({
-	orderClientID: String,
-	orderService: String,
-	orderFixerID: String,
-	orderServiceHours: Number,
-	orderCost: Number,
-	orderStreetAddress1:  String,
-	orderStreetAddress2:  String,
-	orderCity: String,
-	orderState:  String,
-	orderCountry: String,
-	orderZip:  String,
-	orderRating:  Number,
-	orderFixerExpectations: String,
-	orderClientResponsibilities: String,
-	orderDate: String,
-	orderWorkDate:  Date,
-	orderImage: String
-})
 const clientSchema = new mongoose.Schema({
 	username: String,
 	password: String,
@@ -74,27 +55,46 @@ const clientSchema = new mongoose.Schema({
 	//clientProfileImage: String
 })
 clientSchema.plugin(passportLocalMongoose)
+const fixerSchema = new mongoose.Schema({
+	fixerName: String,
+	fixerCompanyName: String,
+	fixerEmail: String,
+	fixerMobileNo: Number,
+	fixerDescription: String,
+	fixerFee: Number,
+	fixerRating: String,
+	//fixerImage: String,
+	fixerService: String,
+	fixerStreetAddress1:String,
+	fixerStreetAddress2:String,
+	fixerCity: String,
+	fixerState:String,
+	fixerCountry: String,
+	fixerZip: String
+})
+const orderSchema = new mongoose.Schema({
+	orderClient: clientSchema,
+	orderService: String,
+	orderFixer: fixerSchema,
+	orderServiceHours: Number,
+	orderCost: Number,
+	orderStreetAddress1:  String,
+	orderStreetAddress2:  String,
+	orderCity: String,
+	orderState:  String,
+	orderCountry: String,
+	orderZip:  String,
+	orderRating:  Number,
+	orderFixerExpectations: String,
+	orderClientResponsibilities: String,
+	orderDate: String,
+	orderWorkDate:  Date,
+	orderImage: String
+})
 const contactUsSchema = new mongoose.Schema({
 	contactEmail: { type: String, required: [true, 'This is a compulsory field'] },
 	contactSubject: { type: String, required: [true, 'This is a compulsory field'] },
 	contactMessage: { type: String, required: [true, 'This is a compulsory field'] }
-})
-const fixerSchema = new mongoose.Schema({
-	fixerName: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerCompanyName: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerEmail: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerMobileNo: { type: Number, required: [true, 'This is a compulsory field'] },
-	fixerDescription: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerFee: { type: Number, required: [true, 'This is a compulsory field'] },
-	fixerRating: { type: Number, required: [true, 'This is a compulsory field'] },
-	//fixerImage: String,
-	fixerService: String,
-	fixerStreetAddress1: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerStreetAddress2: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerCity: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerState: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerCountry: { type: String, required: [true, 'This is a compulsory field'] },
-	fixerZip: { type: String, required: [true, 'This is a compulsory field'] },
 })
 
 //========================================MODALS=========================================================
@@ -122,6 +122,8 @@ let workHours = 1
 let calcFee = 1
 var navCheck= false
 var clientDisplayName 
+var fromBookingPage = false 
+var thisOrder
 
 //=============================================GET REQUESTS==============================================
 
@@ -203,13 +205,15 @@ app.get('/register', function(req,res){
 }
 })
 //Get request: PAYMENT PAGE=============================================
-app.get('/payment',function(req,res){
-	
+app.get('/payment',function(req,res){	
 	if (req.isAuthenticated()){
 		navCheck=true
-		Client.findOne({username:clientDisplayName}, function(err, foundClient){
+		Order.findById(thisOrder, function(err, foundOrder){
 			res.render('payment',{
-			clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
+				fixerCompanyName:foundOrder.orderFixer.fixerCompanyName,
+				orderFee : foundOrder.orderFixer.fixerFee,
+				orderDuration : foundOrder.orderServiceHours,
+				totalOrderFee : foundOrder.orderCost
 			})
 		})
 	}else{
@@ -222,7 +226,7 @@ app.get('/loginSuccess',function(req,res){
 	if (req.isAuthenticated()){
 		navCheck=true
 		Client.findOne({username:clientDisplayName}, function(err, foundClient){
-			res.render('loginSuccess',{
+			res.render('loginSuccess',{     // POST MVP TODO: [ ] add continue booking feature
 			clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
 			})
 		})
@@ -234,6 +238,7 @@ app.get('/loginSuccess',function(req,res){
 app.get('/logout', function(req, res){
 	navCheck=false
 	req.logout()
+	fromBookingPage=false
 	res.redirect("/")
   });
 
@@ -271,7 +276,6 @@ app.post('/service', function(req, res){
 		}else{
 		serviceType= _.capitalize(serviceType);
 		}
-		
 	})
 })
 //Post request: BOOKING FORM @ BOOKING PAGE=============================================
@@ -286,9 +290,9 @@ app.post('/selectedFixer', function(req,res){
 			calcFee = selectedFixerFee*req.body.hours
 			//console.log('3:'+calcFee)
 			const orderData = new Order ({
-				orderClientID: 'EmptyForNow',
+				orderClient:{},
 				orderService: serviceType,
-				orderFixerID: req.body.selectedFixer,
+				orderFixer: foundFixer,
 				orderServiceHours: req.body.hours,
 				orderCost: calcFee,
 				orderStreetAddress1: req.body.streetAddress1,
@@ -297,21 +301,38 @@ app.post('/selectedFixer', function(req,res){
 				orderState: req.body.state,
 				orderCountry: req.body.country,
 				orderZip: req.body.zip,
-				orderRating: 1,
+				orderRating: 10,   //TODO POST MVP [ ] handle order ratings 
 				orderFixerExpectations: req.body.fixerExpec,
 				orderClientResponsibilities: req.body.customerResp,		
 				orderDate: 'DateNotForNow',
 				orderWorkDate:  req.body.orderWorkDate,
-				orderImage: 'skip'
+				//orderImage: 'skip'
 			})
-			//console.log(orderData)
-			orderData.save(function(err) {
-				if (err) {
-					console.log(err)
-				} else {
-					res.redirect('/payment')
+			if (req.isAuthenticated()){
+				Client.findOne({username:clientDisplayName}, function(err, foundClient){
+					orderData.orderClient=foundClient
+					orderData.save(function(err) {   
+						if (err) {
+							console.log(err)
+						} else {
+							fromBookingPage = true
+							thisOrder= orderData._id
+							res.redirect('/payment')
+						}
+					})
+				})
+				}else{
+					orderData.save(function(err) {   
+						if (err) {
+							console.log(err)
+						} else {
+							fromBookingPage = true
+							thisOrder= orderData._id
+							res.redirect('/payment')
+							//console.log('orderCheck'+ orderData._id)
+						}
+					})
 				}
-			})
 		}
 	})
 })
@@ -345,9 +366,18 @@ app.post('/register', function(req,res){
 						console.log(err)
 					}
 				})
-				res.redirect('/loginSuccess')
 				clientDisplayName= req.body.username
-				console.log('working')
+				if(fromBookingPage){
+					fromBookingPage=false
+					Client.findOne({username:clientDisplayName}, function(err, foundClient){ 
+						Order.findOneAndUpdate({_id:thisOrder},{orderClient:foundClient}, function(){
+						if(err){console.log(err)}
+					})
+					})
+					res.redirect('/payment')
+				}else{
+					res.redirect('/loginSuccess')
+				}
 			})
 		}
 	})
@@ -381,8 +411,17 @@ app.post('/login', function(req,res){
 				console.log(err)
 			}else{
 				clientDisplayName= req.body.username
-				console.log('clientName :'+ clientDisplayName)
-				return	res.redirect('/loginSuccess')
+				if(fromBookingPage){
+					fromBookingPage=false
+					Client.findOne({username:clientDisplayName}, function(err, foundClient){ 
+						Order.findOneAndUpdate({_id:thisOrder},{orderClient:foundClient}, function(){
+						if(err){console.log(err)}
+					})
+					})
+					return	res.redirect('/payment')
+				}else{
+					return	res.redirect('/loginSuccess')
+				}	
 			}
 		})
 	}) (req,res)
