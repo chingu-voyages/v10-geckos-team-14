@@ -33,32 +33,30 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h6 id="fixer-comp-name">Fixer Company Name</h6>
+					<h6 id="fixer-comp-name"><%= fixerCompanyName %></h6>
 				</div>
 				<div class="col">
-					<h6 id="hourly-rate" style="text-align: right">[$###] per hour</h6>
+					<h6 id="hourly-rate" style="text-align: right">$<%= orderFee %> per hour</h6>
 				</div>
 				<div class="col-lg-12">
-					<p id="num-hours">[#] of Hours</p>
+					<p id="num-hours" style="text-align: right;">@ <%= orderDuration %> Hours</p>
 				</div>
 			</div>
-
 			<div class="" style="text-align: center !important;">
-				<h5 style="text-align: center !important;">Total $177</h5>
+				<h5 style="text-align: center !important; margin-bottom: 0;">Total $<%= totalOrderFee %></h5>
 				<button
 					type="submit"
 					class="btn btn-lg btn-warning"
-					style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 3rem;"
+					style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1rem 0; border-radius: 3rem;"
 				>
 					Confirm Cash Payment
 				</button>
-				<p>
 					<a
 						href="/"
-						style="font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: underline dotted #63032e;"
+						style="font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: underline dotted #63032e;margin: 0.5rem 0 !important; display: block;"
 						>Cancel Order</a
 					>
-				</p>
+				
 			</div>
 		</div>
 	</form>
