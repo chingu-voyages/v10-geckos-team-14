@@ -27,43 +27,39 @@
 
 <!-- payment section begins -->
 <div style="z-index: 0;" class="container border border-dark shadow register-box text-left">
-	<h2 style="text-align: center !important;">Payment</h2>
-
-	<form action="/login" method="post">
-		<div class="row-btn text-center">
-			<div class="col">
-				<h5 style="text-align: left !important;">Cart</h5>
-				<div class="row">
-					<div class="col">
-						<h6 style="text-align: left !important;">Fixer Company Name</h6>
-						<p style="text-align: left !important;"># of Hours</p>
-					</div>
-					<div class="row">
-						<h6 class="hourly-rate">$102</h6>
-						<h6 class="hourly-rate">per hour</h6>
-					</div>
+	<h2 style="text-align: center !important;">Payment Summary</h2>
+	<h5>Cart</h5>
+	<form action="/TBD" method="post">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h6 id="fixer-comp-name">Fixer Company Name</h6>
 				</div>
-				<!-- </div> -->
-				<div class="row" style="text-align: center !important;">
-					<h5 style="text-align: left !important;">Total</h5>
-					<br />
-					<h5 style="text-align: right !important;" class="order-total">$177</h5>
+				<div class="col">
+					<h6 id="hourly-rate" style="text-align: right">[$###] per hour</h6>
+				</div>
+				<div class="col-lg-12">
+					<p id="num-hours">[#] of Hours</p>
 				</div>
 			</div>
-			<button
-				type="submit"
-				class="btn btn-lg btn-warning"
-				style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 1rem;"
-			>
-				Confirm Cash Payment
-			</button>
-			<p>
-				<a
-					href="/"
-					style="font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: underline dotted #63032e;"
-					>Cancel Order</a
+
+			<div class="" style="text-align: center !important;">
+				<h5 style="text-align: center !important;">Total $177</h5>
+				<button
+					type="submit"
+					class="btn btn-lg btn-warning"
+					style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 3rem;"
 				>
-			</p>
+					Confirm Cash Payment
+				</button>
+				<p>
+					<a
+						href="/"
+						style="font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: underline dotted #63032e;"
+						>Cancel Order</a
+					>
+				</p>
+			</div>
 		</div>
 	</form>
 </div>
