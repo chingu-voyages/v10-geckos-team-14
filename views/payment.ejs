@@ -1,11 +1,71 @@
 <%- include("partials/header") -%>
-<%- include("partials/navbarLogout") -%>
-<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 1rem;text-shadow: 1px 1px #f2f7f0;"><%= clientDisplayName %></h5>
-<div class="thanks-center">
-    <h2 class="display-4">Order Successfully Received!</h2>
-    <p>Thank you for your order.  Please stay tuned for order updates.</p>
-    <a class="btn btn-primary btn-lg" href="/" role="button"
-    style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none;"
-    >Return Home</a>
+<!-- Alt Header begins -->
+
+<!-- <img style="width: 100%; z-index: -1; position: absolute; left: 0;" src="images/payment-background.png" alt="" /> -->
+<div class="media" style="position: relative; margin-bottom: 4rem;">
+	<img
+		src="images/SignUp-Bkgd.png"
+		class="img-responsive login-bg-img"
+		alt="..."
+		style="z-index: -1 !important;"
+	/>
+	<div>
+		<a href="/">
+			<img
+				src="/images/helpingHands.png"
+				width="100"
+				height="100"
+				class="logo-img reg-logo"
+				alt="logo-assistU"
+			/>
+		</a>
+		<h1 class="reg-quote1">AssistU</h1>
+		<h2 class="reg-quote2">Maximize Your Time</h2>
+	</div>
 </div>
+<!-- Alt Header ends -->
+
+<!-- payment section begins -->
+<div style="z-index: 0;" class="container border border-dark shadow register-box text-left">
+	<h2 style="text-align: center !important;">Payment Summary</h2>
+	<h5>Cart</h5>
+	<form action="/TBD" method="post">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h6 id="fixer-comp-name">Fixer Company Name</h6>
+				</div>
+				<div class="col">
+					<h6 id="hourly-rate" style="text-align: right">[$###] per hour</h6>
+				</div>
+				<div class="col-lg-12">
+					<p id="num-hours">[#] of Hours</p>
+				</div>
+			</div>
+
+			<div class="" style="text-align: center !important;">
+				<h5 style="text-align: center !important;">Total $177</h5>
+				<button
+					type="submit"
+					class="btn btn-lg btn-warning"
+					style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 3rem;"
+				>
+					Confirm Cash Payment
+				</button>
+				<p>
+					<a
+						href="/"
+						style="font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: underline dotted #63032e;"
+						>Cancel Order</a
+					>
+				</p>
+			</div>
+		</div>
+	</form>
+</div>
+
+<br />
+
+<!-- payment section ends -->
+
 <%- include("partials/footer") -%>
