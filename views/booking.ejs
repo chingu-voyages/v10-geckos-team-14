@@ -10,21 +10,64 @@
 <br /> <br />
 <h1><%= serviceType %></h1>
 <br />
+
+<!-- modal asking to select fixer -->
+<div class="modal fade" id="NoFixerModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalCenterTitle">Fixer Missing!</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body" style="background-color: #e1e3f0;">
+		 Dear User, Please select a fixer from the list.
+		</div>
+		<div class="modal-footer">
+		  <button type="button" style="margin:0; width:50%; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:2rem; " class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- end of modal -->
+
 <!-- Form Begins -->
 
 <div class="container">
 	<div class="row">
 		<!-- column 1 -->
-		<div class="col-lg-8 text-left">
+		<div class="col-lg-12 text-left">
 			<h3 class=" sec-title text-left">What</h3>
 			<p>Please Pick a Fixer from the list.</p>
 			<br/>
 			<form action="/selectedFixer" method="post" id="selectFixerForm">
-				<input type="hidden" name="selectedFixer" id="fixerInput">
+				<input type="hidden" name="selectedFixer" id="fixerInput" value="no-fixer">
 		<%	for(var i=0; i<fixerData.length; i+=3) { %>
 				
 				<div class="card-deck text-center">
 						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i]._id %>">
+							<!-- modal#1 describing selected fixer -->
+<div class="modal fade <%= fixerData[i]._id %> border border-warning" id="selectedFixerModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content border border-warning">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalCenterTitle">Fixer Selected!</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body" style="background-color:#e1e3f0">
+			 <h4 class="card-title"><%= fixerData[i].fixerCompanyName %></h4>
+			 <h5>$ <%= fixerData[i].fixerFee %>/hour</h5>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" style="margin:0; width:50%; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:2rem; " class="btn fixer-btn" data-dismiss="modal">Select</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- end of modal#1 -->
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
 						  <div class="card-body">
 							<h5 class="card-title"><%= fixerData[i].fixerCompanyName %></h5>
@@ -37,6 +80,27 @@
 						</div>
 						<% if(fixerData[i+1]){ %>
 						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i+1]._id %>">
+							<!-- modal#2 describing selected fixer -->
+<div class="modal fade <%= fixerData[i+1]._id %> border border-warning" id="selectedFixerModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content border border-warning">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalCenterTitle">Fixer Selected!</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body" style="background-color:#e1e3f0">
+			 <h4 class="card-title"><%= fixerData[i+1].fixerCompanyName %></h4>
+			 <h5>$ <%= fixerData[i+1].fixerFee %>/hour</h5>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" style="margin:0; width:50%; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:2rem; " class="btn fixer-btn" data-dismiss="modal">Select</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- end of modal#2 -->
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">  
 						  <div class="card-body">
 							<h5 class="card-title"><%= fixerData[i+1].fixerCompanyName %></h5>
@@ -50,6 +114,27 @@
 						<% } %>
 						<% if(fixerData[i+2]){ %>
 						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i+2]._id %>">
+							<!-- modal#3 describing selected fixer -->
+<div class="modal fade <%= fixerData[i+2]._id %> border border-warning" id="selectedFixerModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content border border-warning">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalCenterTitle">Fixer Selected!</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body" style="background-color:#e1e3f0">
+			 <h4 class="card-title"><%= fixerData[i+2].fixerCompanyName %></h4>
+			 <h5>$ <%= fixerData[i+2].fixerFee %>/hour</h5>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" style="margin:0; width:50%; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:2rem; " class="btn fixer-btn" data-dismiss="modal">Select</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- end of modal -->
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
 						  <div class="card-body">
 							<h5 class="card-title"><%= fixerData[i+2].fixerCompanyName %></h5>
@@ -79,6 +164,7 @@
 							id="inputAddress1"
 							placeholder="Street Address 1"
 							name="streetAddress1"
+							required
 						/>
 					</div>
 					<div class="form-group col-lg-4">
@@ -89,17 +175,18 @@
 								id="inputAddress2"
 								placeholder="Street Address 2"
 								name="streetAddress2"
+								required
 							/>
 						</div>
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputCity"></label> -->
-						<input type="text" class="form-control" id="inputCity" placeholder="City" name="city" />
+						<input type="text" class="form-control" id="inputCity" placeholder="City" name="city" required/>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputCountry"></label> -->
-						<input type="text" class="form-control" id="inputCountry" placeholder="Country" name="country" />
+						<input type="text" class="form-control" id="inputCountry" placeholder="Country" name="country" required />
 					</div>
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputState"></label> -->
@@ -109,12 +196,13 @@
 							id="inputState"
 							placeholder="State Initials"
 							name="state"
+							required
 						/>
 					</div>
 					<div class="from-group col-lg-4">
 							<!-- <label for="inputZip"></label> -->
 							<input type="number" class="form-control" id="inputZip" placeholder="Zip Code"
-							name="postalCode" />
+							name="postalCode" required/>
 						</div>
 				</div>
 	<!-- When----------------------------------------------------- -->
@@ -131,6 +219,7 @@
 							placeholder="Date"
 							style="color: #8d5a97;"
 							name="orderWorkDate"
+							required
 						/>
 					</div>
 					<div class="form-group col-lg-3">
@@ -142,6 +231,7 @@
 							placeholder="StartTime"
 							style="color: #8d5a97;"
 							name="startTime"
+							required
 						/>
 						<small id="startTime" class="form-text" style="color: #8d5a97;">Start Time</small>
 					</div>
@@ -155,6 +245,7 @@
 							placeholder="StopTime"
 							style="color: #8d5a97;"
 							name="stopTime"
+							required
 						/>
 						<small id="stopTime" class="form-text" style="color: #8d5a97;">Stop Time</small>
 					</div>
@@ -181,7 +272,7 @@
 							class="form-control"
 							rows="4"
 							placeholder="Fixer Expectations..."
-							name="fixerExpec"
+							name="fixerExpec" required
 						></textarea>
 					</div>
 					<div class="col-lg-12 form-group">
@@ -192,7 +283,7 @@
 							class="form-control"
 							rows="4"
 							name="customerResp"
-							placeholder="Customer Responsibilities..."
+							placeholder="Customer Responsibilities..." required
 						></textarea>
 					</div>
 				</div>
@@ -203,7 +294,7 @@
 		</div>
 		<!-- column 2 -->
 
-		<div class="col-lg-4 upload-image-box" >
+		<!-- <div class="col-lg-4 upload-image-box" >
 			<img src="images/upload-img-holder.png" width="250" height="280" alt="Fixer-img" /><br />
 			<div>
 				<button
@@ -214,14 +305,14 @@
 					Upload
 				</button>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
 <div class="text-center">
-	<button
+	<button id="booking-submit-btn"
+		type="submit"
 		class="btn btn-lg btn-outline-warning submitBtn"
 		style="margin-top:1.5rem; width:50%; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:2rem;"
-		type="submit"
 	>
 		Confirm Fixer Request
 	</button></div>
