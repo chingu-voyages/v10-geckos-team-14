@@ -353,36 +353,33 @@ app.post('/selectedFixer', function(req, res) {
 	})
 })
 //Post request: REGISTRATION FORM @ REGISTER PAGE=============================================
-app.post('/register', function(req, res) {
-	Client.register({ username: req.body.username }, req.body.password, function(err, user) {
-		if (err) {
-			registerErrorCheck = true
-			if (err.name === 'UserExistsError') {
+app.post('/register', function(req,res){
+
+	Client.register({username:req.body.username}, req.body.password, function(err, user){
+		if (err){
+			registerErrorCheck=true
+			if(err.name === 'UserExistsError'){
 				registerError = 'Email already registered!'
 				res.redirect('/register')
-			} else {
+			}else{
 				registerError = 'Registration Failed! Please try again'
 				res.redirect('/register')
-			}
-		} else {
-			passport.authenticate('local')(req, res, function() {
-				Client.findOneAndUpdate(
-					{ username: req.body.username },
-					{
-						clientFirstName: req.body.clientFirstName,
-						clientLastName: req.body.clientLastName,
-						clientStreetAddress1: req.body.clientStreetAddress1,
-						clientStreetAddress2: req.body.clientStreetAddress2,
-						clientCity: req.body.clientCity,
-						clientState: req.body.clientState,
-						clientCountry: req.body.clientCountry,
-						clientZip: req.body.clientZip,
-						clientMobileNo: req.body.clientMobileNo
-					},
-					function(err) {
-						if (err) {
-							console.log(err)
-						}
+			}			
+		} else{
+			passport.authenticate('local')(req, res, function(){
+				Client.findOneAndUpdate({username:req.body.username},{
+					clientFirstName: req.body.clientFirstName,
+					clientLastName: req.body.clientLastName,
+					clientStreetAddress1: req.body.clientStreetAddress1,
+					clientStreetAddress2: req.body.clientStreetAddress2,
+					clientCity: req.body.clientCity,
+					clientState: req.body.clientState,
+					clientCountry: req.body.clientCountry,
+					clientZip: req.body.clientZip,
+					clientMobileNo: req.body.clientMobileNo
+				},function(err){
+					if(err){
+						console.log(err)
 					}
 				})
 				clientDisplayName= req.body.username
