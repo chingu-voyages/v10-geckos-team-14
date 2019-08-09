@@ -91,6 +91,7 @@ const orderSchema = new mongoose.Schema({
 	orderClientResponsibilities: String,
 	orderDate: String,
 	orderWorkDate: Date,
+	bookingCashConfirm: Boolean,
 	orderImage: String
 })
 const contactUsSchema = new mongoose.Schema({
@@ -244,20 +245,6 @@ app.get('/logout', function(req, res) {
 	res.redirect("/")
   });
 
-//Get request: CONFIRMATION PAGE ROUTE=============================================
-app.get('/confirmation', function(req, res) {
-if (req.isAuthenticated()) {
-	navCheck = true
-	Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
-		res.render('confirmation', {
-			clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
-		})
-	})
-} else {
-	res.redirect('/login')
-}
-})
-
 //=============================================POST REQUESTS=============================================
 
 //Post request: CONTACT FORM @ HOME PAGE=============================================
@@ -322,6 +309,7 @@ app.post('/selectedFixer', function(req, res) {
 				orderClientResponsibilities: req.body.customerResp,
 				orderDate: 'DateNotForNow',
 				orderWorkDate:  req.body.orderWorkDate,
+				bookingCashConfirm:false
 				//orderImage: 'skip'
 			})
 			if (req.isAuthenticated()){
@@ -440,6 +428,25 @@ app.post('/login', function(req, res) {
 			}
 		})
 	})(req, res)
+})
+
+//Post request: CONFIRM BOOKING @ PAYMENT PAGE=============================================
+app.post('/bookingCashConfirm', function(req,res){
+	Order.findOneAndUpdate({_id:thisOrder},{bookingCashConfirm:true},function(err){
+		if(err){
+			console.log(err)
+		}else{
+			Client.findOne({username:clientDisplayName}, function(err, foundClient){
+				if(err){
+					console.log(err)
+				}else{
+					res.render('confirmation',{     
+						clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
+						})
+				}
+			})
+		}
+	})
 })
 
 //==========================================SERVER CONNECTION============================================
