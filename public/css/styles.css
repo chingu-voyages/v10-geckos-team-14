@@ -406,6 +406,18 @@ input.reg-form{
 i{
 	color: #f2f7f0;
 }
+/* order history screen */
+.history-card{
+	max-width: 740px; 
+	border-radius: 2rem; 
+	margin: 4% auto;
+}
+.history-card-img{
+	padding-top: 4%;
+	padding-bottom: 4%; 
+	background-color: #907e9f96; 
+	border-radius: 2rem 0 0 2rem;
+}
 
 /*! Media Queries */
 /* all screens smaller than desktop */
@@ -450,6 +462,10 @@ i{
 		height: 80px !important;
 	
 	}
+	.history-card{
+		margin-left: 5% !important;
+		margin-right: 5% !important;
+	}
 }
 /* for desktop only */
 @media (min-width: 576px) {
@@ -485,6 +501,11 @@ i{
 		width: 50%;
     margin-left: 37rem;
     margin-top: -10rem;
+	}
+	.history-card-img{
+		padding-top: 8%;
+		background-color: #907e9f96; 
+		border-radius: 2rem 0 0 2rem;
 	}
 }
 /* others */
@@ -566,6 +587,21 @@ i{
     margin-left: 17rem;
     margin-top: -4rem;
 	}
+}
+/* for mobile only */
+@media (max-width:420px) and (min-width:350px){
+	.history-card-img{
+		border-radius: 2rem 2rem 0 0;
+	}
+}
+@media (max-width:750px) and (min-width:600px){
+	.history-card{
+		margin-left: 5% !important;
+		margin-right: 5% !important;
+	}
+	.history-card-img{
+		border-radius: 2rem 2rem 0 0;
+	}	
 }
 /* ipad pro */
 @media (max-width: 1030px) and (min-width: 1000px) {
