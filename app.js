@@ -340,6 +340,27 @@ app.post('/selectedFixer', function(req, res) {
 		}
 	})
 })
+
+// TEMP GET request: History PAGE=============================================
+app.get('/history', function (req, res) {
+	Order.findOneAndUpdate({_id:thisOrder},{bookingCashConfirm:true},function(err){
+	if(err){
+		console.log(err)
+	}else{
+		Client.findOne({username:clientDisplayName}, function(err, foundClient){
+			if(err){
+				console.log(err)
+			}else{
+				res.render('history',{     
+					clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
+					})
+			}
+		})
+	}
+})
+})
+
+
 //Post request: REGISTRATION FORM @ REGISTER PAGE=============================================
 app.post('/register', function(req,res){
 
