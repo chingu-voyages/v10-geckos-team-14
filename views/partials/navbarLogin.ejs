@@ -15,17 +15,18 @@
 		/>
 		<span class="brand-name">AssistU</span>
 	</a>
-	<!-- <a href="/login">
-		<h4 class="sign-in-up">Sign In</h4>
-	</a> -->
-	<div class="dropdown">
-			<a class="btn assistuBtn dropdown-toggle" href="/login" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Sign In
-				</a>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="/register">Register</a>
-
+	<div class="btn-group">
+			<div class="btn-group dropleft" role="group">
+				<button type="button" class="btn btn-secondary dropdown-toggle assistUBtn dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="sr-only">Toggle Dropleft</span>
+				</button>
+				<div class="dropdown-menu">
+					<!-- Dropdown menu links -->
+					<a class="dropdown-item" href="/register">Register</a>
+				</div>
 			</div>
+			<button type="button" class="btn btn-secondary assistUBtn">
+				<a  href="/login">Login</a>
+			</button>
 		</div>
-
 </nav>

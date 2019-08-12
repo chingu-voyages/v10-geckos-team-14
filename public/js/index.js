@@ -65,3 +65,6 @@ function timeDifferenceCalc (){
 $('.input-check').on('input', function(){
     $('.error-msg').hide()
 })
+$('#logout-btn').on('click', function(){
+    $('#logout').submit()
+})

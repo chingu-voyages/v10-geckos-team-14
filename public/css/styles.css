@@ -25,14 +25,19 @@ textarea{
 	padding-left: 1.5rem !important;
 }
 
-.assistuBtn {
+.assistUBtn {
 border-radius: 3rem;
 background-color: #f9d276;
 font-family:  'Fredoka One', cursive;
 color: #63032e;
 opacity: 0.8;
+border: none;
 }
 
+.btn-secondary:hover {
+    color: #e5c17b !important;
+    background-color: #63152f !important;
+}
 /*! Landing Page */
 
 .sec-title {

@@ -15,8 +15,23 @@
 		/>
 		<span class="brand-name">AssistU</span>
 	</a>
-     <a href="/logout">
+     <!-- <a href="/logout">
         <h6 class="sign-in-up" style="padding-top: 2rem;">Logout</h6>
-     </a>
-    
+     </a> -->
+		 <div class="btn-group" style="padding-top: 2rem">
+				<div class="btn-group dropleft" role="group">
+					<button type="button" class="btn btn-secondary dropdown-toggle assistUBtn dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="sr-only">Toggle Dropleft</span>
+					</button>
+					<div class="dropdown-menu">
+						<!-- Dropdown menu links -->
+						<a class="dropdown-item" href="/history">Order History</a>
+					</div>
+				</div>
+				<button id="logout-btn" type="submit" class="btn btn-secondary assistUBtn">
+					<form id="#logout" action="/logout">
+					Logout
+					</form>
+				</button>
+			</div>
 </nav>
