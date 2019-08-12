@@ -37,4 +37,4 @@ This application is in development and pending version 1.0 release.
 
 ## Acknowledgments
 
-* Thank you @chance for giving back and creating [Chingu](https://chingu.io).  This Voyage 10 project is in part a result of your efforts and contributions to the tech industry.
+Thank you [Chance](https://github.com/tropicalchancer) and the Chingu-X Team for giving back and creating [Chingu Organization](https://chingu.io).  This Voyage 10 project is in part a result of your efforts and contributions to the tech industry.
