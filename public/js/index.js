@@ -68,3 +68,6 @@ $('.input-check').on('input', function(){
 $('#logout-btn').on('click', function(){
     $('#logout').submit()
 })
+$('#login-btn').on('click', function(){
+    $('#login').submit()
+})

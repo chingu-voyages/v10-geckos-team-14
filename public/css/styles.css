@@ -34,7 +34,7 @@ opacity: 0.8;
 border: none;
 }
 
-.btn-secondary:hover {
+.assistUBtn:hover {
     color: #e5c17b !important;
     background-color: #63152f !important;
 }
