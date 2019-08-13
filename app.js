@@ -33,10 +33,10 @@ app.use(passport.session())
 //========================================DATABASE CONNECTIONS===========================================
 
 // for local DB connection ============================================================
-//  mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+  mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 
 //for live DB connection ============================================================
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+//mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
 
@@ -229,7 +229,6 @@ app.get('/loginSuccess', function(req, res) {
 		navCheck = true
 		Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
 			res.render('loginSuccess', {
-				// TODO POST MVP : [ ] add continue booking feature
 				clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
 			})
 		})
@@ -247,22 +246,33 @@ app.get('/logout', function(req, res) {
 
 // Get request: HISTORY PAGE=============================================
 app.get('/history', function(req, res) {
-	Order.find({}, function(err, foundRecord) {
-		if (err) {
-			console.log(err)
-		} else {
-			var orderList = []
-			for (var i = 0; i < foundRecord.length; i++) {
-				if (foundRecord[i].orderClient.username === clientDisplayName) {
-					orderList.push(foundRecord[i])
+	if (req.isAuthenticated()){
+		Order.find({}, function(err, foundRecord) {
+			if (err) {
+				console.log(err)
+			} else {
+				var orderList = []
+				for (var i = 0; i < foundRecord.length; i++) {
+					if (foundRecord[i].orderClient.username === clientDisplayName) {
+						orderList.push(foundRecord[i])
+					}
+				} if(orderList.length > 0){
+					res.render('history',{
+						clientDisplayName:orderList[0].orderClient.clientFirstName,
+						orderList:orderList
+					})
+				} else{
+					Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+						res.render('noOrder', {
+							clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
+						})
+					})
 				}
 			}
-			res.render('history',{
-				clientDisplayName:orderList[0].orderClient.clientFirstName,
-				orderList:orderList
-			})
-		}
-	})
+		})
+	} else{
+		res.redirect('/login')
+	}
 })
 
 //=============================================POST REQUESTS=============================================
