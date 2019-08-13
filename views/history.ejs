@@ -1,12 +1,12 @@
 <%- include("partials/header") -%>
  <%- include("partials/navbarLogout") -%>
-<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 2rem;text-shadow: 1px 1px #f2f7f0;"><%= clientDisplayName %></h5> 
+<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 2rem;text-shadow: 1px 1px #f2f7f0;">Hi <%= clientDisplayName %>!</h5> 
 <div class="container" style="margin-top: 4rem;">
 	<h1>Order History</h1>
 </div>
 <% orderList.forEach(function(order){ %>
 <div class="card border-warning history-card shadow" style="border-width: 2px;">
-	<div class="row no-gutters">
+	<div class="row no-gutters flex-for-tab">
 		<div class="col-md-4 history-card-img">
 			<img src="images/user.svg" class="card-img" alt="..." width="180" height="180" />
 		</div>
@@ -18,7 +18,7 @@
 						<h6 id="fixer-comp-name"><%= order.orderService %></h6>
 					</div>
 					<div class="col">
-						<h6 id="hourly-rate">$ <%= order.orderFixer.fixerFee %></h6>
+						<h6 id="hourly-rate">@ $ <%= order.orderFixer.fixerFee %> / Hour</h6>
 					</div>
 				</div>
 				<div class="row">
@@ -42,9 +42,21 @@
 						<h6 id="fixer-rate">Service Duration</h6>
 					</div>
 					<div class="col">
-						<h6 id="hourly-duration">@ <%= order.orderServiceHours %> Hours</h6>
+						<h6 id="hourly-duration"> <%= order.orderServiceHours %> Hours</h6>
 					</div>
 				</div>
+				<div class="row">
+						<div class="col">
+							<h6 id="service-date-title">Order Status</h6>
+						</div>
+						<div class="col">
+							<% if (order.bookingCashConfirm) {%>
+							<h6 id="service-date">Order Received</h6>
+							<% } else { %>
+							<h6 id="service-date">Order Incomplete</h6>
+							<% } %>
+						</div>
+					</div>
 				<div class="row" style="text-shadow: 0.5px 0.5px #63032e;">
 					<div class="col">
 						<h5 id="total-fee-label" style="color:#8D5A97; font-family: 'Domine', serif;">Total Cost</h5>
