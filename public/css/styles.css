@@ -1,5 +1,4 @@
 /* Overall App Styling */
-
 body {
 	background-color: #f1f7f0;
 	color: #63032e;
@@ -18,7 +17,32 @@ h6 {
 hr {
 	width: 10%;
 }
+input{
+	border-radius: 2rem !important;
+}
+textarea{
+	border-radius: 2rem !important;
+	padding-left: 1.5rem !important;
+}
 
+.assistUBtn {
+border-radius: 3rem;
+background-color: #f9d276;
+font-family:  'Fredoka One', cursive;
+color: #63032e;
+opacity: 0.8;
+border: none;
+}
+
+.assistUBtn:hover {
+    color: #e5c17b !important;
+    background-color: #63152f !important;
+}
+
+.assistUBtn:active {
+	color: #e5c17b !important;
+	background-color: #63152f !important;
+}
 /*! Landing Page */
 
 .sec-title {
@@ -53,6 +77,19 @@ hr {
 	width: 100%;
 	height: 330%;
 }
+.hidden-btn{
+		-webkit-border-radius: 28;
+		-moz-border-radius: 28;
+		color: #000000;
+		background: #fff;
+		padding: 10px 20px 10px 20px;
+		text-decoration: none
+	}
+.hidden-btn:hover {
+		background: #ffff;
+		text-decoration: none;
+	}
+
 
 /*! Services Section */
 
@@ -125,6 +162,7 @@ section.works-sec {
 	width: 50%;
 }
 
+/* TODO - [ ] Consider Removing Commented-out section (129 -143) */
 /* .line{
 	display: inline-block;
 	width: 340%;
@@ -164,10 +202,14 @@ section.works-sec {
 	font-family: 'Fredoka One', cursive;
 	font-size: 1.2rem;
 }
-::placeholder {
+
+/* TODO - [ ] Consider Removal and Replacement Elsewhere */
+/* ::placeholder {
 	color: #8d5a97 !important;
+	padding-top:1rem !important;
+	padding-bottom:1rem !important;
 	font-family: 'Domine', serif !important;
-}
+} */
 
 /*! Contact Us Section */
 
@@ -192,6 +234,7 @@ section.works-sec {
 }
 
 /*! Booking Page */
+
 
 /* .when-sec {
 	align-items: left;
@@ -224,45 +267,81 @@ section.works-sec {
 	border-radius: 2.5rem;
 	background-color: #e1e3f0;
   }
-.card{
+.card-for-fixer{
 	border-radius: 3rem;
 	margin-bottom: 1rem !important;
 }
 
-/*! Footer Section*/
-.footer {
-	position: relative;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin-top: 10.5rem;
-	margin-bottom: 0;
-	font-family: 'Fredoka One', cursive;
-}
-.footer-img {
+
+/*! Login Page */
+
+/* .login-bk-img {
+	z-index: -2;
 	position: absolute;
-	bottom: 0;
+	top: -1;
 	left: 0;
-	right: 0;
-	margin-bottom: 0rem;
-	z-index: -1;
-	width: 100%;
-	height: 270%;
+	width: 40%
 }
+
+.login-sec {
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+}
+.login-sec.title-row {
+	display: flex;
+	align-self: flex-start;
+}
+/* .login-sec-title {
+	left: 4;
+} */
+/* .label-for-login{
+	font-family: 'Fredoka One', cursive;
+	font-size: 1.1rem;
+}
+.login-box {
+	background-color: #e1e3f0;
+	width: 50%;
+	height: 27rem;
+	border-radius: 2rem
+}  */
+
+/*! Footer Section*/
 .footer-copyright-text {
 	margin: 0;
 	padding: 0 0 0.2rem 0;
 	font-size: 1.03rem;
 	color: #63032e;
+} 
+#page-container {
+	position: relative;
+	min-height: 100vh;
+  }
+#content-wrap {
+	padding-bottom: 20.5rem;    /* Footer height */
 }
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 5.5rem;		
+	font-family: 'Fredoka One', cursive;           
+  }
+.footer-img{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 270%;
+	z-index: -1;	
+}
+  
 /* .mid-text{
 	position: absolute;
 	left: 14rem;
 } */
 .social-icons {
-	margin-top: 1.7rem !important;
-	/* position: absolute;
-	right: 0; */
+	margin-top: 0.7rem !important;
 }
 
 /*! Thanks page */
@@ -273,22 +352,84 @@ section.works-sec {
 	margin-top: 13% !important;
 	padding-bottom: 8%;
 }
-.thanks-center {
-	position: relative;
-	height: 50px;
-	margin-top: 13% !important;
-	padding-bottom: 8%;
+
+
+/*! Register page */
+.register-head{
+	position: absolute;
+	top: 6%;
+	left: 7%;
+	width: 15%;
+	text-align: center; 
+}
+.login-bg-img{
+	width: 100%;
+	height: auto;
+}
+.reg-quote1{
+	line-height: 1.5;
+	font-size: 3rem;
+	position: absolute;
+	top: 24%;
+	left: 7%;
+	width: 15%;
+	padding-top: 2.5rem;
+	font-style: italic;
+}
+.reg-quote2{
+	line-height: 1.2;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 43%;
+    left: 3%;
+    width: 23%;
+    padding-top: 2.5rem;
+}
+.reg-logo{
+	position: absolute;
+	top: 10%;
+	left: 11%;
+
 }
 
+.label-for-register{
+	font-family: 'Fredoka One', cursive;
+	font-size: 1.1rem;
+}
+/* attempt 2 */
+.register-box{
+	background-color: #e1e3f0;
+	padding: 1.5rem;
+}
+input.reg-form{
+	border-radius: 0 2rem 2rem 0 !important;
+}
+.icon-container{
+	border-radius: 2rem 0 0 2rem !important;
+	background-color: #907e9f;
+}
+i{
+	color: #f2f7f0;
+}
+/* order history screen */
+.history-card{
+	/* max-width: 850px;  */
+	width:80%;
+	border-radius: 2rem; 
+	margin: 4% auto;
+}
+.history-card-img{
+	padding-top: 4%;
+	padding-bottom: 4%; 
+	background-color: #907e9f96; 
+	border-radius: 2rem 0 0 2rem;
+}
 
 /*! Media Queries */
 /* all screens smaller than desktop */
 @media (max-width: 576px) {
 	.footer-copyright-text {
 		font-size: 0.7rem;
-	}
-	.footer-img {
-		height: 250%;
 	}
 	.line {
 		visibility: hidden;
@@ -297,12 +438,39 @@ section.works-sec {
 	.work-text {
 		padding: 0 4rem;
 	}
-	.f1 {
-		padding-left: 2.6rem;
-	}
 	.upload-image-box {
 		text-align: center;
 		margin-top: 1.5rem;
+	}
+	.register-box{
+		width: 90%;
+	}
+	.reg-quote1{
+		position: absolute;
+    	top: 28%;
+    	left: 23%;
+    	font-size: 2.2rem;
+    	size: 2.5rem;
+	}
+	.reg-quote2{
+		position: absolute;
+		top: 47%;
+		left: 22%;
+		width: 35%;
+		padding-top: 2.5rem;
+		font-size: 1.3rem;
+	}
+	.reg-logo{
+		position: absolute;
+		top: 12%;
+		left: 30%;
+		width: 80px !important;
+		height: 80px !important;
+	
+	}
+	.history-card{
+		margin-left: 5% !important;
+		margin-right: 5% !important;
 	}
 }
 /* for desktop only */
@@ -327,6 +495,23 @@ section.works-sec {
 	}
 	.upload-image-box {
 		margin-top: 9rem;
+	}
+	.f1{
+		margin-left: 3rem;
+	}
+	.login-bg-img{
+		width: 40%;
+		height: auto;
+	}
+	.register-box{
+		width: 50%;
+    margin-left: 37rem;
+    margin-top: -10rem;
+	}
+	.history-card-img{
+		padding-top: 8%;
+		background-color: #907e9f96; 
+		border-radius: 2rem 0 0 2rem;
 	}
 }
 /* others */
@@ -377,20 +562,81 @@ section.works-sec {
 		width: -2%;
 	}
 }
-@media (max-width: 1900px) and (min-width: 1800px) {
-	.footer {
-		position: relative;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		margin-top: 25.5rem;
-		margin-bottom: 0;
-		font-family: 'Fredoka One', cursive;
+/* extra large screen */
+/* @media (max-width: 1900px) and (min-width: 1800px) {
+	
+} */
+/* ipad and ipad pro */
+@media(max-width:1030px)and (min-width:630px){
+	.reg-quote1{
+		position: absolute;
+    	top: 30%;
+    	font-size: 2.2rem;
+	}
+	.reg-quote2{
+		position: absolute;
+    top: 51%;
+    left: 4%;
+    width: 21%;
+    padding-top: 2.5rem;
+    font-size: 1.2rem;
+	}
+	.reg-logo{
+		position: absolute;
+		top: 12%;
+		left: 11%;
+		width: 80px !important;
+		height: 80px !important;
+	}
+	.register-box{
+		width: 60%;
+    margin-left: 17rem;
+    margin-top: -4rem;
 	}
 }
+/* for mobile only */
+@media (max-width:420px) and (min-width:350px){
+	.history-card-img{
+		border-radius: 2rem 2rem 0 0;
+	}
+}
+@media (max-width:750px) and (min-width:600px){
+	.history-card{
+		margin-left: 5% !important;
+		margin-right: 5% !important;
+	}
+	.history-card-img{
+		border-radius: 2rem 2rem 0 0;
+	}	
+}
+/* ipad pro */
 @media (max-width: 1030px) and (min-width: 1000px) {
 	.line-4-hide {
 		visibility: hidden;
 		width: 10% !important;
+	}
+	.f1{
+		margin-left: 5rem;
+	}
+	.reg-logo{
+		position: absolute;
+		top: 12%;
+		left: 9%;
+		width: 90px !important;
+		height: 90px !important;
+	}
+	.reg-quote1{
+		position: absolute;
+		top: 28%;
+		left: 4%;
+		font-size: 3rem;
+	}
+	.reg-quote2{
+		position: absolute;
+    top: 51%;
+    left: 2%;
+    width: 21%;
+    padding-top: 2.5rem;
+    font-size: 1.8rem;
 	}
 }​

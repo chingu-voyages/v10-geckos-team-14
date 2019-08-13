@@ -1,69 +1,69 @@
 <%- include("partials/header") -%>
+<!-- Alt Header begins -->
+
+<!-- <img style="width: 100%; z-index: -1; position: absolute; left: 0;" src="images/payment-background.png" alt="" /> -->
+<div class="media" style="position: relative; margin-bottom: 4rem;">
+	<img
+		src="images/SignUp-Bkgd.png"
+		class="img-responsive login-bg-img"
+		alt="..."
+		style="z-index: -1 !important;"
+	/>
+	<div>
+		<a href="/">
+			<img
+				src="/images/helpingHands.png"
+				width="100"
+				height="100"
+				class="logo-img reg-logo"
+				alt="logo-assistU"
+			/>
+		</a>
+		<h1 class="reg-quote1">AssistU</h1>
+		<h2 class="reg-quote2">Maximize Your Time</h2>
+	</div>
+</div>
+<!-- Alt Header ends -->
 
 <!-- payment section begins -->
-<img style="width: 100%; z-index: -1; position: absolute;" src="images/payment-background.png" alt="" />
 <div style="z-index: 0;" class="container border border-dark shadow register-box text-left">
-	<h2 style="text-align: center !important;">Payment</h2>
-	<form action="/login" method="post">
-		<label class="label-for-register">Email</label>
-		<div class="input-group mb-2">
-			<div class="input-group-prepend">
-				<span class="input-group-text icon-container" id="emailIconHelper"
-					><i class="fa fa-envelope" aria-hidden="true"></i
-				></span>
+	<h2 style="text-align: center !important;">Payment Summary</h2>
+	<h5>Cart</h5>
+	<form action="/bookingCashConfirm" method="post">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h6 id="fixer-comp-name"><%= fixerCompanyName %></h6>
+				</div>
+				<div class="col">
+					<h6 id="hourly-rate" style="text-align: right">$<%= orderFee %> per hour</h6>
+				</div>
+				<div class="col-lg-12">
+					<p id="num-hours" style="text-align: right;">@ <%= orderDuration %> Hours</p>
+				</div>
 			</div>
-			<input
-				type="email"
-				class="form-control reg-form"
-				name="username"
-				placeholder="Your Email"
-				aria-describedby="passwordInput"
-				required
-			/>
-		</div>
-		<label class="label-for-register">Password</label>
-		<div class="input-group mb-2">
-			<div class="input-group-prepend">
-				<span class="input-group-text icon-container" id="passwordIconHelper"
-					><i class="fa fa-key" aria-hidden="true"></i
-				></span>
-			</div>
-			<input
-				type="password"
-				class="form-control reg-form"
-				name="password"
-				placeholder="Your Password"
-				aria-describedby="passwordInput"
-				required
-			/>
-		</div>
-		<div class="row-btn text-center">
-			<a
-				class="btn btn-lg btn-outline-warning"
-				href="/register"
-				style="border: 1.5px #F9D276 solid; font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: none; border-radius: 1rem;"
-				>Register</a
-			>
-			<button
-				type="submit"
-				class="btn btn-lg btn-warning"
-				style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 1rem; width: 7.5rem;"
-			>
-				Login
-			</button>
-			<p>
-				<a
-					href="mailto:assistupro@gmail.com"
-					style="font-family: 'Fredoka One', cursive; color: #63032e;"
-					>Forget Password?</a
+			<div class="" style="text-align: center !important;">
+				<h5 style="text-align: center !important; margin-bottom: 0;">Total $<%= totalOrderFee %></h5>
+				<button
+					type="submit"
+					class="btn btn-lg btn-warning"
+					style="background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; margin:1rem 0; border-radius: 3rem;"
 				>
-			</p>
+					Confirm Cash Payment
+				</button>
+					<a
+						href="/"
+						style="font-family: 'Fredoka One', cursive; color: #63032e; text-decoration: underline dotted #63032e;margin: 0.5rem 0 !important; display: block;"
+						>Cancel Order</a
+					>
+				
+			</div>
 		</div>
 	</form>
 </div>
 
 <br />
 
-<!-- login section ends -->
+<!-- payment section ends -->
 
 <%- include("partials/footer") -%>
