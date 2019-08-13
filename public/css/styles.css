@@ -480,7 +480,7 @@ i{
 	
 	}
 	.history-card{
-		margin-left: 5% !important;
+		margin-left: 10% !important;
 		margin-right: 5% !important;
 	}
 }
@@ -603,6 +603,16 @@ i{
 		width: 60%;
     margin-left: 17rem;
     margin-top: -4rem;
+	}
+	.flex-for-tab{
+		display: flex;
+		flex-wrap: nowrap !important;
+	}
+}
+@media(max-width:1400px)and (min-width:1030px){
+	.flex-for-tab{
+		display: flex;
+		flex-wrap: nowrap !important;
 	}
 }
 /* for mobile only */
