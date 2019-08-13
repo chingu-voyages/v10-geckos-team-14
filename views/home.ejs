@@ -1,11 +1,11 @@
-<%- include("partials/header") -%>
-<% if(navCheck){ %>
-	<%- include("partials/navbarLogout") -%>
-	<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 2rem;text-shadow: 1px 1px #f2f7f0;"><%= clientDisplayName %></h5>
-<%}%> 
-<% if(!navCheck) {%>
-	<%- include("partials/navbarLogin") -%>
-<%}%>
+<%- include("partials/header") -%> <% if(navCheck){ %> <%- include("partials/navbarLogout") -%>
+<h5
+	class="text-right"
+	style="position: absolute;top: 0.4rem;right: 2rem;text-shadow: 1px 1px #f2f7f0;"
+>
+	<%= clientDisplayName %>
+</h5>
+<%}%> <% if(!navCheck) {%> <%- include("partials/navbarLogin") -%> <%}%>
 <!-- service section begins -->
 <section class="container services-section text-center">
 	<h1 class="sec-title">Invest In Your Convenience</h1>
@@ -14,86 +14,86 @@
 	<div class="services-btns container">
 		<div class="row row-service-icons">
 			<div class=" col-lg-4 col-md-6 col-sm-12">
-					<form action="/service" method="POST" id="repairs">
-					<input type="hidden" name="serviceType" value="repairs">
-						<img
+				<form action="/service" method="POST" id="repairs">
+					<input type="hidden" name="serviceType" value="repairs" />
+					<img
 						src="images/service-icons/repairs.png"
 						width="180"
 						height="180"
-						alt="repairs-icons"                     
+						alt="repairs-icons"
 						class="service-img shadow"
-						name= "repairs"
+						name="repairs"
 					/>
 				</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
-			<form action="/service" method="POST" id="plumbing">
-			<input type="hidden" name="serviceType" value="plumbing">
-				<img
-					src="images/service-icons/plumbing.png"
-					width="180"
-					height="180"
-					alt="plumbing-icon"
-					class="service-img shadow"
-					name= "plumbing"
-				/>
-			</form>
+				<form action="/service" method="POST" id="plumbing">
+					<input type="hidden" name="serviceType" value="plumbing" />
+					<img
+						src="images/service-icons/plumbing.png"
+						width="180"
+						height="180"
+						alt="plumbing-icon"
+						class="service-img shadow"
+						name="plumbing"
+					/>
+				</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
-			<form action="/service" method="POST" id="housekeeping">
-			<input type="hidden" name="serviceType" value="housekeeping">	
-				<img
-					src="images/service-icons/housekeeping.png"
-					width="180"
-					height="180"
-					alt="housekeeping-icon"
-					class="service-img shadow"
-					name="housekeeping"
-				/>
-			</form>
+				<form action="/service" method="POST" id="housekeeping">
+					<input type="hidden" name="serviceType" value="housekeeping" />
+					<img
+						src="images/service-icons/housekeeping.png"
+						width="180"
+						height="180"
+						alt="housekeeping-icon"
+						class="service-img shadow"
+						name="housekeeping"
+					/>
+				</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
-			<form action="/service" method="POST" id="admin">
-			<input type="hidden" name="serviceType" value="admin">
-				<img
-					src="images/service-icons/admin.png"
-					width="180"
-					height="180"
-					alt="admin-icon"
-					class="service-img shadow"
-					name ="admin"
-				/>
-			</form>	
+				<form action="/service" method="POST" id="admin">
+					<input type="hidden" name="serviceType" value="admin" />
+					<img
+						src="images/service-icons/admin.png"
+						width="180"
+						height="180"
+						alt="admin-icon"
+						class="service-img shadow"
+						name="admin"
+					/>
+				</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
 				<form action="/service" method="POST" id="lawncare">
-				<input type="hidden" name="serviceType" value="lawncare">
-				<img
-					src="images/service-icons/lawncare.png"
-					width="180"
-					height="180"
-					alt="lawncare-icon"
-					class="service-img shadow"
-					name="lawncare"
-				/>
+					<input type="hidden" name="serviceType" value="lawncare" />
+					<img
+						src="images/service-icons/lawncare.png"
+						width="180"
+						height="180"
+						alt="lawncare-icon"
+						class="service-img shadow"
+						name="lawncare"
+					/>
 				</form>
 			</div>
 			<div class="col-lg-4 col-md-6 col-sm-12">
 				<form action="/service" method="POST" id="personal-driver">
-				<input type="hidden" name="serviceType" value="personal-driver">
-				<img
-					src="images/service-icons/personal-driver.png"
-					width="180"
-					height="180"
-					alt="personal-driver-icon"
-					class="service-img shadow"
-					name="personal-driver"
-				/>
+					<input type="hidden" name="serviceType" value="personal-driver" />
+					<img
+						src="images/service-icons/personal-driver.png"
+						width="180"
+						height="180"
+						alt="personal-driver-icon"
+						class="service-img shadow"
+						name="personal-driver"
+					/>
 				</form>
 			</div>
 		</div>
 	</div>
-	<h2 class="" style="padding-top: 4rem;">Fixers Ready to</h2>
+	<h2 class="" style="padding-top: 4rem;">Fixers Ready To</h2>
 	<div class="container">
 		<div class="row row-fixers-ready-to">
 			<div class="col-lg-6 text-left">
@@ -106,10 +106,10 @@
 			</div>
 			<div class="col-lg-6 text-left">
 				<ul>
-					<li>Unclog your sink</li>
-					<li>Assemble Furniture</li>
-					<li>Fix your leak</li>
-					<li>Build a tree house</li>
+					<li>Mow your lawn</li>
+					<li>Plant flowers</li>
+					<li>Run your errands</li>
+					<li>Clean your house</li>
 				</ul>
 			</div>
 		</div>
@@ -120,65 +120,77 @@
 <!-- How it Works section begins -->
 
 <section class="works-sec">
-	<img class="works-bk-img" id="works-img-right" src="images/H-t-Wk-background-right.png" alt="color and shape background" />
-			<div class=" " style="z-index: 2;">
-				<h1 class="sec-title">How it Works</h1>
-				<h5 class="rw">4 Simple Steps</h5>
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<p class="work-text" style="text-align: justify">
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-								been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-								galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class= "col-lg-3 col-sm-12">
-							<img id="circle-1" src="images/Circle-1.png" alt="Circle 1">
-							<img class="line" src="images/rectangle-7.png" alt="line">
-						</div>
-						<div class= "col-lg-3 col-sm-12">
-							<img src="images/Circle-2.png" alt="Circle 2">
-							<img class="line" src="images/rectangle-7.png" alt="line">
-						</div>
-						<div class= "col-lg-3 col-sm-12">
-							<img src="images/Circle-3.png" alt="Circle 3">
-							<img class="line" src="images/rectangle-7.png" alt="line">
-						</div>
-						<div class= "col-lg-3 col-sm-12 margin-for-ipad ">
-							<img src="images/Circle-4.png" alt="Circle 4">
-							<img class="line line-4-hide" src="images/rectangle-7.png" alt="line">
-						</div>
-					</div>
-				</div>
-				<div class="container ">
-					<div class="row work-btm-text">
-						<div class="col-lg-6 col-sm-12">
-								<h4 class="work-text-left work-text">
-									Select your fixer and complete reservation form.
-								</h4>
-						</div>
-						<div class= "col-lg-6 col-sm-12">
-							<p class="work-text-right work-text">
-									Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
-									est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.
-							</p>
-						</div>
-					</div>
+	<img
+		class="works-bk-img"
+		id="works-img-right"
+		src="images/H-t-Wk-background-right.png"
+		alt="color and shape background"
+	/>
+	<div class=" " style="z-index: 2;">
+		<h1 class="sec-title">How it Works</h1>
+		<h5 class="rw">4 Simple Steps</h5>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<p class="work-text" style="text-align: justify">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+						has been the industry's standard dummy text ever since the 1500s, when an unknown
+						printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum
+						is simply dummy text of the printing and typesetting industry.
+					</p>
 				</div>
 			</div>
-	<img class="works-bk-img" id="works-img-left" src="images/H-t-Wk-background-left.png" alt="color and shape background" />
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-sm-12">
+					<img id="circle-1" src="images/Circle-1.png" alt="Circle 1" />
+					<img class="line" src="images/rectangle-7.png" alt="line" />
+				</div>
+				<div class="col-lg-3 col-sm-12">
+					<img src="images/Circle-2.png" alt="Circle 2" />
+					<img class="line" src="images/rectangle-7.png" alt="line" />
+				</div>
+				<div class="col-lg-3 col-sm-12">
+					<img src="images/Circle-3.png" alt="Circle 3" />
+					<img class="line" src="images/rectangle-7.png" alt="line" />
+				</div>
+				<div class="col-lg-3 col-sm-12 margin-for-ipad ">
+					<img src="images/Circle-4.png" alt="Circle 4" />
+					<img class="line line-4-hide" src="images/rectangle-7.png" alt="line" />
+				</div>
+			</div>
+		</div>
+		<div class="container ">
+			<div class="row work-btm-text">
+				<div class="col-lg-6 col-sm-12">
+					<h4 class="work-text-left work-text">
+						Select your fixer and complete reservation form.
+					</h4>
+				</div>
+				<div class="col-lg-6 col-sm-12">
+					<p class="work-text-right work-text">
+						Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta
+						nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<img
+		class="works-bk-img"
+		id="works-img-left"
+		src="images/H-t-Wk-background-left.png"
+		alt="color and shape background"
+	/>
 </section>
 <!-- end of How it Works section -->
 
 <!-- LeaderShip section begins -->
 <section class="leadership text-center">
 	<h1 class="sec-title">LeaderShip</h1>
-	<h5 class=" rw">What we believe in</h5>
+	<h5 class=" rw">We Revolutionize</h5>
+
 	<div class="container" style="padding: 0 5rem;">
 		<div class="row">
 			<div class="col-lg-6 bio-div">
@@ -219,8 +231,7 @@
 <!-- Our Mission section begins -->
 <section class="mission">
 	<h1 class="sec-title rw">Our Mission</h1>
-
-	<h5 class="rw">What we believe in</h5>
+	<h5 class=" rw">What We Believe In</h5>
 
 	<p class="rw" style="text-align: justify">
 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
@@ -244,9 +255,9 @@
 				class="form-control"
 				id="exampleInputEmail1"
 				aria-describedby="emailHelp"
-				placeholder="something@about.com"
-				name= contactEmail
-				required 
+				placeholder="Name@about.com"
+				name="contactEmail"
+				required
 			/>
 		</div>
 		<div class="form-group">
@@ -275,10 +286,11 @@
 		<button
 			type="submit"
 			class="btn btn-lg btn-warning"
-			style="background-color: #F9D276; width:100%; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 2rem;">
-			Send a message
+			style="background-color: #F9D276; width:100%; font-family: 'Fredoka One', cursive; color: #63032e; margin:1.3rem 0; border-radius: 2rem;"
+		>
+			Send Your Message
 		</button>
-	</form>	
+	</form>
 </section>
 <!-- contact section ends -->
 
