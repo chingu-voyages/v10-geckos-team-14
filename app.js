@@ -45,7 +45,7 @@ mongoose.set('useCreateIndex', true)
 const clientSchema = new mongoose.Schema({
 	username: String,
 	password: String,
-	clientFirstName: String, // todo: [ ] post mvp include validation to accept only 5-6 characters
+	clientFirstName: String, // TODO (Post MVP): - [ ] Include validation to accept only 5-6 characters
 	clientLastName: String,
 	clientStreetAddress1: String,
 	clientStreetAddress2: String,
@@ -246,7 +246,7 @@ app.get('/logout', function(req, res) {
 
 // Get request: HISTORY PAGE=============================================
 app.get('/history', function(req, res) {
-	if (req.isAuthenticated()){
+	if (req.isAuthenticated()) {
 		Order.find({}, function(err, foundRecord) {
 			if (err) {
 				console.log(err)
@@ -256,12 +256,13 @@ app.get('/history', function(req, res) {
 					if (foundRecord[i].orderClient.username === clientDisplayName) {
 						orderList.push(foundRecord[i])
 					}
-				} if(orderList.length > 0){
-					res.render('history',{
-						clientDisplayName:orderList[0].orderClient.clientFirstName,
-						orderList:orderList
+				}
+				if (orderList.length > 0) {
+					res.render('history', {
+						clientDisplayName: orderList[0].orderClient.clientFirstName,
+						orderList: orderList
 					})
-				} else{
+				} else {
 					Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
 						res.render('noOrder', {
 							clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
@@ -270,7 +271,7 @@ app.get('/history', function(req, res) {
 				}
 			}
 		})
-	} else{
+	} else {
 		res.redirect('/login')
 	}
 })
@@ -335,7 +336,7 @@ app.post('/selectedFixer', function(req, res) {
 				orderState: req.body.state,
 				orderCountry: req.body.country,
 				orderZip: req.body.zip,
-				orderRating: 10, //TODO POST MVP [ ] handle order ratings
+				orderRating: 10, // TODO (Post MVP): - [ ] Handle order ratings
 				orderFixerExpectations: req.body.fixerExpec,
 				orderClientResponsibilities: req.body.customerResp,
 				orderDate: dateTime,
