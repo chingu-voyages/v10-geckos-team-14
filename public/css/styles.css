@@ -38,6 +38,11 @@ border: none;
     color: #e5c17b !important;
     background-color: #63152f !important;
 }
+
+.assistUBtn:active {
+	color: #e5c17b !important;
+	background-color: #63152f !important;
+}
 /*! Landing Page */
 
 .sec-title {
@@ -408,7 +413,8 @@ i{
 }
 /* order history screen */
 .history-card{
-	max-width: 740px; 
+	/* max-width: 850px;  */
+	width:80%;
 	border-radius: 2rem; 
 	margin: 4% auto;
 }

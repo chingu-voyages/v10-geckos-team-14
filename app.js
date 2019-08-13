@@ -33,12 +33,12 @@ app.use(passport.session())
 //========================================DATABASE CONNECTIONS===========================================
 
 // for local DB connection ============================================================
- mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+//  mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 
 //for live DB connection ============================================================
- //mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
- mongoose.set('useFindAndModify', false)
- mongoose.set('useCreateIndex', true)
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
 
 //========================================DATABASE SCHEMAS===============================================
 
@@ -46,7 +46,7 @@ const clientSchema = new mongoose.Schema({
 	username: String,
 	password: String,
 	clientFirstName: String, // todo: [ ] post mvp include validation to accept only 5-6 characters
-	clientLastName: String,  
+	clientLastName: String,
 	clientStreetAddress1: String,
 	clientStreetAddress2: String,
 	clientCity: String,
@@ -67,10 +67,10 @@ const fixerSchema = new mongoose.Schema({
 	fixerRating: String,
 	//fixerImage: String,
 	fixerService: String,
-	fixerStreetAddress1:String,
-	fixerStreetAddress2:String,
+	fixerStreetAddress1: String,
+	fixerStreetAddress2: String,
 	fixerCity: String,
-	fixerState:String,
+	fixerState: String,
 	fixerCountry: String,
 	fixerZip: String
 })
@@ -123,9 +123,9 @@ var selectedFixer
 var selectedFixerFee
 let workHours = 1
 let calcFee = 1
-var navCheck= false
-var clientDisplayName 
-var fromBookingPage = false 
+var navCheck = false
+var clientDisplayName
+var fromBookingPage = false
 var thisOrder
 
 //=============================================GET REQUESTS==============================================
@@ -208,15 +208,15 @@ app.get('/register', function(req, res) {
 	}
 })
 //Get request: PAYMENT PAGE=============================================
-app.get('/payment',function(req,res){	
-	if (req.isAuthenticated()){
-		navCheck=true
-		Order.findById(thisOrder, function(err, foundOrder){
-			res.render('payment',{
-				fixerCompanyName:foundOrder.orderFixer.fixerCompanyName,
-				orderFee : foundOrder.orderFixer.fixerFee,
-				orderDuration : foundOrder.orderServiceHours,
-				totalOrderFee : foundOrder.orderCost
+app.get('/payment', function(req, res) {
+	if (req.isAuthenticated()) {
+		navCheck = true
+		Order.findById(thisOrder, function(err, foundOrder) {
+			res.render('payment', {
+				fixerCompanyName: foundOrder.orderFixer.fixerCompanyName,
+				orderFee: foundOrder.orderFixer.fixerFee,
+				orderDuration: foundOrder.orderServiceHours,
+				totalOrderFee: foundOrder.orderCost
 			})
 		})
 	} else {
@@ -224,13 +224,13 @@ app.get('/payment',function(req,res){
 	}
 })
 //Get request: LOGIN SUCCESS PAGE=============================================
-app.get('/loginSuccess',function(req,res){
-	
-	if (req.isAuthenticated()){
-		navCheck=true
-		Client.findOne({username:clientDisplayName}, function(err, foundClient){
-			res.render('loginSuccess',{     // POST MVP TODO: [ ] add continue booking feature
-			clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
+app.get('/loginSuccess', function(req, res) {
+	if (req.isAuthenticated()) {
+		navCheck = true
+		Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+			res.render('loginSuccess', {
+				// TODO POST MVP : [ ] add continue booking feature
+				clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
 			})
 		})
 	} else {
@@ -241,9 +241,29 @@ app.get('/loginSuccess',function(req,res){
 app.get('/logout', function(req, res) {
 	navCheck = false
 	req.logout()
-	fromBookingPage=false
-	res.redirect("/")
-  });
+	fromBookingPage = false
+	res.redirect('/')
+})
+
+// Get request: HISTORY PAGE=============================================
+app.get('/history', function(req, res) {
+	Order.find({}, function(err, foundRecord) {
+		if (err) {
+			console.log(err)
+		} else {
+			var orderList = []
+			for (var i = 0; i < foundRecord.length; i++) {
+				if (foundRecord[i].orderClient.username === clientDisplayName) {
+					orderList.push(foundRecord[i])
+				}
+			}
+			res.render('history',{
+				clientDisplayName:orderList[0].orderClient.clientFirstName,
+				orderList:orderList
+			})
+		}
+	})
+})
 
 //=============================================POST REQUESTS=============================================
 
@@ -290,10 +310,11 @@ app.post('/selectedFixer', function(req, res) {
 			selectedFixerFee = foundFixer.fixerFee
 			//console.log('1:'+selectedFixerFee)
 			//console.log('2:'+req.body.hours)
+			var dateTime = new Date()
 			calcFee = selectedFixerFee * req.body.hours
 			//console.log('3:'+calcFee)
-			const orderData = new Order ({
-				orderClient:{},
+			const orderData = new Order({
+				orderClient: {},
 				orderService: serviceType,
 				orderFixer: foundFixer,
 				orderServiceHours: req.body.hours,
@@ -304,103 +325,88 @@ app.post('/selectedFixer', function(req, res) {
 				orderState: req.body.state,
 				orderCountry: req.body.country,
 				orderZip: req.body.zip,
-				orderRating: 10,   //TODO POST MVP [ ] handle order ratings 
+				orderRating: 10, //TODO POST MVP [ ] handle order ratings
 				orderFixerExpectations: req.body.fixerExpec,
 				orderClientResponsibilities: req.body.customerResp,
-				orderDate: 'DateNotForNow',
-				orderWorkDate:  req.body.orderWorkDate,
-				bookingCashConfirm:false
+				orderDate: dateTime,
+				orderWorkDate: req.body.orderWorkDate,
+				bookingCashConfirm: false
 				//orderImage: 'skip'
 			})
-			if (req.isAuthenticated()){
-				Client.findOne({username:clientDisplayName}, function(err, foundClient){
-					orderData.orderClient=foundClient
-					orderData.save(function(err) {   
+			if (req.isAuthenticated()) {
+				Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+					orderData.orderClient = foundClient
+					orderData.save(function(err) {
 						if (err) {
 							console.log(err)
 						} else {
 							fromBookingPage = true
-							thisOrder= orderData._id
+							thisOrder = orderData._id
 							res.redirect('/payment')
 						}
 					})
 				})
-				}else{
-					orderData.save(function(err) {   
-						if (err) {
-							console.log(err)
-						} else {
-							fromBookingPage = true
-							thisOrder= orderData._id
-							res.redirect('/payment')
-							//console.log('orderCheck'+ orderData._id)
-						}
-					})
-				}
+			} else {
+				orderData.save(function(err) {
+					if (err) {
+						console.log(err)
+					} else {
+						fromBookingPage = true
+						thisOrder = orderData._id
+						res.redirect('/payment')
+						//console.log('orderCheck'+ orderData._id)
+					}
+				})
+			}
 		}
 	})
 })
 
-// TEMP GET request: History PAGE=============================================
-app.get('/history', function (req, res) {
-	Order.findOneAndUpdate({_id:thisOrder},{bookingCashConfirm:true},function(err){
-	if(err){
-		console.log(err)
-	}else{
-		Client.findOne({username:clientDisplayName}, function(err, foundClient){
-			if(err){
-				console.log(err)
-			}else{
-				res.render('history',{     
-					clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
-					})
-			}
-		})
-	}
-})
-})
-
-
 //Post request: REGISTRATION FORM @ REGISTER PAGE=============================================
-app.post('/register', function(req,res){
-
-	Client.register({username:req.body.username}, req.body.password, function(err, user){
-		if (err){
-			registerErrorCheck=true
-			if(err.name === 'UserExistsError'){
+app.post('/register', function(req, res) {
+	Client.register({ username: req.body.username }, req.body.password, function(err, user) {
+		if (err) {
+			registerErrorCheck = true
+			if (err.name === 'UserExistsError') {
 				registerError = 'Email already registered!'
 				res.redirect('/register')
-			}else{
+			} else {
 				registerError = 'Registration Failed! Please try again'
 				res.redirect('/register')
-			}			
-		} else{
-			passport.authenticate('local')(req, res, function(){
-				Client.findOneAndUpdate({username:req.body.username},{
-					clientFirstName: req.body.clientFirstName,
-					clientLastName: req.body.clientLastName,
-					clientStreetAddress1: req.body.clientStreetAddress1,
-					clientStreetAddress2: req.body.clientStreetAddress2,
-					clientCity: req.body.clientCity,
-					clientState: req.body.clientState,
-					clientCountry: req.body.clientCountry,
-					clientZip: req.body.clientZip,
-					clientMobileNo: req.body.clientMobileNo
-				},function(err){
-					if(err){
-						console.log(err)
+			}
+		} else {
+			passport.authenticate('local')(req, res, function() {
+				Client.findOneAndUpdate(
+					{ username: req.body.username },
+					{
+						clientFirstName: req.body.clientFirstName,
+						clientLastName: req.body.clientLastName,
+						clientStreetAddress1: req.body.clientStreetAddress1,
+						clientStreetAddress2: req.body.clientStreetAddress2,
+						clientCity: req.body.clientCity,
+						clientState: req.body.clientState,
+						clientCountry: req.body.clientCountry,
+						clientZip: req.body.clientZip,
+						clientMobileNo: req.body.clientMobileNo
+					},
+					function(err) {
+						if (err) {
+							console.log(err)
+						}
 					}
-				})
-				clientDisplayName= req.body.username
-				if(fromBookingPage){
-					fromBookingPage=false
-					Client.findOne({username:clientDisplayName}, function(err, foundClient){ 
-						Order.findOneAndUpdate({_id:thisOrder},{orderClient:foundClient}, function(){
-						if(err){console.log(err)}
-					})
+				)
+				clientDisplayName = req.body.username
+				if (fromBookingPage) {
+					fromBookingPage = false
+					Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+						Order.findOneAndUpdate({ _id: thisOrder }, { orderClient: foundClient }, function() {
+							if (err) {
+								console.log(err)
+							}
+						})
 					})
 					res.redirect('/payment')
-				}else{
+				} else {
 					res.redirect('/loginSuccess')
 				}
 			})
@@ -433,37 +439,39 @@ app.post('/login', function(req, res) {
 		req.login(user, function(err) {
 			if (err) {
 				console.log(err)
-			}else{
-				clientDisplayName= req.body.username
-				if(fromBookingPage){
-					fromBookingPage=false
-					Client.findOne({username:clientDisplayName}, function(err, foundClient){ 
-						Order.findOneAndUpdate({_id:thisOrder},{orderClient:foundClient}, function(){
-						if(err){console.log(err)}
+			} else {
+				clientDisplayName = req.body.username
+				if (fromBookingPage) {
+					fromBookingPage = false
+					Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+						Order.findOneAndUpdate({ _id: thisOrder }, { orderClient: foundClient }, function() {
+							if (err) {
+								console.log(err)
+							}
+						})
 					})
-					})
-					return	res.redirect('/payment')
-				}else{
-					return	res.redirect('/loginSuccess')
-				}	
+					return res.redirect('/payment')
+				} else {
+					return res.redirect('/loginSuccess')
+				}
 			}
 		})
 	})(req, res)
 })
 
 //Post request: CONFIRM BOOKING @ PAYMENT PAGE=============================================
-app.post('/bookingCashConfirm', function(req,res){
-	Order.findOneAndUpdate({_id:thisOrder},{bookingCashConfirm:true},function(err){
-		if(err){
+app.post('/bookingCashConfirm', function(req, res) {
+	Order.findOneAndUpdate({ _id: thisOrder }, { bookingCashConfirm: true }, function(err) {
+		if (err) {
 			console.log(err)
-		}else{
-			Client.findOne({username:clientDisplayName}, function(err, foundClient){
-				if(err){
+		} else {
+			Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+				if (err) {
 					console.log(err)
-				}else{
-					res.render('confirmation',{     
-						clientDisplayName:'Hi '+foundClient.clientFirstName+'!'					
-						})
+				} else {
+					res.render('confirmation', {
+						clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
+					})
 				}
 			})
 		}
