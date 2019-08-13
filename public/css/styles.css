@@ -609,7 +609,7 @@ i{
 		flex-wrap: nowrap !important;
 	}
 }
-@media(max-width:1400px)and (min-width:1030px){
+@media(max-width:1450px)and (min-width:1030px){
 	.flex-for-tab{
 		display: flex;
 		flex-wrap: nowrap !important;
