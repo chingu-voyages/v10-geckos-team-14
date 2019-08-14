@@ -13,7 +13,7 @@
   <a href="#project-status">Project Status</a> •
   <a href="#features-">Features</a> •
   <a href="#how-to-use-">How to Use</a> •
-  <a href="#technologies-used--">Technologies & Dependencies Used</a> •
+  <a href="#technologies-used-">Technologies Used</a> •
   <a href="#design-mockups">Design Mockups</a> •
   <a href="#authors">Authors</a> •
   <a href="#license-">License</a> •
