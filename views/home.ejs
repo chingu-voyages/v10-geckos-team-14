@@ -1,8 +1,9 @@
 <!-- Header with Navbar Section Begins  --------------------------------------------------------->
-<%- include("partials/header") -%> <% if(navCheck){ %> <%- include("partials/navbarLogout") -%>
+<%- include("partials/header") -%>
+<% if(navCheck){ %> <%- include("partials/navbarLogout") -%>
 <h5
 	class="text-right"
-	style="position: absolute;top: 0.4rem;right: 2rem;text-shadow: 1px 1px #f2f7f0;"
+	style="position: absolute;top: 0.4rem;right: 1.5rem;text-shadow: 1px 1px #f2f7f0;"
 >
 	<%= clientDisplayName %>
 </h5>
@@ -10,7 +11,6 @@
 <!-- Header with Navbar Section Ends  --------------------------------------------------------->
 
 <!-- Service Section Begins  --------------------------------------------------------->
-	<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 1.5rem;text-shadow: 1px 1px #f2f7f0;"><%= clientDisplayName %></h5>
 <section class="container services-section text-center">
 	<h1 class="sec-title">Invest In Your Convenience</h1>
 	<h5 class="">Select Your Fixer Service Type</h5>
@@ -221,7 +221,11 @@
 				/>
 				<h5 class="name">Kathy Lambert</h5>
 				<p class="bio-text">
-						Kathy Lambert is an intellectually curious individual with an insatiable desire to understand. She utilizes her diverse background, experiences, and skills to help be a resourceful, organized and forward-thinking project manager, web designer, and software developer.  Passionate about creating applications which are tools of efficiency in people's lives.  Giving time back for what matter's most in life.
+					Kathy Lambert is an intellectually curious individual with an insatiable desire to
+					understand. She utilizes her diverse background, experiences, and skills to help be a
+					resourceful, organized and forward-thinking project manager, web designer, and software
+					developer. Passionate about creating applications which are tools of efficiency in
+					people's lives. Giving time back for what matter's most in life.
 				</p>
 			</div>
 		</div>
