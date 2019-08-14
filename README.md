@@ -66,15 +66,17 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ## Technologies Used 🛠️
 
-* HTML
-* CSS
-* Bootstrap
-* JavaScript
-* jQuery
+* [HTML]()
+* [CSS]()
+* [Bootstrap](https://getbootstrap.com)
+* [JavaScript](https://www.javascript.com/)
+* [jQuery](https://jquery.com/)
 * EJS templating with NodeJS and Express
 * MongoDB with NodeJS Mongoose NPM package utilized for database management
 * Fonts from [Google Fonts](https://fonts.google.com/)
 * Icons from [Font Awesome](https://fontawesome.com/)
+* Color Palette Inspiration from [Coolors](https://coolors.co/f1f7f0-63032e-f9d276-8d5a97-e1e3f0)
+* Heroku Deployment
 
 ## Design Mockups
 
