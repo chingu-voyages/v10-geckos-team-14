@@ -163,7 +163,6 @@ section.works-sec {
 }
 .work-text-left {
 	align-self: flex-start;
-	text-align: justify;
 }
 .work-text-right {
 	/* align-self: flex-end; */

@@ -26,7 +26,30 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ## Built with
 
-* HTML, CSS, Bootstrap, JavaScript, jQuery, EJS templating with NodeJS and Express
+* TBD
+
+## How to Use 🔧
+
+### Getting Started 🚀
+
+* TBD
+  
+### Prerequisites 📋
+
+* TBD
+
+### Installation
+
+* TBD
+
+## Technologies Used 🛠️
+
+* [HTML](https://www.w3.org/TR/html52/)
+* [CSS](https://www.w3.org/Style/CSS/)
+* [Bootstrap](https://getbootstrap.com)
+* [JavaScript](https://www.javascript.com/)
+* [jQuery](https://jquery.com/)
+* EJS templating with NodeJS and Express
 * MongoDB with NodeJS Mongoose NPM package utilized for database management
 
 ## Contributors
