@@ -1,15 +1,16 @@
 # ***AssistU***
+
 `Live:` https://assist-u.herokuapp.com
 
 ## Overview
 
 On-Demand Household and Personal Services Booking System developed during Chingu's Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. ‘Chingu’ is a Korean word meaning ‘friend.’  As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
 
-Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. We provide deadlines, collaboration experiences, accountability tools, and a friendly community with shared goals. 
+Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. We provide deadlines, collaboration experiences, accountability tools, and a friendly community with shared goals.
 
 ### Challenge
 
-Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repo was created on July 17, 2019, fourteen (14) days after most chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repo creation.
+Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repo was created on July 17, 2019, fourteen (14) days after most chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repository creation.
 
 #### Modified Schedule
 
@@ -21,14 +22,14 @@ There is something motivating about being surrounded by people who are actively 
 
 ## Project Status
 
-This application is in development and pending version 1.0 release.
+This application is in development and pending version 1.0.0-alpha release.
 
 ## Built with
 
 * HTML, CSS, Bootstrap, JavaScript, jQuery, EJS templating with NodeJS and Express
 * MongoDB with NodeJS Mongoose NPM package utilized for database management
 
-## Authors
+## Contributors
 
 ### Chingu Voyage 10 Team #14 🇮🇳 & 🇺🇸
 
