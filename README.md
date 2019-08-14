@@ -2,17 +2,18 @@
   <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> AssistU
     <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" />
 </h1>
-<h3  align="center"> Live Site:
-  <a href="https://assist-u.herokuapp.com">https://assist-u.herokuapp.com</a> </h3>
-<h5 align="center">
+<h4 align="center">
   On-Demand Household and Personal Services
-</h5>
+</h4>
+<h5  align="center"> Live Site:
+  <a href="https://assist-u.herokuapp.com">https://assist-u.herokuapp.com</a> </h5>
+
 <p align="center">
   <a href="#overview">Overview</a> •
   <a href="#project-status">Project Status</a> •
   <a href="#features">Features</a> •
-  <a href="#how-to-use">How to Use</a> •
-  <a href="#technologies-&-dependencies-used">Technologies & Dependencies Used</a> •
+  <a href="#how-to-use-">How to Use</a> •
+  <a href="#technologies--dependencies-used-">Technologies & Dependencies Used</a> •
   <a href="#design-mockups">Design Mockups</a> •
   <a href="#authors">Authors</a> •
   <a href="#license">License</a> •
@@ -22,7 +23,7 @@
 ---
 
 ## Overview
----
+----
 
 On-Demand Household and Personal Services Booking System developed during Chingu's Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’  As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
 
