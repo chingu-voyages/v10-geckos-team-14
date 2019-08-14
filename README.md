@@ -66,8 +66,8 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ## Technologies Used 🛠️
 
-* [HTML]()
-* [CSS]()
+* [HTML](https://www.w3.org/TR/html52/)
+* [CSS](https://www.w3.org/Style/CSS/)
 * [Bootstrap](https://getbootstrap.com)
 * [JavaScript](https://www.javascript.com/)
 * [jQuery](https://jquery.com/)
