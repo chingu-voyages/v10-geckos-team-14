@@ -23,7 +23,7 @@
 ---
 
 ## Overview
-----
+
 
 On-Demand Household and Personal Services Booking System developed during Chingu's Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’  As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
 
@@ -42,17 +42,15 @@ Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was c
 There is something motivating about being surrounded by people who are actively working towards the same goals, eager and committed to growth through learning. The opportunity to apply one's technical skills on a team project with pair programming, in a fully distributed, remote, and agile environment.  While also practicing the soft skills and team workflows necessary to thrive in a professional development environment.
 
 ## Project Status
----
+
 
 This application is in development and pending version 1.0.0-alpha release.
 
 ## Features 💎
----
 
 * TBD
 
 ## How to Use 🔧
----
 
 ### Getting Started 🚀
 
@@ -67,7 +65,6 @@ This application is in development and pending version 1.0.0-alpha release.
 * TBD
 
 ## Technologies & Dependencies Used 🛠️
----
 
 * HTML, CSS
 * Bootstrap, JavaScript, jQuery
@@ -76,16 +73,13 @@ This application is in development and pending version 1.0.0-alpha release.
 * Fonts from [Google Fonts](https://fonts.google.com/)
 * Icons from [Font Awesome](https://fontawesome.com/)
 
-
-
 ## Design Mockups
----
+
+* TBD
 
 ## Authors
----
 
 ### Chingu Voyage 10 Team #14 🇮🇳 & 🇺🇸
-
 
 Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
 
@@ -93,11 +87,9 @@ Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
 * **Kathy Lambert** - [GitHub](https://github.com/CodeMeKathy)
 
 ## License 📄
----
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
----
 
 Thank you [Chance](https://github.com/tropicalchancer) and the Chingu-X Team for giving back and creating [Chingu Organization](https://chingu.io).  This Voyage 10 project is in part a result of your efforts and contributions to the tech industry.
