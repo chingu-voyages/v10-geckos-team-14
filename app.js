@@ -92,7 +92,7 @@ const orderSchema = new mongoose.Schema({
 	orderDate: String,
 	orderWorkDate: Date,
 	bookingCashConfirm: Boolean,
-	orderImage: String
+	//orderImage: String
 })
 const contactUsSchema = new mongoose.Schema({
 	contactEmail: { type: String, required: [true, 'This is a compulsory field'] },
