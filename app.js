@@ -307,6 +307,8 @@ app.post('/service', function(req, res) {
 			serviceType = _.startCase(serviceType)
 		} else if (serviceType === 'lawncare') {
 			serviceType = 'Lawn Care'
+		} else if (serviceType === 'admin') {
+			serviceType = 'Administrative'
 		} else {
 			serviceType = _.capitalize(serviceType)
 		}

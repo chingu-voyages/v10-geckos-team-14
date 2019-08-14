@@ -1,26 +1,24 @@
-# ***AssistU***
-`Live:` https://assist-u.herokuapp.com
-
-<h1 align="center">
-  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/3f89cdb0d81f5044dd9d55d285aa0278c50cad1a/public/favicon-16x16.png" alt="AssistU Logo" width="25px" /> AssistU
+<h1 align="center" style="font-style: italic;">
+  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> AssistU
+    <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" />
 </h1>
-
-<h2 align="center">
-  A clean, beautiful and responsive portfolio template for Developers!
-</h2>
-
+<h3  align="center"> Live Site:
+  <a href="https://assist-u.herokuapp.com">https://assist-u.herokuapp.com</a> </h3>
+<h5 align="center">
+  On-Demand Household and Personal Services
+</h5>
 
 ## Overview
 
-On-Demand Household and Personal Services Booking System developed during Chingu's Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. ‘Chingu’ is a Korean word meaning ‘friend.’  As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
+On-Demand Household and Personal Services Booking System developed during Chingu's Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’  As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
 
-Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. We provide deadlines, collaboration experiences, accountability tools, and a friendly community with shared goals. 
+Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. We provide deadlines, collaboration experiences, accountability tools, and a friendly community with shared goals.
 
-### Challenge
+### Challenge 💪
 
-Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repo was created on July 17, 2019, fourteen (14) days after most chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repo creation.
+Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was created on July 17, 2019, fourteen (14) days after most chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repository creation.
 
-#### Modified Schedule
+#### Modified Schedule 📆
 
 ![Team #14's Schedule](https://github.com/chingu-voyages/v10-geckos-team-14/blob/readmeUpdates/public/images/ChinguV10%20-%20Team%2014.png?raw=true "Team #14's Schedule")
 
@@ -30,19 +28,51 @@ There is something motivating about being surrounded by people who are actively 
 
 ## Project Status
 
-This application is in development and pending version 1.0 release.
+This application is in development and pending version 1.0.0-alpha release.
 
-## Built with
+## Features 💎
+
+* TBD
+
+## Getting Started 🚀
+
+* TBD
+  
+### Prerequisites 📋
+
+* TBD
+  
+## How to Use 🔧
+
+* TBD
+
+### Installing
+
+* TBD
+
+## Technologies & Dependencies Used 🛠️
 
 * HTML, CSS, Bootstrap, JavaScript, jQuery, EJS templating with NodeJS and Express
 * MongoDB with NodeJS Mongoose NPM package utilized for database management
+* Fonts from [Google Fonts](https://fonts.google.com/)
+* Icons from [Font Awesome](https://fontawesome.com/)
 
-## Authors
+
+
+## Design Mockups
+
+## Authors & Contributors
 
 ### Chingu Voyage 10 Team #14 🇮🇳 & 🇺🇸
 
+Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
+
 * **Vaibhav Srivastava** - [GitHub](https://github.com/vai1205)
 * **Kathy Lambert** - [GitHub](https://github.com/CodeMeKathy)
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 

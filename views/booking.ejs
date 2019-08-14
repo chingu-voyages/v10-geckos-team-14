@@ -1,28 +1,31 @@
 <%- include("partials/header") -%>
+
 <% if(navCheck){ %>
 	<%- include("partials/navbarLogout") -%>
 	<h5 class="text-right" style="position: absolute;top: 0.4rem;right: 2rem;text-shadow: 1px 1px #f2f7f0;"><%= clientDisplayName %></h5>
 <%}%> 
+
 <% if(!navCheck) {%>
 	<%- include("partials/navbarLogin") -%>
 <%}%>
-<!-- booking section begins -->
+
+<!-- Booking Section Begins -->
 <br /> <br />
 <h1><%= serviceType %></h1>
 <br />
 
-<!-- modal asking to select fixer -->
+<!-- Modal - Select Fixer Begins -->
 <div class="modal fade" id="NoFixerModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalCenterTitle">Fixer Missing!</h5>
+		  <h5 class="modal-title" id="exampleModalCenterTitle">Selected Fixer Missing!</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
 		</div>
 		<div class="modal-body" style="background-color: #e1e3f0;">
-		 Dear User, Please select a fixer from the list.
+		 Please select a Fixer from the provided list.
 		</div>
 		<div class="modal-footer">
 		  <button type="button" style="margin:0; width:50%; background-color: #F9D276; font-family: 'Fredoka One', cursive; color: #63032e; border-style: none; border-radius:2rem; " class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -30,24 +33,23 @@
 	  </div>
 	</div>
   </div>
-  <!-- end of modal -->
+<!--Modal - Select Fixer Ends -->
 
-<!-- Form Begins -->
-
+<!-- Booking Form Begins -->
 <div class="container">
 	<div class="row">
-		<!-- column 1 -->
+<!-- What Form Section Begins------------------------------------------------------->
 		<div class="col-lg-12 text-left">
 			<h3 class=" sec-title text-left">What</h3>
-			<p>Please Pick a Fixer from the list.</p>
+			<p>Please select a Fixer for your service needs from the list.</p>
 			<br/>
 			<form action="/selectedFixer" method="post" id="selectFixerForm">
 				<input type="hidden" name="selectedFixer" id="fixerInput" value="no-fixer">
-		<%	for(var i=0; i<fixerData.length; i+=3) { %>
-				
-				<div class="card-deck text-center">
-						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i]._id %>">
-							<!-- modal#1 describing selected fixer -->
+					<%	for(var i=0; i<fixerData.length; i+=3) { %>
+						<div class="card-deck text-center">
+							<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i]._id %>">
+
+<!-- Modal - Fixer Selected Begins -->
 <div class="modal fade <%= fixerData[i]._id %> border border-warning" id="selectedFixerModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		  <div class="modal-content border border-warning">
@@ -67,7 +69,7 @@
 		  </div>
 		</div>
 	  </div>
-	  <!-- end of modal#1 -->
+<!-- Modal - Fixer Selected Begins Ends -->
 						  <img src="images/user.svg" class="card-img-top " style="padding:15%;" alt="...">
 						  <div class="card-body">
 							<h5 class="card-title"><%= fixerData[i].fixerCompanyName %></h5>
@@ -80,7 +82,7 @@
 						</div>
 						<% if(fixerData[i+1]){ %>
 						<div class="card card-for-fixer border border-warning col-lg-4" id="<%= fixerData[i+1]._id %>">
-							<!-- modal#2 describing selected fixer -->
+<!-- modal#2 describing selected fixer -->
 <div class="modal fade <%= fixerData[i+1]._id %> border border-warning" id="selectedFixerModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		  <div class="modal-content border border-warning">
@@ -151,10 +153,10 @@
 		<%	} %>
 					
 
-	<!-- Where----------------------------------------------------- -->
+<!-- Where Form Section Begins------------------------------------------------------->
 				
 				<h3 class="booking-sec-title text-left row1">Where</h3>
-				<p>Please describe the venue for the job.</p>
+				<p>Please provide the address for the service location.</p>
 				<div class="form-row row1">
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputAddress1"></label> -->
@@ -204,10 +206,10 @@
 							name="postalCode" required/>
 						</div>
 				</div>
-	<!-- When----------------------------------------------------- -->
+<!-- When Form Section Begins------------------------------------------------------->
 				<br />
 				<h3 class="booking-sec-title text-left">When</h3>
-				<p>Please define the date and time for work.</p>
+				<p>Please provide the date and time for the needed service.</p>
 				<div class="form-row row1">
 					<div class="form-group col-lg-4">
 						<!-- <label for="inputDate"></label> -->
@@ -220,6 +222,7 @@
 							name="orderWorkDate"
 							required
 						/>
+						<small id="date" class="form-text" style="color: #8d5a97;">Date</small>
 					</div>
 					<div class="form-group col-lg-3">
 						<!-- <label for="inputStartTime"></label> -->
@@ -259,9 +262,9 @@
 					</div>
 				</div>
 				<br />
-				<!-- how---------------------------------------------------- -->
+<!-- How Form Section Begins------------------------------------------------------->
 				<h3 class="booking-sec-title text-left">How</h3>
-				<p>Please describe your expectations here.</p>
+				<p>Please describe your expectations and or notes for your selected Fixer and if any responsibilities you will provide.</p>
 				<div class="form-row row1">
 					<div class="col-lg-12 form-group">
 						<!-- <label for="fixerExpec"></label> -->
@@ -270,7 +273,7 @@
 							id="fixerExpec"
 							class="form-control"
 							rows="4"
-							placeholder="Fixer Expectations..."
+							placeholder="Fixer Expectations ..."
 							name="fixerExpec" required
 						></textarea>
 					</div>
@@ -282,15 +285,16 @@
 							class="form-control"
 							rows="4"
 							name="customerResp"
-							placeholder="Customer Responsibilities..." required
+							placeholder="Customer Responsibilities ..." required
 						></textarea>
 					</div>
 				</div>
 				
 			
 
-			<!-- Form end -->
-		</div>
+<!-- Booking Form Section Ends------------------------------------------------------->
+
+		</div> 
 		<!-- column 2 -->
 
 		<!-- <div class="col-lg-4 upload-image-box" >
@@ -316,5 +320,6 @@
 		Confirm Fixer Request
 	</button></div>
 </form>
-<!-- booking section ends -->
+
+<!-- Booking Section Ends ------------------------------------------------------->
 <%- include("partials/footer") -%>
