@@ -46,8 +46,8 @@ We look forward to making it a big User-Fixer communication and Booking platform
 
 #### Technical Motivation
 
-- To embrace the self-learning, we are motivated to adopt latest tech stacks to build a live project that solves solving real life problems.
-- Building a system that deals with loads of Database manipulations and management using NoSQL type database management system.
+- To embrace the self-learning, we are motivated to adopt the latest tech stacks to build a live project that solves solving real-life problems.
+- Building a system that deals with loads of Database manipulations and management using a NoSQL type database management system.
 
 ## Project Status
 
