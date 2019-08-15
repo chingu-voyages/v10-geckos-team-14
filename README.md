@@ -39,10 +39,17 @@ Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was c
 
 ### Motivation
 
-There is something motivating about being surrounded by people who are actively working towards the same goals, eager and committed to growth through learning. The opportunity to apply one's technical skills on a team project with pair programming, in a fully distributed, remote, and agile environment.  While also practicing the soft skills and team workflows necessary to thrive in a professional development environment.
+#### Real-Life Problem and our approach to Solving it
+
+There are certain services that the busy working members of the family require most frequently, but do not have sufficient time/skill-set to do it. Most of the time, they find various issues in hiring regular workers. With AssistU, we solve this problem of the urban household by providing these services on a common platform ensuring the best quality work right at the house of common people so as to make their life easy and comfortable, generating large employment at the same time.
+We look forward to making it a big User-Fixer communication and Booking platform to ease the life of clients and provide maximum employment opportunities to skilled fixers.
+
+#### Technical Motivation
+
+- To embrace the self-learning, we are motivated to adopt latest tech stacks to build a live project that solves solving real life problems.
+- Building a system that deals with loads of Database manipulations and management using NoSQL type database management system.
 
 ## Project Status
-
 
 This application is in development and pending version 1.0.0-alpha release.
 
