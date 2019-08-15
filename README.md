@@ -139,10 +139,10 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ## How to Use 🔧
 
-- `CD` into root directory and type `node app.js` in terminal to start the server and when you get a message saying `server started at 3000`, you are good to go!
+- `cd` into the root directory and type `node app.js` in terminal to start the server and when you get a message saying `server started at 3000`, you are good to go!
 - Open `localhost:3000` in your browser and enjoy the project!
-- To check the process flow, select any service from home page, pick a fixer from the list and fill the booking form.
-- Register with your Email/password and look into order history section to see the list of orders you have made in the past.
+- To check the process flow, select any service from the home page, pick a fixer from the list and fill the booking form.
+- Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
 - You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
 - Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
 - Make it customized as per your requirements and feel free to `fork` if there is any sort of suggestions for the improvement.
@@ -150,12 +150,12 @@ This application is in development and pending version 1.0.0-alpha release.
 ### Getting Started 🚀
 
 1. Clone the project locally.
-2. Check if your system has node and mongoDB installed.
-3. To check it, type `node --version` for Node and `mongo --version` in your terminal window to check mongoDB is installed.
+2. Check if your system has node and MongoDB installed.
+3. To check it, type `node --version` for Node and `mongo --version` in your terminal window to check MongoDB is installed.
 4. If Either of them is not installed in your system, please find here
-	- <a herf="[https://nodejs.org/en/download/](https://nodejs.org/en/download/)"> Nodejs
-	- <a href="[https://www.mongodb.com/download-center/community](https://www.mongodb.com/download-center/community)"> MongoDB</a>
-5. It is optional, but we recommend using <a href="[https://robomongo.org/download](https://robomongo.org/download)"> Robo3T</a> to access the local database and organize it.
+	- [Nodejs](https://nodejs.org/en/download/) 
+	- [MongoDB](https://www.mongodb.com/download-center/community)
+5. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and organize it.
 6. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
   
 ### Prerequisites 📋
@@ -163,18 +163,18 @@ This application is in development and pending version 1.0.0-alpha release.
 #### Dev Dependencies
 
 - <a href="https://www.npmjs.com/package/body-parser">body-parser</a>
-- <a href="[https://www.npmjs.com/package/dotenv](https://www.npmjs.com/package/dotenv)">dotenv</a>
-- <a href="[https://www.npmjs.com/package/ejs](https://www.npmjs.com/package/ejs)">ejs</a>
-- <a href="[https://www.npmjs.com/package/ejs-lint](https://www.npmjs.com/package/ejs)">ejs-lint</a>
-- <a href="[https://www.npmjs.com/package/express](https://www.npmjs.com/package/express)">express</a>
-- <a href="[https://www.npmjs.com/package/express-session](https://www.npmjs.com/package/express-session)">express-session</a>
-- <a href="[https://www.npmjs.com/package/lodash](https://www.npmjs.com/package/lodash)">lodash</a>
-- <a href="[https://www.npmjs.com/package/mongoose](https://www.npmjs.com/package/mongoose)">mongoose</a>
-- <a href="[https://www.npmjs.com/package/multer](https://www.npmjs.com/package/multer)">multer</a>
-- <a href="[https://www.npmjs.com/package/nodemon](https://www.npmjs.com/package/nodemon)">nodemon</a>
-- <a href="[https://www.npmjs.com/package/passport](https://www.npmjs.com/package/passport)">passport</a>
-- <a href="[https://www.npmjs.com/package/passport-local](https://www.npmjs.com/package/passport-local)">passport-local</a>
-- <a href="[https://www.npmjs.com/package/passport-local-mongoose](https://www.npmjs.com/package/passport-local-mongoose)">passport-local-mongoose</a>
+- <a href="https://www.npmjs.com/package/dotenv">dotenv</a>
+- <a href="https://www.npmjs.com/package/ejs">ejs</a>
+- <a href="https://www.npmjs.com/package/ejs-lint">ejs-lint</a>
+- <a href="https://www.npmjs.com/package/express">express</a>
+- <a href="https://www.npmjs.com/package/express-session">express-session</a>
+- <a href="https://www.npmjs.com/package/lodash">lodash</a>
+- <a href="https://www.npmjs.com/package/mongoose">mongoose</a>
+- <a href="https://www.npmjs.com/package/multer">multer</a>
+- <a href="https://www.npmjs.com/package/nodemon">nodemon</a>
+- <a href="https://www.npmjs.com/package/passport">passport</a>
+- <a href="https://www.npmjs.com/package/passport-local">passport-local</a>
+- <a href="https://www.npmjs.com/package/passport-local-mongoose">passport-local-mongoose</a>
 
 ### Installation
 
