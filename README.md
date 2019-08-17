@@ -1,29 +1,32 @@
-<h1 align="center" style="font-style: italic;">
+<h1 align="center" style="font-style: italic; color: #63032e;
+	font-family: 'Fredoka One', cursive">
   <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> AssistU
     <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" />
 </h1>
-<h4 align="center">
-  On-Demand Household and Personal Services
+<h4 align="center" style="font-style: italic; color: #63032e;
+	font-family: 'Fredoka One', cursive">
+  On-Demand Household and Personal Services Booking System
 </h4>
-<h5  align="center"> Live Site:
-  <a href="https://assist-u.herokuapp.com">https://assist-u.herokuapp.com</a> </h5>
+<h5  align="center" style="font-style: italic; color: #63032e;
+	font-family: 'Domine', serif"> Live Site:
+  <a href="https://assist-u.herokuapp.com" style="color: #8d5a97">https://assist-u.herokuapp.com</a> </h5>
 
-<p align="center">
-  <a href="#overview">Overview</a> •
-  <a href="#project-status">Project Status</a> •
-  <a href="#features-">Features</a> •
-  <a href="#how-to-use-">How to Use</a> •
-  <a href="https://github.com/chingu-voyages/v10-geckos-team-14/tree/readmeUpdates#technologies-used-%EF%B8%8F">Technologies Used</a> •
-  <a href="#design-mockups">Design Mockups</a> •
-  <a href="#authors">Authors</a> •
-  <a href="#license-">License</a> •
-  <a href="#acknowledgments">Acknowledgments</a> 
+<p align="center" style="font-style: italic; color: #63032e;
+	font-family: 'Domine', serif">
+  <a href="#overview" style="color: #8d5a97">Overview</a> •
+  <a href="#project-status" style="color: #8d5a97">Project Status</a> •
+  <a href="#features-" style="color: #8d5a97">Features</a> •
+  <a href="#how-to-use-" style="color: #8d5a97">How to Use</a> •
+  <a href="https://github.com/chingu-voyages/v10-geckos-team-14/tree/readmeUpdates#technologies-used-%EF%B8%8F" style="color: #8d5a97">Technologies Used</a> •
+  <a href="#design-mockups" style="color: #8d5a97">Design Mockups</a> •
+  <a href="#authors" style="color: #8d5a97">Authors</a> •
+  <a href="#license-" style="color: #8d5a97">License</a> •
+  <a href="#acknowledgments" style="color: #8d5a97">Acknowledgments</a> 
 </p>
 
 ---
 
 ## Overview
-
 
 On-Demand Household and Personal Services Booking System developed during Chingu's Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’  As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
 
@@ -57,7 +60,7 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ### 1. Login/Sign-up
 
-#### User End
+#### Frontend
 
 - New user can Register by filling the registration form.
 - Already registered users can login to their account by using their registered email address and password.
@@ -65,7 +68,7 @@ This application is in development and pending version 1.0.0-alpha release.
 - Two type of error messages maybe received if user enters incorrect details while filling login form. viz  "Please enter registered email" or "Wrong Password Entered"
 - User can even login after filling the booking form and can continue the booking process without any loss of data entered in the Booking Form.
 
-#### Technical/Beck End
+#### Backend
 
 - User password is stored in most secure possible method, in the form of Hashes with Salts.
 - Sessions are created as users login and this session remains created until the user logs out or clear the browser cookies.
@@ -74,7 +77,7 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ### 2. Select the fixer as per Requirements/Budget
 
-#### User End
+#### Frontend
 
 - Select the service from the eye pleasing list of services shown on home page.
 - From the group of fixers available to serve, user can select one depending upon the budget / description shown by the fixer.
@@ -89,7 +92,7 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ### 3. Simple Booking Procedure
 
-#### User End
+#### Frontend
 
 - User can pick the fixer that he/she finds most suitable for the service from the list.
 - Enter the date and time when service is required.
@@ -99,7 +102,7 @@ This application is in development and pending version 1.0.0-alpha release.
 - Confirm payment
 - Done!
 
-#### Technical/Back End
+#### Backend
 
 - All the details entered by the user is taken care by a post request that takes the data to server to get it saved in the orders collection of the database.
 - Selected fixer details are added as a subDocument in the same order document.
@@ -109,31 +112,31 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ### 4. Order History
 
-#### User End
+#### Frontend
 
 - User can see the list of orders made in the past with order history feature.
 
-#### Technical/Back End
+#### Backend
 
 - A query is done in the orders collection _(where every order document contains the details of client making it, in the form of subDocument)_ with the email address of client that is logged in, to display the list of orders made by the client in the past.
 
 ### 5. Experience the presence
 
-#### User End
+#### Frontend
 
 - Once logged in, users can see their Name on the top of the Screen.
 
-#### Technical/Back End
+#### Backend
 
 - Once logged in, the first name of user is fetched from the database and is concatenated with 'Hi' before and '!' after the First Name to show it at top right corner of the app.
 
 ### 6. Got a complaint/Query/Suggestion? Post it!
 
-#### User End
+#### Frontend
 
 - User can fill the contact/enquiry form on home page and submit it to send any sort of Query/Suggestion.
 
-#### Technical/Back End
+#### Backend
 
 - Contact form data filled by the user is taken care by a post request which sends the data to server, from where the data is saved in the contactForms collection
 
@@ -153,7 +156,7 @@ This application is in development and pending version 1.0.0-alpha release.
 2. Check if your system has node and MongoDB installed.
 3. To check it, type `node --version` for Node and `mongo --version` in your terminal window to check MongoDB is installed.
 4. If Either of them is not installed in your system, please find here
-	- [Nodejs](https://nodejs.org/en/download/) 
+   - [Nodejs](https://nodejs.org/en/download/) 
 	- [MongoDB](https://www.mongodb.com/download-center/community)
 5. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and organize it.
 6. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
