@@ -27,13 +27,13 @@
 
 ## Overview
 
-On-Demand Household and Personal Services Booking System developed during Chingu's Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’  As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
+On-Demand Household and Personal Services Booking System developed during Chingu’s Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’ As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
 
 Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. We provide deadlines, collaboration experiences, accountability tools, and a friendly community with shared goals.
 
 ### Challenge 💪
 
-Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was created on July 17, 2019, fourteen (14) days after most chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repository creation.
+Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was created on July 17, 2019, fourteen (14) days after most Chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repository creation.
 
 #### Modified Schedule 📆
 
@@ -41,10 +41,13 @@ Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was c
 
 ### Motivation
 
-#### Real-Life Problem and our approach to Solving it
+#### AssistU's approach to solving everyday real-life problems
 
-There are certain services that the busy working members of the family require most frequently, but do not have sufficient time/skill-set to do it. Most of the time, they find various issues in hiring regular workers. With AssistU, we solve this problem of the urban household by providing these services on a common platform ensuring the best quality work right at the house of common people so as to make their life easy and comfortable, generating large employment at the same time.
-We look forward to making it a big User-Fixer communication and Booking platform to ease the life of clients and provide maximum employment opportunities to skilled fixers.
+To create a booking platform that facilitates a community.  A place where Clients can improve the overall quality of their lives by finding and utilizing highly trained Fixers to accomplish the unwanted tasks in their lives.  An environment of transparency where Fixers and Clients can communicate their service needs and expectations.  All while creating a new stream of employment and opportunities for Fixers within their communities. 
+
+There are many services that the busy working members of the family require most frequently, but do not have sufficient time and or skill set to do it.  Most of the time, it can be a problematic and tedious process to find and hire regular workers.  AssistU solves these problems of the modern households and families by providing the services of skilled and experienced Fixers on a common platform, ensuring the best quality work at the tips of your fingers.  
+
+Experience the convenience of delegating the inconvenient and time-consuming things in your life to a responsible Fixer with AssistU.  Clients can improve the quality of their life and while gaining time back for what matters most in one's life.   Fixers gain the ability to connect one-on-one with their Clients on a single, convenient, and easy to use platform.
 
 #### Technical Motivation
 

@@ -1,7 +1,7 @@
 {
 	"name": "AssistU",
 	"version": "1.0.0",
-	"description": "This is a web app where you can find workers for your basic household tasks online.",
+	"description": "On-Demand Household and Personal Services Booking System",
 	"main": "app.js",
 	"scripts": {
 		"start": "node app.js",
