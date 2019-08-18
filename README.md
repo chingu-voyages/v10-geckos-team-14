@@ -1,6 +1,5 @@
-<h1 align="center" style="font-style: italic; color: #63032e;
-	font-family: 'Fredoka One', cursive">
-  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> AssistU
+<h1 align="center" style="	font-family: 'Fredoka One', cursive">
+  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> <span style="font-style: italic; color: #63032e;"> AssistU </span>
     <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" />
 </h1>
 <h4 align="center" style="font-style: italic; color: #63032e;
