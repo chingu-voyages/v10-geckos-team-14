@@ -43,7 +43,7 @@ Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was c
 
 #### AssistU's approach to solving everyday real-life problems
 
-To create a booking platform that facilitates a community.  A place where Clients can improve the overall quality of their lives by finding and utilizing highly trained Fixers to accomplish the unwanted tasks in their lives.  An environment of transparency where Fixers and Clients can communicate their service needs and expectations.  All while creating a new stream of employment and opportunities for Fixers within their communities. 
+To create a booking platform that facilitates a community.  A place where Clients can improve the overall quality of their lives by finding and utilizing highly trained Fixers to accomplish the unwanted tasks in their lives.  An environment of transparency where Fixers and Clients can communicate their service needs and expectations.  All while creating a new stream of employment and opportunities for Fixers within their communities.
 
 There are many services that the busy working members of the family require most frequently, but do not have sufficient time and or skill set to do it.  Most of the time, it can be a problematic and tedious process to find and hire regular workers.  AssistU solves these problems of the modern households and families by providing the services of skilled and experienced Fixers on a common platform, ensuring the best quality work at the tips of your fingers.  
 
@@ -51,24 +51,25 @@ Experience the convenience of delegating the inconvenient and time-consuming thi
 
 #### Technical Motivation
 
-- To embrace the self-learning, we are motivated to adopt the latest tech stacks to build a live project that solves solving real-life problems.
-- Building a system that deals with loads of Database manipulations and management using a NoSQL type database management system.
+To embrace the opportunity to learn in a collaborative, fully distributed team environment while also motivated to gain experience using popular JavaScript libraries and tools to build a live project that solves real-life problems.  A full-stack application that manages and utilizes significant amounts of data using a NoSQL type database management system.
 
 ## Project Status
 
-This application is in development and pending version 1.0.0-alpha release.
+* AssistU version 1.0.0-alpha released on August 14, 2019.
+
+* AssistU version 1.1.0-alpha is in development and pending release.
 
 ## Features 💎
 
-### 1. Login/Sign-up
+### 1. User Login & Registration
 
 #### Frontend
 
-- New user can Register by filling the registration form.
-- Already registered users can login to their account by using their registered email address and password.
-- User gets error message when enters an email address that is already registered while filling registration form.
-- Two type of error messages maybe received if user enters incorrect details while filling login form. viz  "Please enter registered email" or "Wrong Password Entered"
-- User can even login after filling the booking form and can continue the booking process without any loss of data entered in the Booking Form.
+* New user can Register by filling the registration form.
+* Already registered users can login to their account by using their registered email address and password.
+* User gets error message when enters an email address that is already registered while filling registration form.
+* Two type of error messages maybe received if user enters incorrect details while filling login form. viz  "Please enter registered email" or "Wrong Password Entered"
+* User can even login after filling the booking form and can continue the booking process without any loss of data entered in the Booking Form.
 
 #### Backend
 
@@ -144,22 +145,14 @@ This application is in development and pending version 1.0.0-alpha release.
 
 ## How to Use 🔧
 
-- `cd` into the root directory and type `node app.js` in terminal to start the server and when you get a message saying `server started at 3000`, you are good to go!
-- Open `localhost:3000` in your browser and enjoy the project!
-- To check the process flow, select any service from the home page, pick a fixer from the list and fill the booking form.
-- Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
-- You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
-- Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
-- Make it customized as per your requirements and feel free to `fork` if there is any sort of suggestions for the improvement.
-
 ### Getting Started 🚀
 
 1. Clone the project locally.
 2. Check if your system has node and MongoDB installed.
 3. To check it, type `node --version` for Node and `mongo --version` in your terminal window to check MongoDB is installed.
-4. If Either of them is not installed in your system, please find here
-   - [Nodejs](https://nodejs.org/en/download/) 
-	- [MongoDB](https://www.mongodb.com/download-center/community)
+4. If either of them is not installed in your system, please find the links below for convenience.
+   - [Nodejs](https://nodejs.org/en/download/)
+   - [MongoDB](https://www.mongodb.com/download-center/community)
 5. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and organize it.
 6. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
   
@@ -167,23 +160,31 @@ This application is in development and pending version 1.0.0-alpha release.
 
 #### Dev Dependencies
 
-- <a href="https://www.npmjs.com/package/body-parser">body-parser</a>
-- <a href="https://www.npmjs.com/package/dotenv">dotenv</a>
-- <a href="https://www.npmjs.com/package/ejs">ejs</a>
-- <a href="https://www.npmjs.com/package/ejs-lint">ejs-lint</a>
-- <a href="https://www.npmjs.com/package/express">express</a>
-- <a href="https://www.npmjs.com/package/express-session">express-session</a>
-- <a href="https://www.npmjs.com/package/lodash">lodash</a>
-- <a href="https://www.npmjs.com/package/mongoose">mongoose</a>
-- <a href="https://www.npmjs.com/package/multer">multer</a>
-- <a href="https://www.npmjs.com/package/nodemon">nodemon</a>
-- <a href="https://www.npmjs.com/package/passport">passport</a>
-- <a href="https://www.npmjs.com/package/passport-local">passport-local</a>
-- <a href="https://www.npmjs.com/package/passport-local-mongoose">passport-local-mongoose</a>
+* <a href="https://www.npmjs.com/package/body-parser">body-parser</a>
+* <a href="https://www.npmjs.com/package/dotenv">dotenv</a>
+* <a href="https://www.npmjs.com/package/ejs">ejs</a>
+* <a href="https://www.npmjs.com/package/ejs-lint">ejs-lint</a>
+* <a href="https://www.npmjs.com/package/express">express</a>
+* <a href="https://www.npmjs.com/package/express-session">express-session</a>
+* <a href="https://www.npmjs.com/package/lodash">lodash</a>
+* <a href="https://www.npmjs.com/package/mongoose">mongoose</a>
+* <a href="https://www.npmjs.com/package/multer">multer</a>
+* <a href="https://www.npmjs.com/package/nodemon">nodemon</a>
+* <a href="https://www.npmjs.com/package/passport">passport</a>
+* <a href="https://www.npmjs.com/package/passport-local">passport-local</a>
+* <a href="https://www.npmjs.com/package/passport-local-mongoose">passport-local-mongoose</a>
 
 ### Installation
 
 - `cd` into the root folder through the terminal and type `npm install body-parser db dotenv ejs ejs-lint express express-session lodash mongoose multer nodemon passport passport-local passport-local-mongoose`. This is needed to make sure you don't miss installing any of the required dependency to run this project.
+
+* `cd` into the root directory and type `node app.js` in terminal to start the server and when you get a message saying `server started at 3000`, you are good to go!
+* Open `localhost:3000` in your browser and enjoy the project!
+* To check the process flow, select any service from the home page, pick a fixer from the list and fill the booking form.
+* Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
+* You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
+* Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
+* Make it customized as per your requirements and feel free to `fork` if there is any sort of suggestions for the improvement.
 
 ## Technologies Used 🛠️
 
@@ -196,14 +197,15 @@ This application is in development and pending version 1.0.0-alpha release.
 * NodeJS
 * Express
 * MongoDB with NodeJS Mongoose NPM package utilized for database management
+* Heroku Deployment
 * Fonts from [Google Fonts](https://fonts.google.com/)
 * Icons from [Font Awesome](https://fontawesome.com/)
 * Color Palette Inspiration from [Coolors](https://coolors.co/f1f7f0-63032e-f9d276-8d5a97-e1e3f0)
-* Heroku Deployment
+*! TODO -[ ] Add Icon reference
 
 ## Design Mockups
 
-* TBD
+![Mockup Design](https://github.com/chingu-voyages/v10-geckos-team-14/blob/dev/public/images/Small - README Mockup.png "Mockup Design")
 
 ## Authors
 
