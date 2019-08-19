@@ -79,7 +79,7 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * The User Authentication and Hashing with Salting feature is implemented with the help of [Passport JS](http://www.passportjs.org/)
 * Multiple authentication routes created depending on the page in which authentication is initiated.  When authentication begins from any other route except the booking route, the user is redirected, and the Login Successful view is rendered.  However, when successful authentication is initiated from the booking route, the user is redirected, and the payment confirmation view is rendered.
 
-### Select the fixer as per Requirements/Budget
+### 2. Select the fixer as per Requirements/Budget
 
 #### Frontend
 
@@ -201,7 +201,7 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * [Heroku Deployment](https://www.heroku.com/)
 * Fonts from [Google Fonts](https://fonts.google.com/)
 * Icons from [Font Awesome](https://fontawesome.com/)
-* Icons from [flaticon](https://www.flaticon.com)
+* Icons from [FlatIcon](https://www.flaticon.com)
 * Color Palette Inspiration from [Coolors](https://coolors.co/f1f7f0-63032e-f9d276-8d5a97-e1e3f0)
 
 
