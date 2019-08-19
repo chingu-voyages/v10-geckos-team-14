@@ -1,17 +1,16 @@
-<h1 align="center" style="	font-family: 'Fredoka One', cursive">
-  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> <span style="font-style: italic; color: #63032e;"> AssistU </span>
+<h1 align="center">
+  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> AssistU
     <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" />
 </h1>
-<h4 align="center" style="font-style: italic; color: #63032e;
-	font-family: 'Fredoka One', cursive">
+<h4 align="center">
   On-Demand Household and Personal Services Booking System
 </h4>
-<h5  align="center" style="font-style: italic; color: #63032e;
-	font-family: 'Domine', serif"> Live Site:
-  <a href="https://assist-u.herokuapp.com" style="color: #8d5a97">https://assist-u.herokuapp.com</a> </h5>
 
-<p align="center" style="font-style: italic; color: #63032e;
-	font-family: 'Domine', serif">
+<h5 align="center"> Live Site:
+  <a href="https://assist-u.herokuapp.com">https://assist-u.herokuapp.com</a>
+</h5>
+
+<p align="center">
   <a href="#overview" style="color: #8d5a97">Overview</a> •
   <a href="#project-status" style="color: #8d5a97">Project Status</a> •
   <a href="#features-" style="color: #8d5a97">Features</a> •
