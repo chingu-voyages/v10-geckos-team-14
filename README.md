@@ -61,24 +61,25 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 
 ## Features 💎
 
-### 1. User Login & Registration
+### User Login & Registration
 
 #### Frontend
 
-* New user can Register by filling the registration form.
-* Already registered users can login to their account by using their registered email address and password.
-* User gets error message when enters an email address that is already registered while filling registration form.
-* Two type of error messages maybe received if user enters incorrect details while filling login form. viz  "Please enter registered email" or "Wrong Password Entered"
-* User can even login after filling the booking form and can continue the booking process without any loss of data entered in the Booking Form.
+* New users can register by filling the registration form.
+* Already registered users can login to their account by using their registered email address and set password.
+* User gets an error message when the provided email address is already associated with a registered user upon submitting registration form.
+* Registered users who provide incorrect username login details upon submitting login form receives an error message - "Please enter a registered email."
+* Registered users who provide incorrect password  login details upon submitting login form receives an error message - "Please enter the correct password." 
+* Upon selecting the Confirm FixerRequest button, if the user is not logged in the user is redirected to the login page to log in before continuing.  After a successful login, the user is then redirected to the payment portion of the booking process, without any loss of the provided data entered in the Booking Form.
 
 #### Backend
 
-- User password is stored in most secure possible method, in the form of Hashes with Salts.
-- Sessions are created as users login and this session remains created until the user logs out or clear the browser cookies.
-- The user authentication and Hashing with Salting Feature is implemented with the help of <a href="[http://www.passportjs.org/](http://www.passportjs.org/)"> Passport JS</a>
-- When authenticating from any other route except booking route, "login successful" view is rendered, but when authenticating from booking route, payment confirmation page is rendered after checking if the user is authenticated successfully.
+* User password is stored in most secure method possible, in the form of Hashes with Salts.
+* Sessions are created as users log in, and session remains active until the user logs out or clears the browser cookies.
+* The User Authentication and Hashing with Salting feature is implemented with the help of [Passport JS](http://www.passportjs.org/)
+* Multiple authentication routes created depending on the page in which authentication is initiated.  When authentication begins from any other route except the booking route, the user is redirected, and the Login Successful view is rendered.  However, when successful authentication is initiated from the booking route, the user is redirected, and the payment confirmation view is rendered.
 
-### 2. Select the fixer as per Requirements/Budget
+### Select the fixer as per Requirements/Budget
 
 #### Frontend
 
@@ -193,19 +194,19 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * [Bootstrap](https://getbootstrap.com)
 * [JavaScript](https://www.javascript.com/)
 * [jQuery](https://jquery.com/)
-* Embedded JavaScript Templates 
-* NodeJS
-* Express
+* [EJS -- Embedded JavaScript Templates](https://ejs.co/)
+* [NodeJS](https://nodejs.org/)
+* [Express](https://www.express.com/)
 * MongoDB with NodeJS Mongoose NPM package utilized for database management
-* Heroku Deployment
+* [Heroku Deployment](https://www.heroku.com/)
 * Fonts from [Google Fonts](https://fonts.google.com/)
 * Icons from [Font Awesome](https://fontawesome.com/)
 * Color Palette Inspiration from [Coolors](https://coolors.co/f1f7f0-63032e-f9d276-8d5a97-e1e3f0)
-*! TODO -[ ] Add Icon reference
+* Icons from TODO -[ ] Add Icon reference []()
 
 ## Design Mockups
 
-![Mockup Design](https://github.com/chingu-voyages/v10-geckos-team-14/blob/dev/public/images/Small - README Mockup.png "Mockup Design")
+![Design Mockups](https://github.com/chingu-voyages/v10-geckos-team-14/blob/dev/public/images/Small%20-%20README%20Mockup.png?raw=true "Design Mockups")
 
 ## Authors
 
@@ -222,4 +223,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-Thank you [Chance](https://github.com/tropicalchancer) and the Chingu-X Team for giving back and creating [Chingu Organization](https://chingu.io).  This Voyage 10 project is in part a result of your efforts and contributions to the tech industry.
+Thank you, [Chance](https://github.com/tropicalchancer) and the Chingu-X Team for giving back and creating [Chingu Organization](https://chingu.io).  This Voyage 10 project is in part a result of your efforts and contributions to the tech industry.

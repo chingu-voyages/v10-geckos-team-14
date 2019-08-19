@@ -384,7 +384,7 @@ app.post('/register', function(req, res) {
 				registerError = 'Email already registered!'
 				res.redirect('/register')
 			} else {
-				registerError = 'Registration Failed! Please try again'
+				registerError = 'Registration Failed! Please try again.'
 				res.redirect('/register')
 			}
 		} else {
@@ -439,10 +439,10 @@ app.post('/login', function(req, res) {
 		if (!user) {
 			loginErrorCheck = true
 			if (info.name === 'IncorrectPasswordError') {
-				loginError = 'Please enter correct password'
+				loginError = 'Please enter the correct password.'
 				res.redirect('/login')
 			} else if (info.name === 'IncorrectUsernameError') {
-				loginError = 'Please enter registered email address'
+				loginError = 'Please enter a registered email address.'
 				res.redirect('/login')
 			} else {
 				loginError = 'Please enter valid credentials'
