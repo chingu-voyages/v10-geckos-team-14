@@ -111,6 +111,7 @@ li {
 }
 .service-img {
 	margin-top: 1.5rem;
+	cursor: -webkit-grab; cursor: grab;
 }
 .service-img:hover{
 	background-color:#e1e3f0;
