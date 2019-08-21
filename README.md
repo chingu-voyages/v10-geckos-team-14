@@ -26,13 +26,13 @@
 
 ## Overview
 
-On-Demand Household and Personal Services Booking System developed during Chingu’s Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’ As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
+An on-demand household and personal services booking system developed during Chingu Voyage 10. Chingu is a global collaboration platform that connects motivated learners who have shared goals to learn, help, and build together. Chingu is a Korean word meaning ‘friend.’ As a Chingu, you are a part of a friendly and supportive community of coders, one that has a shared goal of acquiring and refining their skills.
 
-Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. We provide deadlines, collaboration experiences, accountability tools, and a friendly community with shared goals.
+Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. Providing deadlines, collaboration experiences, and accountability tools, in a friendly community with shared goals.
 
 ### Challenge 💪
 
-Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was created on July 17, 2019, fourteen (14) days after most Chingu counterparts.  The target is MVP completion approximately twenty-five (25) days after repository creation.
+Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was created on July 17, 2019, fourteen (14) days after most Chingu counterparts repositories created on July 3, 2019.  The goal is to meet the Minimal Viable Product (MVP) completed requirements within approximately twenty-five (25) days after repository creation, on August 14, 2019.
 
 #### Modified Schedule 📆
 
@@ -44,19 +44,25 @@ Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was c
 
 To create a booking platform that facilitates a community.  A place where Clients can improve the overall quality of their lives by finding and utilizing highly trained Fixers to accomplish the unwanted tasks in their lives.  An environment of transparency where Fixers and Clients can communicate their service needs and expectations.  All while creating a new stream of employment and opportunities for Fixers within their communities.
 
-There are many services that the busy working members of the family require most frequently, but do not have sufficient time and or skill set to do it.  Most of the time, it can be a problematic and tedious process to find and hire regular workers.  AssistU solves these problems of the modern households and families by providing the services of skilled and experienced Fixers on a common platform, ensuring the best quality work at the tips of your fingers.  
+There are many services that the busy working members of the family frequently require, but do not have sufficient time and or the skill set to complete.  Most of the time, it can be a problematic and tedious process to find and hire routine workers.  AssistU solves these problems of the modern households and families by providing the services of skilled and experienced Fixers on a common platform, ensuring the best quality work at the tips of your fingers.  
 
-Experience the convenience of delegating the inconvenient and time-consuming things in your life to a responsible Fixer with AssistU.  Clients can improve the quality of their life and while gaining time back for what matters most in one's life.   Fixers gain the ability to connect one-on-one with their Clients on a single, convenient, and easy to use platform.
+Experience the convenience of delegating the inconvenient and time-consuming tasks in one's life to a responsible Fixer with AssistU.  Clients can improve the quality of their life while gaining time back for what matters most in one's life.   Fixers gain the ability to connect one-on-one with their Clients on a single, convenient, and easy to use platform.
 
 #### Technical Motivation
 
-To embrace the opportunity to learn in a collaborative, fully distributed team environment while also motivated to gain experience using popular JavaScript libraries and tools to build a live project that solves real-life problems.  A full-stack application that manages and utilizes significant amounts of data using a NoSQL type database management system.
+To embrace the opportunity to learn in a collaborative, fully distributed team environment while also motivated to gain experience using popular JavaScript libraries and tools to build a real project that solves real-life problems.  A full-stack application that manages and utilizes significant amounts of data in a NoSQL database management environment.
 
 ## Project Status
 
-* AssistU version 1.0.0-alpha released on August 14, 2019.
+### Versioning
 
+* AssistU version 1.0.0-alpha released on August 14, 2019.
 * AssistU version 1.1.0-alpha is in development and pending release.
+
+### Coming Soon
+
+- [ ] Administrative Internal Panel
+- [ ] Fixer Profiles
 
 ## Features 💎
 
@@ -106,18 +112,10 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 
 ## How to Use 🔧
 
-### Getting Started 🚀
-
-1. Clone the project locally.
-2. Check if your system has node and MongoDB installed.
-3. To check it, type `node --version` for Node and `mongo --version` in your terminal window to check MongoDB is installed.
-4. If either of them is not installed in your system, please find the links below for convenience.
-   - [Nodejs](https://nodejs.org/en/download/)
-   - [MongoDB](https://www.mongodb.com/download-center/community)
-5. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and organize it.
-6. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
-  
 ### Prerequisites 📋
+
+* [NodeJS](https://nodejs.org/en)
+* [MongoDB](https://www.mongodb.com)
 
 #### Dev Dependencies
 
@@ -134,6 +132,30 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * [passport](https://www.npmjs.com/package/passport)
 * [passport-local](https://www.npmjs.com/package/passport-local)
 * [passport-local-mongoose](https://www.npmjs.com/package/passport-local-mongoose)
+* [fortawesome/fontawesome-svg-core](https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core)
+
+### Getting Started 🚀
+
+1. To Clone the project locally. `git clone https://github.com/chingu-voyages/v10-geckos-team-14.git`
+2. Check if your system has node and MongoDB installed.
+3. To check it, type `node --version` for Node and `mongo --version` in your terminal window to check MongoDB is installed.
+4. If either of them is not installed in your system, please find the links below for convenience.
+   * [Nodejs](https://nodejs.org/en/download/)
+   * [MongoDB](https://www.mongodb.com/download-center/community)
+5. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and organize it.
+   
+6. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
+   
+   
+```
+// for local DB connection ============================================================
+mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
+
+//for live DB connection ============================================================
+//mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)```
+
 
 ### Installation
 
