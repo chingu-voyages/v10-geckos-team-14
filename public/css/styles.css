@@ -1,4 +1,4 @@
-/* Overall App Styling */
+/*! Overall App Styling */
 body {
 	background-color: #f1f7f0;
 	color: #63032e;
@@ -39,28 +39,7 @@ border: none;
     background-color: #63152f !important;
 }
 
-.assistUBtn:active {
-	color: #e5c17b !important;
-	background-color: #63152f !important;
-}
-.dropdown-menu{
-	border-radius: 2rem;
-	opacity: 0.9;
-}
-.dropdown-item{
-	padding: .25rem 2.2rem;
-}
-/*! Landing Page */
-
-.sec-title {
-	margin: 1.5rem 0 0 0;
-}
-.lead{
-	margin: 3%;
-}
-
 /*! Navbar */
-
 .navbar a {
 	text-decoration: none;
 	color: #63032e;
@@ -94,12 +73,33 @@ border: none;
 		background: #fff;
 		padding: 10px 20px 10px 20px;
 		text-decoration: none
-	}
+}
 .hidden-btn:hover {
 		background: #ffff;
 		text-decoration: none;
-	}
+}
+.assistUBtn:active {
+	color: #e5c17b !important;
+	background-color: #63152f !important;
+}
+.dropdown-menu{
+	border-radius: 2rem;
+	opacity: 0.9;
+}
+.dropdown-item{
+	padding: .25rem 2.2rem;
+}
+a.dropdown-item:active{
+	background-color: #e5c17b;
+}
 
+/*! Landing Page */
+.sec-title {
+	margin: 1.5rem 0 0 0;
+}
+.lead{
+	margin: 3%;
+}
 
 /*! Services Section */
 
