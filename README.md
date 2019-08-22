@@ -266,7 +266,7 @@ Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
 
 ## 📄 License
 
-The code in this project is licensed under the [MIT License](LICENSE.md).
+The code in this project is licensed under the [MIT License](LICENSE.md) © Vaibhav Srivastava  and Kathy Lambert.
 
 ## 👏 Acknowledgments
 
