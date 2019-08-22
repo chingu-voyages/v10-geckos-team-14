@@ -165,10 +165,12 @@ app.get('/', function(req, res) {
 
 ## How to Use 🔧
 
-* Select any service from the landing page, pick a fixer from the list and fill the booking form.
-* Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
-* You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
-* Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
+* Select any Service Type from the landing page.
+* Select a Fixer from the available list and complete the Booking Request Form to submit a service order request.
+* Register as a Client with an email address, password and contact details to continue.
+* Once logged into an authenticated session the booking process may proceed to the service order summary and confirmation parts of the booking process. Additionally, a list of all previous orders may now be accessed via the Client Order History.
+* Once a user is registered and completes at least one order, the `assistuDB` database with the Clients and Orders collections are created with the user-provided data.
+* Utilize [Robo3T](https://robomongo.org/download) to access and view the database with newly created records.  Pay particular attention to the Orders collection and the created subDocuments.
   
 ### Getting Started 🚀
 
@@ -253,7 +255,7 @@ Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
 
 ## Contributions
 
-* All contributions welcome, to contribute, please `fork` the repository and use a feature branch. Once complete `pull request` submissions are warmly welcome.
+* All contributions welcome, to contribute, please `fork` the repository and use a feature branch. Once complete, all `pull request` submissions are warmly welcome.
 * Features and improvement suggestions are also welcome.
 
 ## Links 🔗
