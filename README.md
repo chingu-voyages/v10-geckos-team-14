@@ -114,8 +114,11 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 
 ### Prerequisites 📋
 
-* [NodeJS](https://nodejs.org/en)
-* [MongoDB](https://www.mongodb.com)
+This project uses [NodeJS](http://nodejs.org), [NPM](https://npmjs.com) and [MongoDB](https://www.mongodb.com). To confirm if locally installed, enter into the terminal `node --version`,  `npm --version`, and `mongo --version`. If not locally installed, please the links below to conveniently access download instructions.
+
+* [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+* [Nodejs](https://nodejs.org/en/download/)
+* [MongoDB](https://www.mongodb.com/download-center/community)
 
 #### Dev Dependencies
 
@@ -136,33 +139,27 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 
 ### Getting Started 🚀
 
-1. To Clone the project locally. `git clone https://github.com/chingu-voyages/v10-geckos-team-14.git`
-2. Check if your system has node and MongoDB installed.
-3. To check it, type `node --version` for Node and `mongo --version` in your terminal window to check MongoDB is installed.
-4. If either of them is not installed in your system, please find the links below for convenience.
-   * [Nodejs](https://nodejs.org/en/download/)
-   * [MongoDB](https://www.mongodb.com/download-center/community)
-5. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and organize it.
-   
-6. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
+1. In location of choise, run in the terminal `git clone https://github.com/chingu-voyages/v10-geckos-team-14.git` to clone the project repository to the local machine.
+2. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and manage it.
+3. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
    
    
-```
-// for local DB connection ============================================================
+`// for local DB connection ============================================================
 mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 
 //for live DB connection ============================================================
 //mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 mongoose.set('useFindAndModify', false)
-mongoose.set('useCreateIndex', true)```
+mongoose.set('useCreateIndex', true)`
 
 
 ### Installation
-
 - `cd` into the root folder through the terminal and type `npm install body-parser db dotenv ejs ejs-lint express express-session lodash mongoose multer nodemon passport passport-local passport-local-mongoose`. This is needed to make sure you don't miss installing any of the required dependency to run this project.
 
 * `cd` into the root directory and type `node app.js` in terminal to start the server and when you get a message saying `server started at 3000`, you are good to go!
 * Open `localhost:3000` in your browser and enjoy the project!
+
+
 * To check the process flow, select any service from the home page, pick a fixer from the list and fill the booking form.
 * Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
 * You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
@@ -202,9 +199,19 @@ Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
 * **Vaibhav Srivastava** - [GitHub](https://github.com/vai1205)
 * **Kathy Lambert** - [GitHub](https://github.com/CodeMeKathy)
 
+## Contributions
+
+*All contributions welcome, to contribute, please fork the repository and use a feature branch. Oncee complete pull requests are warmly welcome.
+
+## Links 🔗
+
+* Project Deployed Site: https://assist-u.herokuapp.com
+* Repository: https://github.com/chingu-voyages/v10-geckos-team-14
+* In case of sensitive bugs like security vulnerabilities, please contact assistupro@gmail.com directly instead of using issue tracker. We value your effort to improve the security and privacy of this project!
+
 ## License 📄
 
-This project is licensed under the [MIT License](LICENSE.md).
+The code in this project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgments
 
