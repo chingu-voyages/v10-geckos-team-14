@@ -165,7 +165,7 @@ app.get('/', function(req, res) {
 
 ## How to Use 🔧
 
-* To check the process flow, select any service from the home page, pick a fixer from the list and fill the booking form.
+* Select any service from the landing page, pick a fixer from the list and fill the booking form.
 * Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
 * You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
 * Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
