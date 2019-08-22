@@ -169,7 +169,6 @@ app.get('/', function(req, res) {
 * Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
 * You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
 * Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
-* Make it customized as per your requirements and feel free to `fork` if there is any sort of suggestions for the improvement.
   
 ### Getting Started 🚀
 
@@ -254,7 +253,8 @@ Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
 
 ## Contributions
 
-*All contributions welcome, to contribute, please fork the repository and use a feature branch. Oncee complete pull requests are warmly welcome.
+* All contributions welcome, to contribute, please `fork` the repository and use a feature branch. Once complete `pull request` submissions are warmly welcome.
+* Features and improvement suggestions are also welcome.
 
 ## Links 🔗
 
