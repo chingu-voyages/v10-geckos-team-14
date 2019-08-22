@@ -106,13 +106,74 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 ### Data Manipulation
 
 * Any user can contact developers by filling out the Contact Form on the landing page.  All user-provided data in the Contact Form is sent via a Post request from the frontend to the sever and is saved in the Contacts' Collection within the AssistU Database.
+
+```javascript
+app.post('/contact', function(req, res) {
+  const contactData = new Contact({
+    contactEmail: req.body.contactEmail,
+    contactSubject: req.body.contactSubject,
+    contactMessage: req.body.contactMessage
+  })
+  contactData.save(function(err) {
+    if (err) {
+      console.log(err)
+    } else {
+      formCheck = true
+      res.redirect('/')
+    }
+  })
+})
+```
+
 * Authenticated personalized user greeting with the Client's first name rendered at the top right position of the user's screen.  The users' first name is fetched from the database and concatenated with 'Hi' preceding the username followed by '!'.
+
+```javascript
+app.get('/', function(req, res) {
+  Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+    if (formCheck) {
+      formCheck = false
+        if (foundClient) {
+          res.render('thanks', {
+            navCheck: navCheck,
+            clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
+          })
+        } else {
+          res.render('thanks', {
+            navCheck: navCheck,
+            clientDisplayName: ' '
+          })
+        }
+      } else {
+        if (foundClient) {
+          res.render('home', {
+            navCheck: navCheck,
+            clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
+          })
+        } else {
+            res.render('home', {
+              navCheck: navCheck,
+              clientDisplayName: ' '
+              })
+            }
+          }
+        })
+      })
+```
+
 * The Booking view is rendered by the user-selected Service Type at which time the Fixers' collection is queried from the database.  The Fixer data is fetched from the DataBase, and details from Fixers' collection are displayed.
 * To create the Order History view a database query is conducted within the Orders' Collection for every Order document containing the authenticated Client email address within the Client subDocument to render a list of all associated Client Orders.
 
 ## How to Use 🔧
 
-### Prerequisites 📋
+* To check the process flow, select any service from the home page, pick a fixer from the list and fill the booking form.
+* Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
+* You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
+* Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
+* Make it customized as per your requirements and feel free to `fork` if there is any sort of suggestions for the improvement.
+  
+### Getting Started 🚀
+
+#### Prerequisites 📋
 
 This project uses [NodeJS](http://nodejs.org), [NPM](https://npmjs.com) and [MongoDB](https://www.mongodb.com). To confirm if locally installed, enter into the terminal `node --version`,  `npm --version`, and `mongo --version`. If not locally installed, please the links below to conveniently access download instructions.
 
@@ -137,34 +198,26 @@ This project uses [NodeJS](http://nodejs.org), [NPM](https://npmjs.com) and [Mon
 * [passport-local-mongoose](https://www.npmjs.com/package/passport-local-mongoose)
 * [fortawesome/fontawesome-svg-core](https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core)
 
-### Getting Started 🚀
+### Installation
 
-1. In location of choise, run in the terminal `git clone https://github.com/chingu-voyages/v10-geckos-team-14.git` to clone the project repository to the local machine.
-2. It is optional, but we recommend using [Robo3T](https://robomongo.org/download) to access the local database and manage it.
-3. Once Node and Mongo is installed and running, open `app.js` file in the root folder and find the database connection link with a comment `// for local DB connection ======` and uncomment the next line of code viz. `//mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })` and comment the lines of code meant to connect the app to the live database.
-   
-   
-`// for local DB connection ============================================================
+1. In desired location, run in the terminal `git clone https://github.com/chingu-voyages/v10-geckos-team-14.git` to clone the project repository to the local machine.
+2. It is optional, but recommended to use [Robo3T](https://robomongo.org/download) to access and manage the local database.
+3. In the terminal run `npm install` or `npm install body-parser db dotenv ejs ejs-lint express express-session lodash mongoose multer nodemon passport passport-local passport-local-mongoose` to ensure all required developer dependencies are installed to successfully run this project locally.
+4. In the terminal `cd` into `v10-geckos-team-14.git` and open the `app.js` file located within the root folder.  Locate the database connections section within `app.js` and replace it with the below code snippet.
+
+```javascript
+//========================================DATABASE CONNECTIONS===========================================
+// for local DB connection ============================================================
 mongoose.connect('mongodb://localhost:27017/assistuDB', { useNewUrlParser: true })
 
 //for live DB connection ============================================================
 //mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)`
+```
 
-
-### Installation
-- `cd` into the root folder through the terminal and type `npm install body-parser db dotenv ejs ejs-lint express express-session lodash mongoose multer nodemon passport passport-local passport-local-mongoose`. This is needed to make sure you don't miss installing any of the required dependency to run this project.
-
-* `cd` into the root directory and type `node app.js` in terminal to start the server and when you get a message saying `server started at 3000`, you are good to go!
-* Open `localhost:3000` in your browser and enjoy the project!
-
-
-* To check the process flow, select any service from the home page, pick a fixer from the list and fill the booking form.
-* Register with your Email/password and look into the order history section to see the list of orders you have made in the past.
-* You can find `assistuDB in the list of your local databases once you have registered/made any order and collections are created with some real time data in it.
-* Go ahead and look into the records saved in `orders` collection to see how subDocuments mentioned above are saved.
-* Make it customized as per your requirements and feel free to `fork` if there is any sort of suggestions for the improvement.
+5. While in project directory within the terminal first run `mongod` followed by `node app.js` to start the server.  Once the server is running successfully, a terminal message stating `server started at 3000` will appear.
+6. In a browser visit `localhost:3000` and happy coding!
 
 ## Technologies Used 🛠️
 
