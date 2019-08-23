@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" /> AssistU
-    <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/favicon-32x32.png?raw=true" alt="AssistU Logo" />
+  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/favicon-32x32.png?raw=true" alt="AssistU Logo" /> AssistU
+    <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/favicon-32x32.png?raw=true" alt="AssistU Logo" />
 </h1>
 <h4 align="center">
   On-Demand Household and Personal Services Booking System
