@@ -30,15 +30,15 @@ An on-demand household and personal services booking system developed during Chi
 
 Chingu is a flexible & remote learning program for developers and aspiring developers who want to complete projects and gain experience. Providing deadlines, collaboration experiences, and accountability tools, in a friendly community with shared goals.
 
-### 💪 Challenge
+### Challenge 💪
 
 Typically a six (6) week adventure, Chingu Voyage 10 Team #14's repository was created on July 17, 2019, fourteen (14) days after most Chingu counterparts repositories created on July 3, 2019.  The goal is to meet the Minimal Viable Product (MVP) completed requirements within approximately twenty-five (25) days after repository creation, on August 14, 2019.
 
-#### 📆 Modified Schedule
+#### Modified Schedule 📆
 
 ![Team #14's Schedule](https://github.com/chingu-voyages/v10-geckos-team-14/blob/readmeUpdates/public/images/ChinguV10%20-%20Team%2014.png?raw=true "Team #14's Schedule")
 
-### 💭 Motivation
+### Motivation
 
 #### AssistU's approach to solving everyday real-life problems
 
@@ -46,13 +46,13 @@ To create a booking platform that facilitates a community.  A place where Client
 
 There are many services that the busy working members of the family frequently require, but do not have sufficient time and or the skill set to complete.  Most of the time, it can be a problematic and tedious process to find and hire routine workers.  AssistU solves these problems of the modern households and families by providing the services of skilled and experienced Fixers on a common platform, ensuring the best quality work at the tips of your fingers.  
 
-Experience the convenience of delegating the inconvenient and time-consuming tasks in one's life to a responsible Fixer with AssistU.  Clients can improve the quality of their life while gaining time back for what matters most in one's life.  Fixers gain the ability to connect one-on-one with their Clients on a single, convenient, and easy to use platform.
+Experience the convenience of delegating the inconvenient and time-consuming tasks in one's life to a responsible Fixer with AssistU.  Clients can improve the quality of their life while gaining time back for what matters most in one's life.   Fixers gain the ability to connect one-on-one with their Clients on a single, convenient, and easy to use platform.
 
 #### Technical Motivation
 
 To embrace the opportunity to learn in a collaborative, fully distributed team environment while also motivated to gain experience using popular JavaScript libraries and tools to build a real project that solves real-life problems.  A full-stack application that manages and utilizes significant amounts of data in a NoSQL database management environment.
 
-## ⏳ Project Status
+## Project Status
 
 ### Versioning
 
@@ -64,7 +64,7 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 - [ ] Administrative Internal Panel
 - [ ] Fixer Profiles
 
-## 💎 Features
+## Features 💎
 
 ### User Login & Registration
 
@@ -73,22 +73,55 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * New users can register by filling the registration form.
 * Already registered users can login to their account by using their registered email address and set password.
 * User gets an error message when the provided email address is already associated with a registered user upon submitting registration form.
-* Registered users who provide incorrect username login details upon submitting login form receive "Please enter a registered email" error message.
-* Registered users who provide incorrect password  login details upon submitting login form receive "Please enter the correct password" error message.
+* Registered users who provide incorrect username login details upon submitting login form receives an error message - "Please enter a registered email."
+* Registered users who provide incorrect password  login details upon submitting login form receives an error message - "Please enter the correct password."
 * Upon selecting the Confirm Fixer Request button, if the user is not logged in the user is redirected to the login page to log in before continuing.  After a successful login, the user is then redirected to the payment portion of the booking process, without any loss of the provided data entered in the Booking Form.
 
 #### Backend
 
-* User password is stored in most secure method possible, in the form of Hashes with Salts
+* User password is stored in most secure method possible, in the form of Hashes with Salts.
 * Sessions are created as users log in, and session remains active until the user logs out or clears the browser cookies.
 * The User Authentication and Hashing with Salting feature is implemented with the help of [Passport JS](http://www.passportjs.org/)
+* If user is not able to login, passport js authentication returns the error message, that can be accessed by accessing `info.name`. Else, in case of correct username and password, user is logged in ans `session` is created. This is how it is handled through the codes:
+
+```javascript
+passport.authenticate('local', function(err, user, info) {
+		if (err) {
+			console.log(err)
+		}
+		if (!user) {
+			if (info.name === 'IncorrectPasswordError') {
+				loginError = 'Please enter the correct password.'
+				res.redirect('/login')
+			} else if (info.name === 'IncorrectUsernameError') {
+				loginError = 'Please enter a registered email address.'
+				res.redirect('/login')
+			} else {
+				loginError = 'Please enter valid credentials'
+				res.redirect('/login')
+			}
+		}
+		req.login(user, function(err) {
+			if (err) {
+				console.log(err)
+			} else {
+					return res.redirect('/loginSuccess')
+			}
+		})
+	})(req, res)
+```
 * Multiple authentication routes created depending on the page in which authentication is initiated.  When authentication begins from any other route except the booking route, the user is redirected, and the Login Successful view is rendered.  However, when successful authentication is initiated from the booking route, the user is redirected, and the payment confirmation view is rendered.
+
 
 ### User-Friendly Booking Procedure
 
 #### Frontend
 
 * Client selects the Service Type and determines their most suitable Fixer form the list of Fixers stored within the Fixers collection.
+* Once fixer is selected and data for that fixer is transferred from db to server, the user is asked to confirm it.
+
+* If user attempts to confirm the booking, without selecting a fixer from the list, is prompted with an error that no fixer is selected.
+
 * Client provides the Service details into the Fixer Booking Form.  Form validation is utilized to ensure the Service Order date, location address, start and stop times, which are required is provided by the user.  Additionally, the Client can provide any Fixer expectations with any information regarding anything they may provide.
 * Afterwards the registered users are redirected to confirm payment method and upon confirmation are subsequently redirected to the order confirmation view.
 
@@ -97,6 +130,21 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * The user-selected Fixer details from the Fixers' Collection is added as a subDocument within the Order document upon selecting the Fixer of their choice.  In an authenticated session, Client details are also saved, at this time, and added as a subdocument in the Order document.
 * Upon selecting the Confirm FixerRequest button, a Post request is sent with all user-provided data in the Booking Form from the frontend to the sever and is saved in the Orders' Collection within the AssistU Database.
 * In a non-authenticated session, Client details are added as a subdocument, but only after a successful log-in when the user is redirected back to the Booking view and selects the Confirm Fixer Request button.
+* To check if a session is authenticated or not, passport js provides with a funtion called `request.isAuthenticated()` and this is a sample of how it is used in this app. The program checks if the user is Authenticated! and for those who are not authenticated, are redirected back to the `login` page.
+
+```javascript
+app.get('/loginSuccess', function(req, res) {
+	if (req.isAuthenticated()) {
+		Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+			res.render('loginSuccess', {
+				clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
+			})
+		})
+	} else {
+		res.redirect('/login')
+	}
+})
+```
 
 ### Database Management
 
@@ -162,8 +210,10 @@ app.get('/', function(req, res) {
 
 * The Booking view is rendered by the user-selected Service Type at which time the Fixers' collection is queried from the database.  The Fixer data is fetched from the DataBase, and details from Fixers' collection are displayed.
 * To create the Order History view a database query is conducted within the Orders' Collection for every Order document containing the authenticated Client email address within the Client subDocument to render a list of all associated Client Orders.
+* At user end, for logged in users, order history can be checked simply as shown below
 
-## 🔧 How to Use
+
+## How to Use 🔧
 
 * Select any Service Type from the landing page.
 * Select a Fixer from the available list and complete the Booking Request Form to submit a service order request.
@@ -172,7 +222,7 @@ app.get('/', function(req, res) {
 * Once a user is registered and completes at least one order, the `assistuDB` database with the Clients and Orders collections are created with the user-provided data.
 * Utilize [Robo3T](https://robomongo.org/download) to access and view the database with newly created records.  Pay particular attention to the Orders collection and the created subDocuments.
   
-### 🚀 Getting Started
+### Getting Started 🚀
 
 #### Prerequisites 📋
 
@@ -199,12 +249,12 @@ This project uses [NodeJS](http://nodejs.org), [NPM](https://npmjs.com) and [Mon
 * [passport-local-mongoose](https://www.npmjs.com/package/passport-local-mongoose)
 * [fortawesome/fontawesome-svg-core](https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core)
 
-### 💾 Installation
+### Installation
 
 1. In desired location, run in the terminal `git clone https://github.com/chingu-voyages/v10-geckos-team-14.git` to clone the project repository to the local machine.
 2. It is optional, but recommended to use [Robo3T](https://robomongo.org/download) to access and manage the local database.
 3. In the terminal run `npm install` or `npm install body-parser db dotenv ejs ejs-lint express express-session lodash mongoose multer nodemon passport passport-local passport-local-mongoose` to ensure all required developer dependencies are installed to successfully run this project locally.
-4. In the terminal `cd` into `v10-geckos-team-14.git/` and open the `app.js` file located within the root folder.  Locate the database connections section within `app.js` and replace it with the below code snippet.
+4. In the terminal `cd` into `v10-geckos-team-14.git` and open the `app.js` file located within the root folder.  Locate the database connections section within `app.js` and replace it with the below code snippet.
 
 ```javascript
 //========================================DATABASE CONNECTIONS===========================================
@@ -220,7 +270,7 @@ mongoose.set('useCreateIndex', true)`
 5. While in project directory within the terminal first run `mongod` followed by `node app.js` to start the server.  Once the server is running successfully, a terminal message stating `server started at 3000` will appear.
 6. In a browser visit `localhost:3000` and happy coding!
 
-## 🛠️ Technologies Used
+## Technologies Used 🛠️
 
 * [HTML](https://www.w3.org/TR/html52/)
 * [CSS](https://www.w3.org/Style/CSS/)
@@ -240,11 +290,11 @@ mongoose.set('useCreateIndex', true)`
 * Icons from [IconFinder](https://www.iconfinder.com/)
 * Color Palette Inspiration from [Coolors](https://coolors.co/f1f7f0-63032e-f9d276-8d5a97-e1e3f0)
 
-## 🎨 Design Mockups
+## Design Mockups
 
 ![Design Mockups](https://github.com/chingu-voyages/v10-geckos-team-14/blob/dev/public/images/Small%20-%20README%20Mockup.png?raw=true "Design Mockups")
 
-## 💻 Authors
+## Authors
 
 ### Chingu Voyage 10 Team #14 🇮🇳 & 🇺🇸
 
@@ -253,22 +303,22 @@ Application designed and implemented by Kathy Lambert and Vaibhav Srivastava.
 * **Vaibhav Srivastava** - [GitHub](https://github.com/vai1205)
 * **Kathy Lambert** - [GitHub](https://github.com/CodeMeKathy)
 
-## 💬 Contributions
+## Contributions
 
 * All contributions welcome, to contribute, please `fork` the repository and use a feature branch. Once complete, all `pull request` submissions are warmly welcome.
 * Features and improvement suggestions are also welcome.
 
-## 🔗 Links
+## Links 🔗
 
 * Project Deployed Site: https://assist-u.herokuapp.com
 * Repository: https://github.com/chingu-voyages/v10-geckos-team-14
 * In case of sensitive bugs like security vulnerabilities, please contact assistupro@gmail.com directly instead of using issue tracker. We value your effort to improve the security and privacy of this project!
 
-## 📄 License
+## License 📄
 
-The code in this project is licensed under the [MIT License](LICENSE.md) © Vaibhav Srivastava  and Kathy Lambert.
+The code in this project is licensed under the [MIT License](LICENSE.md).
 
-## 👏 Acknowledgments
+## Acknowledgments
 
 Thank you, [Chance](https://github.com/tropicalchancer) and the Chingu-X Team for giving back and creating [Chingu Organization](https://chingu.io).  This Voyage 10 project is in part a result of your efforts and contributions to the tech industry.
 
