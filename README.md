@@ -120,7 +120,13 @@ passport.authenticate('local', function(err, user, info) {
 
 * User selects the Service Type and determines their most suitable Fixer form the list of Fixers stored within the Fixers collection.
 * When the user selects a Fixer, a POST request with the Fixer's details are sent to the AssistU Database.  In response, an alert is presented for the user to confirm Fixer selection.
+  
+  <img  align="center" src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/455b386d9463ab57cedaeea63f76cedc44fd982f/public/gifs/pick a fixer from the list.gif" alt="Select a Fixer" width="600px" />
+
 * If the user attempts to select the 'Confirm Fixer Request' button without selecting a Fixer from the list, the user is alerted with a 'Please choose a Fixer for your service needs from the list' error.
+
+  <img  align="center" src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/455b386d9463ab57cedaeea63f76cedc44fd982f/public/gifs/no fixer selected.gif" alt="No Fixer Selected Alert" width="600px" />
+
 * The user provides the Service details into the Fixer Booking Form.  Form validation is utilized to ensure the Service Order date, location address, start and stop times, which are required is provided by the user.  Additionally, the user can provide any Fixer expectations with any information regarding anything they may provide.
 * Afterwards registered users are redirected to confirm payment method and upon confirmation are subsequently redirected to the order confirmation view.
 
@@ -210,7 +216,7 @@ app.get('/', function(req, res) {
 * The Booking view is rendered by the user-selected Service Type at which time the Fixers' collection is queried from the database.  The Fixer data is fetched from the DataBase, and details from Fixers' collection are displayed.
 * To create the Order History view a database query is conducted within the Orders' Collection for every Order document containing the authenticated Client email address within the Client subDocument to render a list of all associated Client Orders.
   
-<img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/455b386d9463ab57cedaeea63f76cedc44fd982f/public/gifs/order history.gif" alt="Order History" width="600px" />
+<img  align="center" src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/455b386d9463ab57cedaeea63f76cedc44fd982f/public/gifs/order history.gif" alt="Order History" width="600px" />
 
 ## How to Use 🔧
 
