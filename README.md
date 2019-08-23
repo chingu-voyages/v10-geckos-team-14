@@ -13,15 +13,15 @@
 <p align="center">
   <a href="#overview" style="color: #8d5a97">Overview</a> •
   <a href="#-project-status" style="color: #8d5a97">Project Status</a> •
-  <a href="#-features-" style="color: #8d5a97">Features</a> •
-  <a href="#-how-to-use-" style="color: #8d5a97">How to Use</a> •
+  <a href="#-features" style="color: #8d5a97">Features</a> •
+  <a href="#-how-to-use" style="color: #8d5a97">How to Use</a> •
   <a href="#-technologies-used" style="color: #8d5a97">Technologies Used</a> •
   <a href="#-design-mockups" style="color: #8d5a97">Design Mockups</a> •
   <a href="#-authors" style="color: #8d5a97">Authors</a> •
   <a href="#-contributions" style="color: #8d5a97">Contributions</a> •
   <a href="#-links" style="color: #8d5a97">Links</a> •
   <a href="#-license" style="color: #8d5a97">License</a> •
-  <a href="#acknowledgments" style="color: #8d5a97">Acknowledgments</a>
+  <a href="#-acknowledgments" style="color: #8d5a97">Acknowledgments</a>
 </p>
 
 ---
