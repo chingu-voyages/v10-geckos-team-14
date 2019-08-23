@@ -209,7 +209,8 @@ app.get('/', function(req, res) {
 
 * The Booking view is rendered by the user-selected Service Type at which time the Fixers' collection is queried from the database.  The Fixer data is fetched from the DataBase, and details from Fixers' collection are displayed.
 * To create the Order History view a database query is conducted within the Orders' Collection for every Order document containing the authenticated Client email address within the Client subDocument to render a list of all associated Client Orders.
-* At user end, for logged in users, order history can be checked simply as shown below
+  
+<img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/455b386d9463ab57cedaeea63f76cedc44fd982f/public/gifs/order history.gif" alt="Order History" width="600px" />
 
 ## How to Use 🔧
 
