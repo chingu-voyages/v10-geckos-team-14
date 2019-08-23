@@ -82,13 +82,46 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * User password is stored in most secure method possible, in the form of Hashes with Salts.
 * Sessions are created as users log in, and session remains active until the user logs out or clears the browser cookies.
 * The User Authentication and Hashing with Salting feature is implemented with the help of [Passport JS](http://www.passportjs.org/)
+* If user is not able to login, passport js authentication returns the error message, that can be accessed by accessing `info.name`. Else, in case of correct username and password, user is logged in ans `session` is created. This is how it is handled through the codes:
+
+```javascript
+passport.authenticate('local', function(err, user, info) {
+		if (err) {
+			console.log(err)
+		}
+		if (!user) {
+			if (info.name === 'IncorrectPasswordError') {
+				loginError = 'Please enter the correct password.'
+				res.redirect('/login')
+			} else if (info.name === 'IncorrectUsernameError') {
+				loginError = 'Please enter a registered email address.'
+				res.redirect('/login')
+			} else {
+				loginError = 'Please enter valid credentials'
+				res.redirect('/login')
+			}
+		}
+		req.login(user, function(err) {
+			if (err) {
+				console.log(err)
+			} else {
+					return res.redirect('/loginSuccess')
+			}
+		})
+	})(req, res)
+```
 * Multiple authentication routes created depending on the page in which authentication is initiated.  When authentication begins from any other route except the booking route, the user is redirected, and the Login Successful view is rendered.  However, when successful authentication is initiated from the booking route, the user is redirected, and the payment confirmation view is rendered.
+
 
 ### User-Friendly Booking Procedure
 
 #### Frontend
 
 * Client selects the Service Type and determines their most suitable Fixer form the list of Fixers stored within the Fixers collection.
+* Once fixer is selected and data for that fixer is transferred from db to server, the user is asked to confirm it.
+
+* If user attempts to confirm the booking, without selecting a fixer from the list, is prompted with an error that no fixer is selected.
+
 * Client provides the Service details into the Fixer Booking Form.  Form validation is utilized to ensure the Service Order date, location address, start and stop times, which are required is provided by the user.  Additionally, the Client can provide any Fixer expectations with any information regarding anything they may provide.
 * Afterwards the registered users are redirected to confirm payment method and upon confirmation are subsequently redirected to the order confirmation view.
 
@@ -97,6 +130,21 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * The user-selected Fixer details from the Fixers' Collection is added as a subDocument within the Order document upon selecting the Fixer of their choice.  In an authenticated session, Client details are also saved, at this time, and added as a subdocument in the Order document.
 * Upon selecting the Confirm FixerRequest button, a Post request is sent with all user-provided data in the Booking Form from the frontend to the sever and is saved in the Orders' Collection within the AssistU Database.
 * In a non-authenticated session, Client details are added as a subdocument, but only after a successful log-in when the user is redirected back to the Booking view and selects the Confirm Fixer Request button.
+* To check if a session is authenticated or not, passport js provides with a funtion called `request.isAuthenticated()` and this is a sample of how it is used in this app. The program checks if the user is Authenticated! and for those who are not authenticated, are redirected back to the `login` page.
+
+```javascript
+app.get('/loginSuccess', function(req, res) {
+	if (req.isAuthenticated()) {
+		Client.findOne({ username: clientDisplayName }, function(err, foundClient) {
+			res.render('loginSuccess', {
+				clientDisplayName: 'Hi ' + foundClient.clientFirstName + '!'
+			})
+		})
+	} else {
+		res.redirect('/login')
+	}
+})
+```
 
 ### Database Management
 
@@ -162,6 +210,8 @@ app.get('/', function(req, res) {
 
 * The Booking view is rendered by the user-selected Service Type at which time the Fixers' collection is queried from the database.  The Fixer data is fetched from the DataBase, and details from Fixers' collection are displayed.
 * To create the Order History view a database query is conducted within the Orders' Collection for every Order document containing the authenticated Client email address within the Client subDocument to render a list of all associated Client Orders.
+* At user end, for logged in users, order history can be checked simply as shown below
+
 
 ## How to Use 🔧
 
