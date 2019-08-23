@@ -66,7 +66,7 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 
 ## Features 💎
 
-### User Login & Registration
+### User Authentication
 
 #### Frontend
 
@@ -82,36 +82,37 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 * User password is stored in most secure method possible, in the form of Hashes with Salts.
 * Sessions are created as users log in, and session remains active until the user logs out or clears the browser cookies.
 * The User Authentication and Hashing with Salting feature is implemented with the help of [Passport JS](http://www.passportjs.org/)
-* If user is not able to login, passport js authentication returns the error message, that can be accessed by accessing `info.name`. Else, in case of correct username and password, user is logged in ans `session` is created. This is how it is handled through the codes:
+* Utilizing [Passport JS](http://www.passportjs.org/) to authenticate a session a registered user's password is verified and accessed through the `info.name` variable.
+If the user is not able to log in, a 'Please enter the correct password' error message is returned.  When a registered user provides the correct username and password, a  successful session is created.
 
 ```javascript
 passport.authenticate('local', function(err, user, info) {
-		if (err) {
-			console.log(err)
-		}
-		if (!user) {
-			if (info.name === 'IncorrectPasswordError') {
-				loginError = 'Please enter the correct password.'
-				res.redirect('/login')
-			} else if (info.name === 'IncorrectUsernameError') {
-				loginError = 'Please enter a registered email address.'
-				res.redirect('/login')
-			} else {
-				loginError = 'Please enter valid credentials'
-				res.redirect('/login')
-			}
-		}
-		req.login(user, function(err) {
-			if (err) {
-				console.log(err)
-			} else {
-					return res.redirect('/loginSuccess')
-			}
-		})
-	})(req, res)
+  if (err) {
+    console.log(err)
+  }
+  if (!user) {
+    if (info.name === 'IncorrectPasswordError') {
+      loginError = 'Please enter the correct password.'
+      res.redirect('/login')
+  } else if (info.name === 'IncorrectUsernameError') {
+      loginError = 'Please enter a registered email address.'
+      res.redirect('/login')
+  } else {
+    loginError = 'Please enter valid credentials'
+    res.redirect('/login')
+  }
+}
+  req.login(user, function(err) {
+    if (err) {
+      console.log(err)
+    } else {
+      return res.redirect('/loginSuccess')
+    }
+  })
+})(req, res)
 ```
-* Multiple authentication routes created depending on the page in which authentication is initiated.  When authentication begins from any other route except the booking route, the user is redirected, and the Login Successful view is rendered.  However, when successful authentication is initiated from the booking route, the user is redirected, and the payment confirmation view is rendered.
 
+* Multiple authentication routes created depending on the page in which authentication is initiated.  When authentication begins from any other route except the booking route, the user is redirected, and the Login Successful view is rendered.  However, when successful authentication is initiated from the booking route, the user is redirected, and the payment confirmation view is rendered.
 
 ### User-Friendly Booking Procedure
 
@@ -211,7 +212,6 @@ app.get('/', function(req, res) {
 * The Booking view is rendered by the user-selected Service Type at which time the Fixers' collection is queried from the database.  The Fixer data is fetched from the DataBase, and details from Fixers' collection are displayed.
 * To create the Order History view a database query is conducted within the Orders' Collection for every Order document containing the authenticated Client email address within the Client subDocument to render a list of all associated Client Orders.
 * At user end, for logged in users, order history can be checked simply as shown below
-
 
 ## How to Use 🔧
 
