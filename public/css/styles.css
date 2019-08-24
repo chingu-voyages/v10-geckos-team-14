@@ -74,9 +74,26 @@ border: none;
 		padding: 10px 20px 10px 20px;
 		text-decoration: none
 }
+.hidden-btn:visited {
+	background: #f9d276;
+	text-decoration: none;
+	color: #63152f;
+}
 .hidden-btn:hover {
-		background: #ffff;
+		background: #f9d276;
 		text-decoration: none;
+		color: #63152f;
+}
+
+/* TODO: - [ ] Change grey background to below on visited*/
+/* .btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):visited:not(.dropdown-toggle):visited {
+	color: #e5c17b !important; 
+	background-color:#63152f !important;
+} */
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-menu:hover {
+	color:#63152f !important; 
+	background-color: #e5c17b !important;
 }
 .assistUBtn:active {
 	color: #e5c17b !important;
@@ -90,8 +107,14 @@ border: none;
 	padding: .25rem 2.2rem;
 }
 a.dropdown-item:active{
-	background-color: #e5c17b;
+	background-color: #f9d276;
 }
+
+/* TODO: - [ ] Change grey background to below on visited*/
+/* .dropleft .dropdown-menu {
+	background-color: #fff;
+	color: #63152f;
+} */
 
 /*! Landing Page */
 .sec-title {
