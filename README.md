@@ -129,8 +129,6 @@ passport.authenticate('local', function(err, user, info) {
 
 * User selects the Service Type and determines their most suitable Fixer form the list of Fixers stored within the Fixers collection.
 * When the user selects a Fixer, a POST request with the Fixer's details are sent to the AssistU Database.  In response, an alert is presented for the user to confirm Fixer selection.
-  
-  ![Select a Fixer Alert]alt="Select a Fixer Alert"(https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/gifs/selectFixerAlert.gif)
 
   <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/gifs/selectFixerAlert.gif" alt="Select a Fixer Alert" width="600px" />
 
