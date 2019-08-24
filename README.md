@@ -54,6 +54,13 @@ Experience the convenience of delegating the inconvenient and time-consuming tas
 
 To embrace the opportunity to learn in a collaborative, fully distributed team environment while also motivated to gain experience using popular JavaScript libraries and tools to build a real project that solves real-life problems.  A full-stack application that manages and utilizes significant amounts of data in a NoSQL database management environment.
 
+#### Technical Stack
+
+* *Frontend:* [HTML](https://www.w3.org/TR/html52/), [CSS](https://www.w3.org/Style/CSS/), [Bootstrap](https://getbootstrap.com), [JavaScript](https://www.javascript.com/), [jQuery](https://jquery.com/)
+* *Backend:* [NodeJS](https://nodejs.org/) with [Express](https://www.express.com/), [PassportJS](http://www.passportjs.org), [EJS -- Embedded JavaScript Templates](https://ejs.co/)
+* *Database Management:* [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+* *Deployment:* [Heroku Deployment](https://www.heroku.com/)
+
 ## ⏳ Project Status
 
 ### Versioning
@@ -83,8 +90,8 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 
 * User password is stored in most secure method possible, in the form of Hashes with Salts
 * Sessions are created as users log in, and session remains active until the user logs out or clears the browser cookies.
-* The User Authentication and Hashing with Salting feature is implemented with the help of [Passport JS](http://www.passportjs.org/)
-* Utilizing [Passport JS](http://www.passportjs.org/) to authenticate a session a registered user's password is verified and accessed through the `info.name` variable.
+* The User Authentication and Hashing with Salting feature is implemented with the help of [PassportJS](http://www.passportjs.org/)
+* Utilizing [PassportJS](http://www.passportjs.org/) to authenticate a session a registered user's password is verified and accessed through the `info.name` variable that passport returns.
 If the user is not able to log in, a 'Please enter the correct password' error message is returned.  When a registered user provides the correct username and password, a  successful session is created.
 
 ```javascript
@@ -294,6 +301,7 @@ mongoose.set('useCreateIndex', true)`
 * [Express](https://www.express.com/)
 * [MongoDB](https://www.mongodb.com/)
 * [Mongoose](https://mongoosejs.com/)
+* [Passport](https://www.npmjs.com/package/passport)
 * [Heroku Deployment](https://www.heroku.com/)
 * [Mockaroo](https://www.mockaroo.com)
 * Fonts from [Google Fonts](https://fonts.google.com/)
