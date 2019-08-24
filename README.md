@@ -65,8 +65,8 @@ To embrace the opportunity to learn in a collaborative, fully distributed team e
 
 ### Versioning
 
-* AssistU version 1.0.0-alpha released on August 14, 2019.
-* AssistU version 1.1.0-alpha is in development and pending release.
+* AssistU v1.0.0-alpha released on August 14, 2019.
+- [ ] AssistU v1.1.0-alpha is in development and pending release.
 
 ### Coming Soon
 
