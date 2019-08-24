@@ -123,9 +123,12 @@ passport.authenticate('local', function(err, user, info) {
 * User selects the Service Type and determines their most suitable Fixer form the list of Fixers stored within the Fixers collection.
 * When the user selects a Fixer, a POST request with the Fixer's details are sent to the AssistU Database.  In response, an alert is presented for the user to confirm Fixer selection.
   
-  ![Select a Fixer Alert] alt="Select a Fixer Alert" width="600px" (https://github.com/chingu-voyages/v10-geckos-team-14/blob/455b386d9463ab57cedaeea63f76cedc44fd982f/public/gifs/pick a fixer from the list.gif)
+  ![Select a Fixer Alert]alt="Select a Fixer Alert" width="600px" (https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/gifs/selectFixerAlert.gif)
+  
+  
+  ![Select a Fixer Alert]alt="Select a Fixer Alert" width="600px" (https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/gifs/selectFixerAlert.gif)
 
-  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/455b386d9463ab57cedaeea63f76cedc44fd982f/public/gifs/pick a fixer from the list.gif" alt="Select a Fixer Alert" width="600px" />
+  <img src="https://github.com/chingu-voyages/v10-geckos-team-14/blob/master/public/gifs/selectFixerAlert.gif" alt="Select a Fixer Alert" width="600px" />
 
 * If the user attempts to select the 'Confirm Fixer Request' button without selecting a Fixer from the list, the user is alerted with a 'Please choose a Fixer for your service needs from the list' error.
 
