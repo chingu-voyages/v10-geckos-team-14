@@ -54,7 +54,7 @@ Experience the convenience of delegating the inconvenient and time-consuming tas
 
 To embrace the opportunity to learn in a collaborative, fully distributed team environment while also motivated to gain experience using popular JavaScript libraries and tools to build a real project that solves real-life problems.  A full-stack application that manages and utilizes significant amounts of data in a NoSQL database management environment.
 
-### Tech Stack
+### 💻Tech Stack
 
 * *Frontend:* [HTML](https://www.w3.org/TR/html52/), [CSS](https://www.w3.org/Style/CSS/), [Bootstrap](https://getbootstrap.com), [JavaScript](https://www.javascript.com/), [jQuery](https://jquery.com/)
 * *Backend:* [NodeJS](https://nodejs.org/) with [Express](https://www.express.com/), [PassportJS](http://www.passportjs.org), [EJS -- Embedded JavaScript Templates](https://ejs.co/)
