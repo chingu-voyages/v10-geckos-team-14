@@ -582,7 +582,7 @@ i{
 /* @media (max-width: 1900px) and (min-width: 1800px) {
 	
 } */
-/* ipad and ipad pro */
+/* iPad and iPad Pro */
 @media(max-width:1030px)and (min-width:630px){
 	.reg-quote1{
 		position: absolute;
@@ -620,7 +620,8 @@ i{
 		flex-wrap: nowrap !important;
 	}
 }
-/* for mobile only */
+
+/* Mobile Queries */
 @media (max-width:420px) and (min-width:350px){
 	.history-card-img{
 		border-radius: 2rem 2rem 0 0;
@@ -639,7 +640,19 @@ i{
 		border-radius: 2rem 2rem 0 0;
 	}	
 }
-/* ipad pro */
+
+/* iPhone 5/SE  */
+@media (max-width:330px) and (min-width:310px){
+	.logo-img {
+		width: 42px !important;
+		height: auto !important;
+	}
+	.brand-name {
+		font-size: 36px;
+	}
+}
+
+/* iPad Pro */
 @media (max-width: 1030px) and (min-width: 1000px) {
 	.line-4-hide {
 		visibility: hidden;

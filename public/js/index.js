@@ -47,14 +47,26 @@ function timeDifferenceCalc (){
         hourDiff = hourDiff - 1
         minuteDiff = - (minuteDiff)
     }
+    // Billing Interval Logic 
     if (minuteDiff !==0){
-        diffForFee = hourDiff + 1
+        if (minuteDiff <= 15){
+            diffForFee = hourDiff + .25 
+        }
+        if (minuteDiff > 15 && minuteDiff <= 30){
+            diffForFee = hourDiff + .5 
+        }
+        if (minuteDiff > 30 && minuteDiff <= 45){
+            diffForFee = hourDiff + .75 
+        }
+        if (minuteDiff > 45 && minuteDiff < 60){
+            diffForFee = hourDiff + 1 
+        }
     }else{
         diffForFee = hourDiff
     }
     //console.log(hourDiff+' Hrs'+ minuteDiff+' mins.');
     var timeDiff = hourDiff+' Hrs '+ minuteDiff+' mins'
-    $('#inputHours').attr('value', diffForFee)
+    $('#inputHours').attr('value', diffForFee) // Billing Interval Value passed through to booking.ejs named as `hours` 
     if(timeDiff === 'NaN Hrs NaN mins'){
         $('.timeDiff').addClass('hidden')
     } else{
