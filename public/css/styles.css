@@ -654,6 +654,9 @@ i{
 
 /* iPad Pro */
 @media (max-width: 1030px) and (min-width: 1000px) {
+	.line {
+		margin-left: 8.9rem;
+	}
 	.line-4-hide {
 		visibility: hidden;
 		width: 10% !important;
